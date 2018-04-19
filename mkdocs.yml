@@ -1,0 +1,118 @@
+site_name: 文档中心
+theme_dir: cinder
+site_author: TiJOS
+site_description: "MkDocs"
+repo_url: "https://github.com/"
+extra_css: 
+  - "css/my_style.css"
+copyright: "Copyright © 2017 - 2020 钛云物联"
+pages:
+    - '概述':
+        - 介绍: 'index.md'
+        - 钛极OS: 
+            - 系统介绍: 'tijos-overview/1.tijos_introduction.md'
+            - Java特性支持: 'tijos-overview/2.tijos_javaspec.md'
+            - 处理器支持: 'tijos-overview/3.tijos_cpu.md'
+            - 设备总线支持: 'tijos-overview/4.tijos_peripherals.md'
+            - 传感器支持: 'tijos-overview/5.tijos_driverstore.md'
+            - 网络特性支持: 'tijos-overview/6.tijos_network.md'
+            - 电源管理: 'tijos-overview/7.tijos_power.md'
+            - OTA应用更新: 'tijos-overview/8.tijos_appcenter.md'
+            - TiKit开发板: 'tijos-overview/9.tijos_tikitboard.md'
+            - 应用开发套件: 'tijos-overview/10.tijos_appsuite.md'
+            - 应用开发流程: 'tijos-overview/11.tijos_devprocess.md'
+
+    - '快速入门': 
+        - 概述: 'tijos-development-course/index.md'
+        - L1-TiJOS应用开发集成环境-TiStudio: 'tijos-development-course/step1-enviornment_setup/TiJOS应用开发环境-TiStudio.md'
+        - L2-初识TiDevManager设备管理器: 'tijos-development-course/step2-device_manager/初识TiDevManager设备管理器.md'
+        - L3-世界,你好-HelloWorld: 'tijos-development-course/step3-helloworld/世界,你好-HelloWorld.md'
+        - L4-点亮TiJOS世界的第一盏灯-LED控制: 'tijos-development-course/step4-LED/点亮TiJOS世界的第一盏灯-LED控制.md'
+        - L5-按我一下-Button按键操作: 'tijos-development-course/step5-button/按我一下-Button按键操作.md'
+        - L6-感知世界的温暖-温度采集: 'tijos-development-course/step6-temperature/感知世界的温暖-温度采集.md'
+        - L7-生产者与消费者-多线程: 'tijos-development-course/step7-mutithread/生产者与消费者-多线程.md'
+        - L8-与世界连接-网络操作之TCP Client: 'tijos-development-course/step8-network-tcp_client/与世界连接-网络操作之TCPClient.md'
+        - L9-万物互联-物联网之MQTT: 'tijos-development-course/step9-mqtt-iot/万物互联-物联网之MQTT.md'
+        - L10-着火啦-可燃气体监测仪例程: 'tijos-development-course/step10-gas-monitoring/可燃气体监测仪.md'
+        - L11-请注意,倒车-多功能超声波测距仪例程: 'tijos-development-course/step11-range-detection/多功能超声波测距仪.md'
+        - L12-接入百度云: 'tijos-development-course/step12-baidu-iot/基于百度云的可燃气体监测仪.md'
+        - L13-接入阿里云: 'tijos-development-course/step13-ali-iot/阿里云IOT接入.md'
+
+
+    - '开发指南': 
+        - '概述': 'tijos-development-guide/index.md'
+        - '开发环境搭建': 'tijos-setup/tijos_application_devsuite_setup.md'
+        - '开发指南': 
+            - 概述: 'tijos-development-guide/index.md'
+            - TiDevManager设备管理器: 'tijos-development-guide/tijos_device_manager.md'
+            - TiJOS系统工作模式: 'tijos-development-guide/tijos_workingmode.md'
+            - TiStudio集成开发环境: 'tijos-development-guide/tijos_dev_studio.md'
+            - 第一个TiJOS应用: 'tijos-development-guide/tijos_helloworld.md'
+            - TiJOS应用参考例程:  'tijos-development-guide/tijos_examples.md'
+            - TiJOS Java标准库支持: 'tijos-development-guide/tijos_java_standard_support.md'
+            - TiJOS Framework: 'tijos-development-guide/tijos_framework_sdk.md'
+            - TiJOS智能硬件应用开发指南: 'tijos-development-guide/tijos_sensor_application_guide.md'
+            - TiJOS设备总线支持:
+                - 概述: 'tijos-development-guide/tijos.framework.devicecenter.md'
+                - TiADC模数转换器: 'tijos-development-guide/tijos.framework.devicecenter.TiADC.md'
+                - TiGPIO通用输入/输出: 'tijos-development-guide/tijos.framework.devicecenter.TiGPIO.md'
+                - TiI2CMaster双向二线制同步串行总线: 'tijos-development-guide/tijos.framework.devicecenter.TiI2CMaster.md'
+                - TiOWMaster单总线: 'tijos-development-guide/tijos.framework.devicecenter.TiOWMaster.md'
+                - TiPWM 脉冲宽度调制发生器: 'tijos-development-guide/tijos.framework.devicecenter.TiPWM.md'
+                - TiSPIMaster串行外设接口: 'tijos-development-guide/tijos.framework.devicecenter.TiSPIMaster.md'
+                - TiUART通用异步收发传输器: 'tijos-development-guide/tijos.framework.devicecenter.TiUART.md'
+            - 网络应用开发指南:  
+                - 概述: 'tijos-development-guide/tijos_net.md'
+                - MQTT 客户端: 'tijos-development-guide/tijos.framework.networkcenter.mqtt.md'
+                - 网络时间协议客户端: 'tijos-development-guide/tijos.framework.networkcenter.ntp.md'
+                - 网络管理中心: 'tijos-development-guide/tijos.framework.networkcenter.md'
+            - 常用工具类:
+                - 概述: 'tijos-development-guide/tijos.framework.util.md'
+                - BASE64编码: 'tijos-development-guide/tijos.framework.util.base64.md'
+                - CRC校验码: 'tijos-development-guide/tijos.framework.util.crc.md'
+                - JSON: 'tijos-development-guide/tijos.framework.util.json.md'
+                - 日志输出: 'tijos-development-guide/tijos.framework.util.logging.md'
+            - 应用管理中心: 'tijos-development-guide/tijos.framework.appcenter.md'
+            - 硬件事件中心: 'tijos-development-guide/tijos.framework.eventcenter.md'
+            - 电源管理: 'tijos-development-guide/tijos.framework.platform.power.md'
+            - 平台设置: 'tijos-development-guide/tijos.framework.platform.md'
+    - '方案例程':   
+        - '概述': 'tijos-samples/index.md'
+        - '传感器应用例程': 'tijos-samples/tijos_docs_sensor_sample.md'  
+        - '软件应用相关例程': 'tijos-samples/tijos_docs_soft_sample.md'   
+        - '物联云接入相关例程': 'tijos-samples/tijos_docs_cloud_sample.md'   
+    
+    - '开发套件': 
+        - '概述': 'tikit/tijos_docs_tikit.md'
+        - '传感器模块介绍': 'tikit/tikit_sensors.md'
+        - 'TiKit-T600-ESP8266A': 
+            - 产品介绍: 'tikit/tikit-t600-esp8266a/index.md'
+            - 系统固件更新: 'tikit/tikit-t600-esp8266a/firmware/钛极OS(TiJOS)系统固件(ESP8266)升级方法.md'
+            - 固件发布说明: 'tikit/tikit-t600-esp8266a/firmware/钛极OS(TiJOS)系统固件(ESP8266)版本发布说明.md'
+        - 'TiKit-T800-STM32F103A': 
+            - 产品介绍: 'tikit/tikit-t800-stm32f103a/index.md'
+            - 系统固件更新: 'tikit/tikit-t800-stm32f103a/firmware/钛极OS(TiJOS)系统固件(STM32)升级方法.md'
+            - 固件发布说明: 'tikit/tikit-t800-stm32f103a/firmware/钛极OS(TiJOS)系统固件(STM32)版本发布说明.md'
+
+    - '驱动仓库':
+         - '概述': 'tijos-driver/index.md'
+         - '传感器':
+                - 概述: 'tijos-driver/tijos.framework.sensor.md'
+                - 按键: 'tijos-driver/tijos.framework.sensor.button.md'
+                - HC-SR04测距模块: 'tijos-driver/tijos.framework.sensor.hcsr.md'
+                - MQ系列气体传感器: 'tijos-driver/tijos.framework.sensor.mq.md'
+                - DHT11温湿度传感器: 'tijos-driver/tijos.framework.sensor.dht.md'
+                - DS18B20温度传感器: 'tijos-driver/tijos.framework.sensor.ds18b20.md'
+                - VS1838B红外线传感器: 'tijos-driver/tijos.framework.sensor.vs1838b.md'
+                - 蜂鸣器: 'tijos-driver/tijos.framework.transducer.buzzer.md'
+                - LED显示: 'tijos-driver/tijos.framework.transducer.led.md'
+                - OLED显示: 'tijos-driver/tijos.framework.transducer.oled.md'
+                - 继电器: 'tijos-driver/tijos.framework.transducer.relay.md'
+                - 通用传感器: 'tijos-driver/tijos.framework.sensor.general.md'
+                - 更多传感器支持: 'tijos-driver/tijos.framework.sensor.more.md'
+    - '更多资源': 
+        - 在线资源: 'resources.md'   
+
+ 
+plugins:
+    - search        
