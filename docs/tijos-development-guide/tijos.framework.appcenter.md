@@ -22,6 +22,7 @@ tijos.framework.appcenter
 | String getName()                                              |  获取应用名称    |
 | void execute(boolean immediate, String args) | 执行应用 immediate : true立即执行  false 退出当前应用后执行 args: 应用参数    |
 | void delete()                                | 删除自身，在程序退出时会实际删除应用 |
+| void enableAutorun()                                | 将应用设置为上电自动运行 |
 |                                              |      |
 
 ## TiAPPManager
@@ -32,11 +33,19 @@ tijos.framework.appcenter
 | ----------------------------- | ----------------------------------------------- |
 | TiAPPManager getInstance()    | 获取TiAppManager实例                            |
 | OutputStream create(int size) | 创建新的APP并获取输出流操作实例                 |
-| TiAPP activate(int type)      | 激活当前应用 type: 0 普通  1 上电自动运行       |
+| TiAPP activate(int type)      | 激活当前应用 type: 0 shell  1 generic       |
 | void format()                      | 格式化应用存储区，除Shell外所有的应用都将被删除 |
 | TiAPP getRunningAPP()            | 获取当前正在运行的应用对象，也就是调用此API的应用                                    |
 | int getTotalSize()            | 获取应用存储区总空间                            |
 | int getFreeSize()             | 获取应用存储区剩余空间                          |
+
+## 应用类型
+
+钛极OS包含两种应用，一般用户开发的是generic普通应用, shell应用拥有更高的权限，可以对所有应用进行管理，建议用户只安装为generic即可。
+
+## 上电自动运行
+
+当用户应用开发测试完成后，可以设置为上电自动运行作为正式产品。 
 
 ## 应用安装
 
@@ -53,7 +62,7 @@ OutputStream stream = appManager.create(appFileSize);	  //创建文件并获取�
 ...
 stream.write(transBuffer, 0, transLength);		//流写入文件
 ...
-TiAPP app =appManager.active(1);//应用激活为上电自动运行 0 -普通应用 1- 上电自动运行应用
+TiAPP app =appManager.active(1);//应用激活为上电自动运行 0 - shell  1- generic
 
 app.execute(false, null);//当前应用退出后执行新安装的应用，以后上电后将自动执行新安装的应用
 

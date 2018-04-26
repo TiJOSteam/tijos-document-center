@@ -17,7 +17,7 @@ pages:
             - 传感器支持: 'tijos-overview/5.tijos_driverstore.md'
             - 网络特性支持: 'tijos-overview/6.tijos_network.md'
             - 电源管理: 'tijos-overview/7.tijos_power.md'
-            - OTA应用更新: 'tijos-overview/8.tijos_appcenter.md'
+            - 应用管理: 'tijos-overview/8.tijos_appcenter.md'
             - TiKit开发板: 'tijos-overview/9.tijos_tikitboard.md'
             - 应用开发套件: 'tijos-overview/10.tijos_appsuite.md'
             - 应用开发流程: 'tijos-overview/11.tijos_devprocess.md'
