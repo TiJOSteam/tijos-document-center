@@ -9,12 +9,12 @@
 | 标 题                                                        |                                                              |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [TiDevManager设备管理器](tijos_device_manager.md) |                                                              |
-| [TiJOS 系统工作模式](tijos_workingmode.md) |                                                              |
 | [TiStudio开发集成环境](tijos_dev_studio.md) |                                                              |
 | [第一个TiJOS应用](tijos_helloworld.md) |                                                              |
 | [参考例程](tijos_examples.md)          |                                                              |
 | [Java标准库支持](tijos_java_standard_support.md) |                                                              |
 | [TiJOS Framework](tijos_framework_sdk.md) |                                                              |
+| [TiJOS 应用管理中心](tijos.framework.appcenter.md) |                                                              |
 | [TiJOS智能硬件应用开发指南](tijos_sensor_application_guide.md) |                                                              |
 | [设备总线](tijos.framework.devicecenter.md) |                                                              |
 |                                                              | [TiADC - 模数转换器](tijos.framework.devicecenter.TiADC.md) |

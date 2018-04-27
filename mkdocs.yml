@@ -45,12 +45,12 @@ pages:
         - '开发指南': 
             - 概述: 'tijos-development-guide/index.md'
             - TiDevManager设备管理器: 'tijos-development-guide/tijos_device_manager.md'
-            - TiJOS系统工作模式: 'tijos-development-guide/tijos_workingmode.md'
             - TiStudio集成开发环境: 'tijos-development-guide/tijos_dev_studio.md'
             - 第一个TiJOS应用: 'tijos-development-guide/tijos_helloworld.md'
             - TiJOS应用参考例程:  'tijos-development-guide/tijos_examples.md'
             - TiJOS Java标准库支持: 'tijos-development-guide/tijos_java_standard_support.md'
             - TiJOS Framework: 'tijos-development-guide/tijos_framework_sdk.md'
+            - TiJOS 应用管理中心: 'tijos-development-guide/tijos.framework.appcenter.md'
             - TiJOS智能硬件应用开发指南: 'tijos-development-guide/tijos_sensor_application_guide.md'
             - TiJOS设备总线支持:
                 - 概述: 'tijos-development-guide/tijos.framework.devicecenter.md'
@@ -72,7 +72,6 @@ pages:
                 - CRC校验码: 'tijos-development-guide/tijos.framework.util.crc.md'
                 - JSON: 'tijos-development-guide/tijos.framework.util.json.md'
                 - 日志输出: 'tijos-development-guide/tijos.framework.util.logging.md'
-            - 应用管理中心: 'tijos-development-guide/tijos.framework.appcenter.md'
             - 硬件事件中心: 'tijos-development-guide/tijos.framework.eventcenter.md'
             - 电源管理: 'tijos-development-guide/tijos.framework.platform.power.md'
             - 平台设置: 'tijos-development-guide/tijos.framework.platform.md'

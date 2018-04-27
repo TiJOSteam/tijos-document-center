@@ -18,8 +18,8 @@ tijos.framework.platform
 | 方法                         | 说明                                                         |
 | ---------------------------- | ------------------------------------------------------------ |
 | void sleep()                 | 系统进入Sleep模式，通过外部事件(GPIO)自动唤醒。 **唤醒后程序会继续运行**。 |
-| void stop(int timeWakeup)                  | 系统进入Stop模式，通过外部事件(GPIO)或指定时间后自动唤醒，时间单位：秒。 **唤醒后程序会继续运行**。 | void standby(int timeWakeup) | 系统进入StandBy模式，通过唤醒引脚或在指定时间后自动唤醒，时间单位：秒。**唤醒后程序会重新运行**。 |
-                  |
+| void stop(int timeWakeup)    | 系统进入Stop模式，通过外部事件(GPIO)或指定时间后自动唤醒，时间单位：秒。 **唤醒后程序会继续运行**。 |
+| void standby(int timeWakeup) | 系统进入StandBy模式，通过唤醒引脚或在指定时间后自动唤醒，时间单位：秒。**唤醒后程序会重新运行**。 |
 
 TiPower类中他方法的技术说明请参考TiJOS Framework说明文档。
 

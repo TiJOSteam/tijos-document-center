@@ -72,7 +72,7 @@ OutputStream stream = appManager.create(appFileId, appFileSize);	//创建文件�
 ...
 stream.write(transBuffer, 0, transLength);		//流写入文件
 ...
-stream.close
+stream.close();
 TiAPP app =appManager.activate(TiAPP.APP_GENERIC); //应用激活，generic类型
 app.enableAutorun(); //使能自动运行
 
