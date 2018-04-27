@@ -73,7 +73,7 @@ TiKit-T600-ESP8266A开发板由底板和顶板组成，底板将钛极OS(TiJOS)�
 
 1. 请将包装内的两根Micro USB 线的一端分别连接开发板**底板**USB接口和**顶板**USB接口，另一端连接到电脑。
 2. 首次使用需要安装USB驱动程序，Windows 7以上操作系统自动下载安装，否则需要手动下载安装。
-3. 复位开发板，确保**系统终端**程序(Terminal APP)已经启动，详细请参考：[关于钛极OS(TiJOS)系统应用程序](../../tijos-development-guide/tijos_application.md)
+3. 复位开发板，确保**系统终端**程序(Terminal APP)已经启动，详细请参考：[appcenter - 应用管理中心](../../tijos-development-guide/tijos.framework.appcenter.md)
 
 **请务必保证开发板下无金属物体，防止短路损坏开发板。**
 
