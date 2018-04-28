@@ -2,7 +2,7 @@
 
 脉冲宽度调制（Pulse-width modulation）简称PWM，是利用[微处理器](https://baike.baidu.com/item/%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A8)的数字输出来对[模拟电路](https://baike.baidu.com/item/%E6%A8%A1%E6%8B%9F%E7%94%B5%E8%B7%AF/5896)进行控制的一种非常有效的技术，广泛应用在从测量、通信到功率控制与变换的许多领域中。具体可参考https://baike.baidu.com/item/%E8%84%89%E5%86%B2%E5%AE%BD%E5%BA%A6%E8%B0%83%E5%88%B6?fromtitle=PWM&fromid=3034961或https://en.wikipedia.org/wiki/Pulse-width_modulation。
 
-TiJOS Framework提供TiPWM来支持PWM功能，其将PWM按照port分组，共支持4组，组号范围0-3，即：port0-port3；其中每组内按照channel划分4通道，4个通道使用相同的脉冲频率，通道范围0-3，即：channel0-channel3；每组都支持指定模式的单独设置、每个通道都支持单独的占空比控制。
+TiJOS Framework提供TiPWM来支持PWM功能，其将PWM按照port分组，共支持256组，组号范围0-255，即：port0-port255；其中每组内按照channel划分16通道，16个通道使用相同的脉冲频率，通道范围0-15，即：channel0-channel15；每组都支持指定模式的单独设置、每个通道都支持单独的占空比控制。
 
 ## Java包
 tijos.framework.devicecenter
@@ -15,9 +15,9 @@ TiPWM类中主要的方法：
 | ---------------------------------------- | -------------------------------------- |
 | TiPWM open(int portID, int... channelIDs) | 静态方法，通过指定port和channel集合打开PWM，返回TiPWM对象 |
 | void close()                             | 关闭当前对象                                 |
-| void changePeriod(int periodValue)       | 设置脉冲周期                                 |
-| void changeChannelDuty(int channelID, int dutyValue) | 设置脉冲占空比                                |
-| void updatePeriodAndDuty()               | 更新周期和占空比                               |
+| void setFrequency(int freqValue)         | 设置脉冲频率                                 |
+| setDutyCycle(int channelID, double duty) | 设置脉冲占空比，0 - 1: 0% - 100%               |
+| void updateFreqAndDuty()                 | 更新周期和占空比                               |
 
 TiPWM类中他方法的技术说明请参考TiJOS Framework说明文档。
 
@@ -42,12 +42,12 @@ pwm0.close();
 
 ## TiPWM输出控制
 
-TiPWM的输出控制通过changePeriod、changeChannelDuty和updatePeriodAndDuty方法完成。
+TiPWM的输出控制通过setFrequency、setDutyCycle和updateFreqAndDuty方法完成。
 
 ```java
 ...
 Random random = new Random();//使用伪随机数引擎
-pwm0.changePeriod(1000);//1Khz, 1000us
+pwm0.setFrequency(1000);//1Khz
 while(true) { 
 	int ch0=0, ch1=0, ch2=0;
 	int max=255;
@@ -56,11 +56,11 @@ while(true) {
 	ch1 = random.nextInt(max)%(max-min+1) + min;
 	ch2 = random.nextInt(max)%(max-min+1) + min;
   	//改变占空比
-	pwm0.changeChannelDuty(pwmChannel0, ch0);
-	pwm0.changeChannelDuty(pwmChannel1, ch1);
-	pwm0.changeChannelDuty(pwmChannel2, ch2);
+	pwm0.setDutyCycle(pwmChannel0, ch0 / 255);
+	pwm0.setDutyCycle(pwmChannel1, ch1 / 255);
+	pwm0.setDutyCycle(pwmChannel2, ch2 / 255);
   	//更新
-	pwm0.updatePeriodAndDuty();
+	pwm0.updateFreqAndDuty();
 ...
 ```
 
