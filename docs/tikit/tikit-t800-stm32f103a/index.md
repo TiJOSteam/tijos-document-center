@@ -71,7 +71,7 @@ TiKit-T800-STM32F103A开发板由STM32F103VET6芯片和若干外部设备接口�
 
 1. 请将包装内的Micro USB 线的一端连接开发板USB接口，另一端连接到电脑。
 2. 首次使用需要安装USB驱动程序，Windows 7以上操作系统自动下载安装，否则需要手动下载安装。
-3. 复位开发板，确保系统已经启动**终端程序**(Terminal APP)，详细请参考：[关于钛极OS(TiJOS)系统工作模式](../../tijos-development-guide/tijos_workingmode.md)
+3. 复位开发板，确保系统已经启动**终端程序**(Terminal APP)，详细请参考：[appcenter - 应用管理中心](../../tijos-development-guide/tijos.framework.appcenter.md)
 
 - **请务必保证开发板下无金属物体，防止短路损坏开发板。**
 
