@@ -8,7 +8,7 @@
 
 TiKit-T800-STM32F103A开发套件是北京钛云物联科技有限公司为现代物联网应用倾力打造的开发套件，是Tikit系列开发套件成员之一，其提供目标开发板和丰富的传感器外设，开发板搭载有STM32F103系列高性能微处理器，运行有功能强大的钛极OS(TiJOS)物联网操作系统，编程语言使用标准JAVA，用户只需要调用JDK中提供的传感器及系统操作接口就可以轻松快速的完成产品雏形的开发。
 
-本开发套件中，STM32F103系列微处理器属于中低端的32位ARM微控制器，该系列芯片是[意法半导体](https://baike.sogou.com/v502986.htm)（ST）公司出品，其内核是Cortex-M3。
+本开发套件中，STM32F103系列微处理器属于中低端的32位ARM微控制器，该系列芯片是意法半导体(ST)公司出品，其内核是Cortex-M3。
 
 ## 二、开发套件清单
 
@@ -232,83 +232,383 @@ CH340 UART驱动: <http://www.wch.cn/download/CH341SER_EXE.html>
 | 支持标准模式    | 支持   | Standard模式                      |
 | 支持高速模式    | 支持   | Over-Drive模式                    |
 
-## 附录2：I/O资源
+## 附录2：I/O资源管脚总览
 
 | I/O编号 |     GPIO     |    UART    |    I2C    |    SPI     |     PWM     |    OW     |      ADC       | 5V兼容(FT) |
-| :---: | :----------: | :--------: | :-------: | :--------: | :---------: | :-------: | :------------: | :------: |
-|  A0   | GPIO0  PIN0  | UART1  CTS |           |            | PWM1/4  CH0 | OW0  IO0  | ADC0/1/2  CH0  |          |
-|  A1   | GPIO0  PIN1  | UART1  RTS |           |            | PWM1/4  CH1 | OW0  IO1  | ADC0/1/2  CH1  |          |
-|  A2   | GPIO0  PIN2  | UART1  TX  |           |            | PWM1/4  CH2 | OW0  IO2  | ADC0/1/2  CH2  |          |
-|  A3   | GPIO0  PIN3  | UART1  RX  |           |            | PWM1/4  CH3 | OW0  IO3  | ADC0/1/2  CH3  |          |
-|  A4   | GPIO0  PIN4  |            |           | SPI0  NSS  |             | OW0  IO4  |  ADC0/1  CH4   |          |
-|  A5   | GPIO0  PIN5  |            |           | SPI0  SCK  |             | OW0  IO5  |  ADC0/1  CH5   |          |
-|  A6   | GPIO0  PIN6  |            |           | SPI0  MISO |  PWM2  CH0  | OW0  IO6  |  ADC0/1  CH6   |          |
-|  A7   | GPIO0  PIN7  |            |           | SPI0  MOSI |  PWM2  CH1  | OW0  IO7  |  ADC0/1  CH7   |          |
-|  A8   | GPIO0  PIN8  |            |           |            |  PWM0  CH0  | OW0  IO8  |                |    √     |
-|  A9   | GPIO0  PIN9  | UART0  TX  |           |            |  PWM0  CH1  | OW0  IO9  |                |    √     |
-|  A10  | GPIO0  PIN10 | UART0  RX  |           |            |  PWM0  CH2  | OW0  IO10 |                |    √     |
-|  A11  | GPIO0  PIN11 | UART0  CTS |           |            |  PWM0  CH3  | OW0  IO11 |                |    √     |
-|  A12  | GPIO0  PIN12 | UART0  RTS |           |            |             | OW0  IO12 |                |    √     |
-|  A13  | GPIO0  PIN13 |            |           |            |             | OW0  IO13 |                |    √     |
-|  A14  | GPIO0  PIN14 |            |           |            |             | OW0  IO14 |                |    √     |
-|  A15  | GPIO0  PIN15 |            |           | SPI2  NSS  |             | OW0  IO15 |                |    √     |
-|  B0   | GPIO1  PIN0  |            |           |            |  PWM2  CH2  | OW1  IO0  |  ADC0/1  CH8   |          |
-|  B1   | GPIO1  PIN1  |            |           |            |  PWM2  CH3  | OW1  IO1  |  ADC0/1  CH9   |          |
-|  B2   | GPIO1  PIN2  |            |           |            |             | OW1  IO2  |                |    √     |
-|  B3   | GPIO1  PIN3  |            |           | SPI2  SCK  |             | OW1  IO3  |                |    √     |
-|  B4   | GPIO1  PIN4  |            |           | SPI2  MISO |             | OW1  IO4  |                |    √     |
-|  B5   | GPIO1  PIN5  |            |           | SPI2  MOSI |             | OW1  IO5  |                |          |
-|  B6   | GPIO1  PIN6  |            | I2C0  SCL |            |  PWM3  CH0  | OW1  IO6  |                |    √     |
-|  B7   | GPIO1  PIN7  |            | I2C0  SDA |            |  PWM3  CH1  | OW1  IO7  |                |    √     |
-|  B8   | GPIO1  PIN8  |            |           |            |  PWM3  CH2  | OW1  IO8  |                |    √     |
-|  B9   | GPIO1  PIN9  |            |           |            |  PWM3  CH3  | OW1  IO9  |                |    √     |
-|  B10  | GPIO1  PIN10 | UART2  TX  | I2C1  SCL |            |             | OW1  IO10 |                |    √     |
-|  B11  | GPIO1  PIN11 | UART2  RX  | I2C1  SDA |            |             | OW1  IO11 |                |    √     |
-|  B12  | GPIO1  PIN12 |            |           | SPI1  NSS  |             | OW1  IO12 |                |    √     |
-|  B13  | GPIO1  PIN13 | UART2  CTS |           | SPI1  SCK  |             | OW1  IO13 |                |    √     |
-|  B14  | GPIO1  PIN14 | UART2  RTS |           | SPI1  MISO |             | OW1  IO14 |                |    √     |
-|  B15  | GPIO1  PIN15 |            |           | SPI1  MISO |             | OW1  IO15 |                |    √     |
-|  C0   | GPIO2  PIN0  |            |           |            |             | OW2  IO0  | ADC0/1/2  CH10 |          |
-|  C1   | GPIO2  PIN1  |            |           |            |             | OW2  IO1  | ADC0/1/2  CH11 |          |
-|  C2   | GPIO2  PIN2  |            |           |            |             | OW2  IO2  | ADC0/1/2  CH12 |          |
-|  C3   | GPIO2  PIN3  |            |           |            |             | OW2  IO3  | ADC0/1/2  CH13 |          |
-|  C4   | GPIO2  PIN4  |            |           |            |             | OW2  IO4  |  ADC0/1  CH14  |          |
-|  C5   | GPIO2  PIN5  |            |           |            |             | OW2  IO5  |  ADC0/1  CH15  |          |
-|  C6   | GPIO2  PIN6  |            |           |            |  PWM5  CH0  | OW2  IO6  |                |    √     |
-|  C7   | GPIO2  PIN7  |            |           |            |  PWM5  CH1  | OW2  IO7  |                |    √     |
-|  C8   | GPIO2  PIN8  |            |           |            |  PWM5  CH2  | OW2  IO8  |                |    √     |
-|  C9   | GPIO2  PIN9  |            |           |            |  PWM5  CH3  | OW2  IO9  |                |    √     |
-|  D0   | GPIO3  PIN0  |            |           |            |             |  OW3 IO0  |                |    √     |
-|  D1   | GPIO3  PIN1  |            |           |            |             |  OW3 IO1  |                |    √     |
-|  D2   | GPIO3  PIN2  |            |           |            |             |  OW3 IO2  |                |    √     |
-|  D3   | GPIO3  PIN3  |            |           |            |             |  OW3 IO3  |                |    √     |
-|  D4   | GPIO3  PIN4  |            |           |            |             |  OW3 IO4  |                |    √     |
-|  D5   | GPIO3  PIN5  |            |           |            |             |  OW3 IO5  |                |    √     |
-|  D6   | GPIO3  PIN6  |            |           |            |             |  OW3 IO6  |                |    √     |
-|  D7   | GPIO3  PIN7  |            |           |            |             |  OW3 IO7  |                |    √     |
-|  D8   | GPIO3  PIN8  |            |           |            |             |  OW3 IO8  |                |    √     |
-|  D9   | GPIO3  PIN9  |            |           |            |             |  OW3 IO9  |                |    √     |
-|  D10  | GPIO3  PIN10 |            |           |            |             | OW3 IO10  |                |    √     |
-|  D11  | GPIO3  PIN11 |            |           |            |             | OW3 IO11  |                |    √     |
-|  D12  | GPIO3  PIN12 |            | I2C2  SCL |            |             | OW3 IO12  |                |    √     |
-|  D13  | GPIO3  PIN13 |            | I2C2  SDA |            |             | OW3 IO13  |                |    √     |
-|  D14  | GPIO3  PIN14 |            |           |            |             | OW3 IO14  |                |    √     |
-|  D15  | GPIO3  PIN15 |            |           |            |             | OW3 IO15  |                |    √     |
-|  E0   | GPIO4  PIN0  |            |           |            |             |  OW4 IO0  |                |    √     |
-|  E1   | GPIO4  PIN1  |            |           |            |             |  OW4 IO1  |                |    √     |
-|  E2   | GPIO4  PIN2  |            |           |            |             |  OW4 IO2  |                |    √     |
-|  E3   | GPIO4  PIN3  |            |           |            |             |  OW4 IO3  |                |    √     |
-|  E4   | GPIO4  PIN4  |            |           |            |             |  OW4 IO4  |                |    √     |
-|  E5   | GPIO4  PIN5  |            |           |            |             |  OW4 IO5  |                |    √     |
-|  E6   | GPIO4  PIN6  |            |           |            |             |  OW4 IO6  |                |    √     |
-|  E7   | GPIO4  PIN7  |            |           |            |             |  OW4 IO7  |                |    √     |
-|  E8   | GPIO4  PIN8  |            |           |            |             |  OW4 IO8  |                |    √     |
-|  E9   | GPIO4  PIN9  |            |           |            |             |  OW4 IO9  |                |    √     |
-|  E10  | GPIO4  PIN10 |            |           |            |             | OW4 IO10  |                |    √     |
-|  E11  | GPIO4  PIN11 |            |           |            |             | OW4 IO11  |                |    √     |
-|  E12  | GPIO4  PIN12 |            |           |            |             | OW4 IO12  |                |    √     |
-|  E13  | GPIO4  PIN13 |            |           |            |             | OW4 IO13  |                |    √     |
-|  E14  | GPIO4  PIN14 |            |           |            |             | OW4 IO14  |                |    √     |
-|  E15  | GPIO4  PIN15 |            |           |            |             | OW4 IO15  |                |    √     |
+| :-----: | :----------: | :--------: | :-------: | :--------: | :---------: | :-------: | :------------: | :--------: |
+|   A0    | GPIO0  PIN0  | UART1  CTS |           |            | PWM1/4  CH0 | OW0  IO0  | ADC0/1/2  CH0  |            |
+|   A1    | GPIO0  PIN1  | UART1  RTS |           |            | PWM1/4  CH1 | OW0  IO1  | ADC0/1/2  CH1  |            |
+|   A2    | GPIO0  PIN2  | UART1  TX  |           |            | PWM1/4  CH2 | OW0  IO2  | ADC0/1/2  CH2  |            |
+|   A3    | GPIO0  PIN3  | UART1  RX  |           |            | PWM1/4  CH3 | OW0  IO3  | ADC0/1/2  CH3  |            |
+|   A4    | GPIO0  PIN4  |            |           | SPI0  NSS  |             | OW0  IO4  |  ADC0/1  CH4   |            |
+|   A5    | GPIO0  PIN5  |            |           | SPI0  SCK  |             | OW0  IO5  |  ADC0/1  CH5   |            |
+|   A6    | GPIO0  PIN6  |            |           | SPI0  MISO |  PWM2  CH0  | OW0  IO6  |  ADC0/1  CH6   |            |
+|   A7    | GPIO0  PIN7  |            |           | SPI0  MOSI |  PWM2  CH1  | OW0  IO7  |  ADC0/1  CH7   |            |
+|   A8    | GPIO0  PIN8  |            |           |            |  PWM0  CH0  | OW0  IO8  |                |     √      |
+|   A9    | GPIO0  PIN9  | UART0  TX  |           |            |  PWM0  CH1  | OW0  IO9  |                |     √      |
+|   A10   | GPIO0  PIN10 | UART0  RX  |           |            |  PWM0  CH2  | OW0  IO10 |                |     √      |
+|   A11   | GPIO0  PIN11 | UART0  CTS |           |            |  PWM0  CH3  | OW0  IO11 |                |     √      |
+|   A12   | GPIO0  PIN12 | UART0  RTS |           |            |             | OW0  IO12 |                |     √      |
+|   A13   | GPIO0  PIN13 |            |           |            |             | OW0  IO13 |                |     √      |
+|   A14   | GPIO0  PIN14 |            |           |            |             | OW0  IO14 |                |     √      |
+|   A15   | GPIO0  PIN15 |            |           | SPI2  NSS  |             | OW0  IO15 |                |     √      |
+|   B0    | GPIO1  PIN0  |            |           |            |  PWM2  CH2  | OW1  IO0  |  ADC0/1  CH8   |            |
+|   B1    | GPIO1  PIN1  |            |           |            |  PWM2  CH3  | OW1  IO1  |  ADC0/1  CH9   |            |
+|   B2    | GPIO1  PIN2  |            |           |            |             | OW1  IO2  |                |     √      |
+|   B3    | GPIO1  PIN3  |            |           | SPI2  SCK  |             | OW1  IO3  |                |     √      |
+|   B4    | GPIO1  PIN4  |            |           | SPI2  MISO |             | OW1  IO4  |                |     √      |
+|   B5    | GPIO1  PIN5  |            |           | SPI2  MOSI |             | OW1  IO5  |                |            |
+|   B6    | GPIO1  PIN6  |            | I2C0  SCL |            |  PWM3  CH0  | OW1  IO6  |                |     √      |
+|   B7    | GPIO1  PIN7  |            | I2C0  SDA |            |  PWM3  CH1  | OW1  IO7  |                |     √      |
+|   B8    | GPIO1  PIN8  |            |           |            |  PWM3  CH2  | OW1  IO8  |                |     √      |
+|   B9    | GPIO1  PIN9  |            |           |            |  PWM3  CH3  | OW1  IO9  |                |     √      |
+|   B10   | GPIO1  PIN10 | UART2  TX  | I2C1  SCL |            |             | OW1  IO10 |                |     √      |
+|   B11   | GPIO1  PIN11 | UART2  RX  | I2C1  SDA |            |             | OW1  IO11 |                |     √      |
+|   B12   | GPIO1  PIN12 |            |           | SPI1  NSS  |             | OW1  IO12 |                |     √      |
+|   B13   | GPIO1  PIN13 | UART2  CTS |           | SPI1  SCK  |             | OW1  IO13 |                |     √      |
+|   B14   | GPIO1  PIN14 | UART2  RTS |           | SPI1  MISO |             | OW1  IO14 |                |     √      |
+|   B15   | GPIO1  PIN15 |            |           | SPI1  MOSI |             | OW1  IO15 |                |     √      |
+|   C0    | GPIO2  PIN0  |            |           |            |             | OW2  IO0  | ADC0/1/2  CH10 |            |
+|   C1    | GPIO2  PIN1  |            |           |            |             | OW2  IO1  | ADC0/1/2  CH11 |            |
+|   C2    | GPIO2  PIN2  |            |           |            |             | OW2  IO2  | ADC0/1/2  CH12 |            |
+|   C3    | GPIO2  PIN3  |            |           |            |             | OW2  IO3  | ADC0/1/2  CH13 |            |
+|   C4    | GPIO2  PIN4  |            |           |            |             | OW2  IO4  |  ADC0/1  CH14  |            |
+|   C5    | GPIO2  PIN5  |            |           |            |             | OW2  IO5  |  ADC0/1  CH15  |            |
+|   C6    | GPIO2  PIN6  |            |           |            |  PWM5  CH0  | OW2  IO6  |                |     √      |
+|   C7    | GPIO2  PIN7  |            |           |            |  PWM5  CH1  | OW2  IO7  |                |     √      |
+|   C8    | GPIO2  PIN8  |            |           |            |  PWM5  CH2  | OW2  IO8  |                |     √      |
+|   C9    | GPIO2  PIN9  |            |           |            |  PWM5  CH3  | OW2  IO9  |                |     √      |
+|   D0    | GPIO3  PIN0  |            |           |            |             |  OW3 IO0  |                |     √      |
+|   D1    | GPIO3  PIN1  |            |           |            |             |  OW3 IO1  |                |     √      |
+|   D2    | GPIO3  PIN2  |            |           |            |             |  OW3 IO2  |                |     √      |
+|   D3    | GPIO3  PIN3  |            |           |            |             |  OW3 IO3  |                |     √      |
+|   D4    | GPIO3  PIN4  |            |           |            |             |  OW3 IO4  |                |     √      |
+|   D5    | GPIO3  PIN5  |            |           |            |             |  OW3 IO5  |                |     √      |
+|   D6    | GPIO3  PIN6  |            |           |            |             |  OW3 IO6  |                |     √      |
+|   D7    | GPIO3  PIN7  |            |           |            |             |  OW3 IO7  |                |     √      |
+|   D8    | GPIO3  PIN8  |            |           |            |             |  OW3 IO8  |                |     √      |
+|   D9    | GPIO3  PIN9  |            |           |            |             |  OW3 IO9  |                |     √      |
+|   D10   | GPIO3  PIN10 |            |           |            |             | OW3 IO10  |                |     √      |
+|   D11   | GPIO3  PIN11 |            |           |            |             | OW3 IO11  |                |     √      |
+|   D12   | GPIO3  PIN12 |            | I2C2  SCL |            |             | OW3 IO12  |                |     √      |
+|   D13   | GPIO3  PIN13 |            | I2C2  SDA |            |             | OW3 IO13  |                |     √      |
+|   D14   | GPIO3  PIN14 |            |           |            |             | OW3 IO14  |                |     √      |
+|   D15   | GPIO3  PIN15 |            |           |            |             | OW3 IO15  |                |     √      |
+|   E0    | GPIO4  PIN0  |            |           |            |             |  OW4 IO0  |                |     √      |
+|   E1    | GPIO4  PIN1  |            |           |            |             |  OW4 IO1  |                |     √      |
+|   E2    | GPIO4  PIN2  |            |           |            |             |  OW4 IO2  |                |     √      |
+|   E3    | GPIO4  PIN3  |            |           |            |             |  OW4 IO3  |                |     √      |
+|   E4    | GPIO4  PIN4  |            |           |            |             |  OW4 IO4  |                |     √      |
+|   E5    | GPIO4  PIN5  |            |           |            |             |  OW4 IO5  |                |     √      |
+|   E6    | GPIO4  PIN6  |            |           |            |             |  OW4 IO6  |                |     √      |
+|   E7    | GPIO4  PIN7  |            |           |            |             |  OW4 IO7  |                |     √      |
+|   E8    | GPIO4  PIN8  |            |           |            |             |  OW4 IO8  |                |     √      |
+|   E9    | GPIO4  PIN9  |            |           |            |             |  OW4 IO9  |                |     √      |
+|   E10   | GPIO4  PIN10 |            |           |            |             | OW4 IO10  |                |     √      |
+|   E11   | GPIO4  PIN11 |            |           |            |             | OW4 IO11  |                |     √      |
+|   E12   | GPIO4  PIN12 |            |           |            |             | OW4 IO12  |                |     √      |
+|   E13   | GPIO4  PIN13 |            |           |            |             | OW4 IO13  |                |     √      |
+|   E14   | GPIO4  PIN14 |            |           |            |             | OW4 IO14  |                |     √      |
+|   E15   | GPIO4  PIN15 |            |           |            |             | OW4 IO15  |                |     √      |
 
+## 附录3：I/O资源分项管脚说明
 
+### GPIO
+
+| 类型 | PORT | PIN  | I/O  |
+| ---- | ---- | ---- | ---- |
+| GPIO | 0    | 0    | A0   |
+|      |      | 1    | A1   |
+|      |      | 2    | A2   |
+|      |      | 3    | A3   |
+|      |      | 4    | A4   |
+|      |      | 5    | A5   |
+|      |      | 6    | A6   |
+|      |      | 7    | A7   |
+|      |      | 8    | A8   |
+|      |      | 9    | A9   |
+|      |      | 10   | A10  |
+|      |      | 11   | A11  |
+|      |      | 12   | A12  |
+|      |      | 13   | A13  |
+|      |      | 14   | A14  |
+|      |      | 15   | A15  |
+|      |      |      |      |
+|      | 1    | 0    | B0   |
+|      |      | 1    | B1   |
+|      |      | 2    | B2   |
+|      |      | 3    | B3   |
+|      |      | 4    | B4   |
+|      |      | 5    | B5   |
+|      |      | 6    | B6   |
+|      |      | 7    | B7   |
+|      |      | 8    | B8   |
+|      |      | 9    | B9   |
+|      |      | 10   | B10  |
+|      |      | 11   | B11  |
+|      |      | 12   | B12  |
+|      |      | 13   | B13  |
+|      |      | 14   | B14  |
+|      |      | 15   | B15  |
+|      |      |      |      |
+|      | 2    | 0    | C0   |
+|      |      | 1    | C1   |
+|      |      | 2    | C2   |
+|      |      | 3    | C3   |
+|      |      | 4    | C4   |
+|      |      | 5    | C5   |
+|      |      | 6    | C6   |
+|      |      | 7    | C7   |
+|      |      | 8    | C8   |
+|      |      | 9    | C9   |
+|      |      |      |      |
+|      | 3    | 0    | D0   |
+|      |      | 1    | D1   |
+|      |      | 2    | D2   |
+|      |      | 3    | D3   |
+|      |      | 4    | D4   |
+|      |      | 5    | D5   |
+|      |      | 6    | D6   |
+|      |      | 7    | D7   |
+|      |      | 8    | D8   |
+|      |      | 9    | D9   |
+|      |      | 10   | D10  |
+|      |      | 11   | D11  |
+|      |      | 12   | D12  |
+|      |      | 13   | D13  |
+|      |      | 14   | D14  |
+|      |      | 15   | D15  |
+|      |      |      |      |
+|      | 4    | 0    | E0   |
+|      |      | 1    | E1   |
+|      |      | 2    | E2   |
+|      |      | 3    | E3   |
+|      |      | 4    | E4   |
+|      |      | 5    | E5   |
+|      |      | 6    | E6   |
+|      |      | 7    | E7   |
+|      |      | 8    | E8   |
+|      |      | 9    | E9   |
+|      |      | 10   | E10  |
+|      |      | 11   | E11  |
+|      |      | 12   | E12  |
+|      |      | 13   | E13  |
+|      |      | 14   | E14  |
+|      |      | 15   | E15  |
+
+### UART
+
+| 类型 | PORT | PIN  | I/O  |
+| ---- | ---- | ---- | ---- |
+| UART | 0    | TX   | A9   |
+|      |      | RX   | A10  |
+|      |      | CTS  | A11  |
+|      |      | RTS  | A12  |
+|      |      |      |      |
+|      | 1    | TX   | A2   |
+|      |      | RX   | A3   |
+|      |      | CTS  | A0   |
+|      |      | RTS  | A1   |
+|      |      |      |      |
+|      | 2    | TX   | B10  |
+|      |      | RX   | B11  |
+|      |      | CTS  | B13  |
+|      |      | RTS  | B14  |
+|      |      |      |      |
+
+### I2C
+
+| 类型 | PORT | PIN  | I/O  |
+| ---- | ---- | ---- | ---- |
+| I2C  | 0    | SCL  | B6   |
+|      |      | SDA  | B7   |
+|      |      |      |      |
+|      | 1    | SCL  | B10  |
+|      |      | SDA  | B11  |
+|      |      |      |      |
+|      | 2    | SCL  | D12  |
+|      |      | SDA  | D13  |
+|      |      |      |      |
+
+### SPI
+
+| 类型 | PORT | PIN  | I/O  |
+| ---- | ---- | ---- | ---- |
+| SPI  | 0    | NSS  | A4   |
+|      |      | SCK  | A5   |
+|      |      | MISO | A6   |
+|      |      | MOSI | A7   |
+|      |      |      |      |
+|      | 1    | NSS  | B12  |
+|      |      | SCK  | B13  |
+|      |      | MISO | B14  |
+|      |      | MOSI | B15  |
+|      |      |      |      |
+|      | 2    | NSS  | A15  |
+|      |      | SCK  | B3   |
+|      |      | MISO | B4   |
+|      |      | MOSI | B5   |
+
+### PWM
+
+| 类型 | PORT | CH   | I/O  |
+| ---- | ---- | ---- | ---- |
+| PWM  | 0    | CH0  | A8   |
+|      |      | CH1  | A9   |
+|      |      | CH2  | A10  |
+|      |      | CH3  | A11  |
+|      |      |      |      |
+|      | 1    | CH0  | A0   |
+|      |      | CH1  | A1   |
+|      |      | CH2  | A2   |
+|      |      | CH3  | A3   |
+|      |      |      |      |
+|      | 2    | CH0  | A6   |
+|      |      | CH1  | A7   |
+|      |      | CH2  | B0   |
+|      |      | CH3  | B1   |
+|      |      |      |      |
+|      | 3    | CH0  | B6   |
+|      |      | CH1  | B7   |
+|      |      | CH2  | B8   |
+|      |      | CH3  | B9   |
+|      |      |      |      |
+|      | 4    | CH0  | A0   |
+|      |      | CH1  | A1   |
+|      |      | CH2  | A2   |
+|      |      | CH3  | A3   |
+|      |      |      |      |
+|      | 5    | CH0  | C6   |
+|      |      | CH1  | C7   |
+|      |      | CH2  | C8   |
+|      |      | CH3  | C9   |
+
+### OneWire
+
+| 类型 | PORT | IO   | I/O  |
+| ---- | ---- | ---- | ---- |
+| OW   | 0    | 0    | A0   |
+|      |      | 1    | A1   |
+|      |      | 2    | A2   |
+|      |      | 3    | A3   |
+|      |      | 4    | A4   |
+|      |      | 5    | A5   |
+|      |      | 6    | A6   |
+|      |      | 7    | A7   |
+|      |      | 8    | A8   |
+|      |      | 9    | A9   |
+|      |      | 10   | A10  |
+|      |      | 11   | A11  |
+|      |      | 12   | A12  |
+|      |      | 13   | A13  |
+|      |      | 14   | A14  |
+|      |      | 15   | A15  |
+|      |      |      |      |
+|      | 1    | 0    | B0   |
+|      |      | 1    | B1   |
+|      |      | 2    | B2   |
+|      |      | 3    | B3   |
+|      |      | 4    | B4   |
+|      |      | 5    | B5   |
+|      |      | 6    | B6   |
+|      |      | 7    | B7   |
+|      |      | 8    | B8   |
+|      |      | 9    | B9   |
+|      |      | 10   | B10  |
+|      |      | 11   | B11  |
+|      |      | 12   | B12  |
+|      |      | 13   | B13  |
+|      |      | 14   | B14  |
+|      |      | 15   | B15  |
+|      |      |      |      |
+|      | 2    | 0    | C0   |
+|      |      | 1    | C1   |
+|      |      | 2    | C2   |
+|      |      | 3    | C3   |
+|      |      | 4    | C4   |
+|      |      | 5    | C5   |
+|      |      | 6    | C6   |
+|      |      | 7    | C7   |
+|      |      | 8    | C8   |
+|      |      | 9    | C9   |
+|      |      |      |      |
+|      | 3    | 0    | D0   |
+|      |      | 1    | D1   |
+|      |      | 2    | D2   |
+|      |      | 3    | D3   |
+|      |      | 4    | D4   |
+|      |      | 5    | D5   |
+|      |      | 6    | D6   |
+|      |      | 7    | D7   |
+|      |      | 8    | D8   |
+|      |      | 9    | D9   |
+|      |      | 10   | D10  |
+|      |      | 11   | D11  |
+|      |      | 12   | D12  |
+|      |      | 13   | D13  |
+|      |      | 14   | D14  |
+|      |      | 15   | D15  |
+|      |      |      |      |
+|      | 4    | 0    | E0   |
+|      |      | 1    | E1   |
+|      |      | 2    | E2   |
+|      |      | 3    | E3   |
+|      |      | 4    | E4   |
+|      |      | 5    | E5   |
+|      |      | 6    | E6   |
+|      |      | 7    | E7   |
+|      |      | 8    | E8   |
+|      |      | 9    | E9   |
+|      |      | 10   | E10  |
+|      |      | 11   | E11  |
+|      |      | 12   | E12  |
+|      |      | 13   | E13  |
+|      |      | 14   | E14  |
+|      |      | 15   | E15  |
+
+### ADC
+
+| 类型 | PORT | CH   | I/O  |
+| ---- | ---- | ---- | ---- |
+| ADC  | 0    | CH0  | A0   |
+|      |      | CH1  | A1   |
+|      |      | CH2  | A2   |
+|      |      | CH3  | A3   |
+|      |      | CH4  | A4   |
+|      |      | CH5  | A5   |
+|      |      | CH6  | A6   |
+|      |      | CH7  | A7   |
+|      |      | CH8  | B0   |
+|      |      | CH9  | B1   |
+|      |      | CH10 | C0   |
+|      |      | CH11 | C1   |
+|      |      | CH12 | C2   |
+|      |      | CH13 | C3   |
+|      |      | CH14 | C4   |
+|      |      | CH15 | C5   |
+|      |      |      |      |
+|      | 1    | CH0  | A0   |
+|      |      | CH1  | A1   |
+|      |      | CH2  | A2   |
+|      |      | CH3  | A3   |
+|      |      | CH4  | A4   |
+|      |      | CH5  | A5   |
+|      |      | CH6  | A6   |
+|      |      | CH7  | A7   |
+|      |      | CH8  | B0   |
+|      |      | CH9  | B1   |
+|      |      | CH10 | C0   |
+|      |      | CH11 | C1   |
+|      |      | CH12 | C2   |
+|      |      | CH13 | C3   |
+|      |      | CH14 | C4   |
+|      |      | CH15 | C5   |
+|      |      |      |      |
+|      | 2    | CH0  | A0   |
+|      |      | CH1  | A1   |
+|      |      | CH2  | A2   |
+|      |      | CH3  | A3   |
+|      |      | CH10 | C0   |
+|      |      | CH11 | C1   |
+|      |      | CH12 | C2   |
+|      |      | CH13 | C3   |
