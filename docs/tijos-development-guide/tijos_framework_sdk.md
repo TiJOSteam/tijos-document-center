@@ -2,6 +2,8 @@
 
 TiJOS Framework提供了用户在应用中对硬件资源及传感器类等进行操作的相关类, 其中包括对各种硬件接口和传感器类的操作， 同时也提供了一些可能用到的工具类, 如BASE64, JSON等等
 
+详情请参考 [TiJOS Framework JavaDoc](http://dev.tijos.net/javadoc)
+
 ## TiJOS Framework 包
 
 | 包名称                               | 说明                                       |

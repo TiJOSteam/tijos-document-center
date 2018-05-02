@@ -6,6 +6,7 @@
 
 钛极OS(TiJOS)驱动仓库支持常见传感器及模块，并在不断持续增加, 对于不支持的传感器，用户可提出申请或者基于设备总线类也可进行开发。
 
-## 传感器驱动
+[进入钛极(TiJOS)驱动仓库](http://store.tijos.net)
 
-请参考[传感器驱动](tijos.framework.sensor.md)
+## TiKit开发套件传感器驱动
+TiKit开发套件中提供了10余种觉见传感器供开发人员学习和测试，可参考[TiKit开发套件传感器驱动](tijos.framework.sensor.md)
