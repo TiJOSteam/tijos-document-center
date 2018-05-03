@@ -92,8 +92,8 @@ pages:
             - 固件发布说明: 'tikit/tikit-t600-esp8266a/firmware/钛极OS(TiJOS)系统固件(ESP8266)版本发布说明.md'
         - 'TiKit-T800-STM32F103A': 
             - 用户手册: 'tikit/tikit-t800-stm32f103a/index.md'
-            - 系统固件更新: 'tikit/tikit-t800-stm32f103a/firmware/钛极OS(TiJOS)系统固件(STM32)升级方法.md'
-            - 固件发布说明: 'tikit/tikit-t800-stm32f103a/firmware/钛极OS(TiJOS)系统固件(STM32)版本发布说明.md'
+            - 系统固件更新: 'tikit/tikit-t800-stm32f103a/firmware/钛极OS(TiJOS)系统固件(STM32F103)升级方法.md'
+            - 固件发布说明: 'tikit/tikit-t800-stm32f103a/firmware/钛极OS(TiJOS)系统固件(STM32F103)版本发布说明.md'
 
     - '驱动仓库':
          - '概述': 'tijos-driver/index.md'

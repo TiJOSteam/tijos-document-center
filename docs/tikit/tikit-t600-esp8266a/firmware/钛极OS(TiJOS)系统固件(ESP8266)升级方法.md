@@ -27,7 +27,7 @@ TiKit-T600-ESP8266系列。
    ![updateport](./img/updateport.png)
    用户可通过计算机设备管理器查看升级接口识别情况，出现如上图片内容说明系统已经识别，**请记住当前串口号，如：COM8，后续将用到**。
 
-3. 在运行下载工具前, 请从右下角手动退出Ti-DeviceManager
+3. 在运行下载工具前, 请从右下角手动退出TiDevManager
 
    ​
 
@@ -51,7 +51,7 @@ TiKit-T600-ESP8266系列。
 
    **注1：如果出现下载未能启动或下载失败的情况，可以多尝试几次。**
 
-   **注2: 下载前请确保Ti-DeviceManager已退出(可从Windows右下角通过右键退出)**
+   **注2: 下载前请确保TiDevManager已退出(可从Windows右下角通过右键退出)**
 
 ![download2](./img/download2.png)
 
