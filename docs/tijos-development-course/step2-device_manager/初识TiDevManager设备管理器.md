@@ -53,7 +53,7 @@ TiDevManager设备管理器是TiKit的控制面板，可非常方便的对设备
 
 输出日志等级，根据开发的过程设置输出相关日志
 
-![netinfo5](E:/work/ti-github/tijos-document-center/docs/tijos-development-course/step2-device_manager/img/netinfo5.png)
+![netinfo5](./img/netinfo5.png)
 
 以上信息，修改后点击确定即可
 
@@ -111,7 +111,9 @@ AP模式，提供无线接入服务，允许其它无线设备接入，提供数
 
 ![RunApp](.\img\RunApp.png)
 
-### 如果该应用支持运行参数， 选中运行参数选择框后输入相应的参数后点击运行即可。
+
+
+如果该应用支持运行参数， 选中运行参数选择框后输入相应的参数后点击运行即可。
 
 日志窗口会有日志输出，如下图：
 
@@ -131,9 +133,9 @@ AP模式，提供无线接入服务，允许其它无线设备接入，提供数
 
 当需要返回钛极OS(TiJOS)终端时, 可通过按住TiKit开发板上红色"KEY"按钮再按黑色“RESET"铵钮来完成， 流程如下：
 
-1. 按住红色"KEY"按键，不要放开
+1. 按住红色"BOOT/KEY"按键，不要放开
 2. 按黑色"RESET"按键一秒后放开
-3. 放开红色"KEY"按键，后进入钛极OS(TiJOS)终端， 此时可使用TiDevManager进行设备管理
+3. 放开红色"BOOT/KEY"按键，后进入钛极OS(TiJOS)终端， 此时可使用TiDevManager进行设备管理
 
 ### 删除应用
 
