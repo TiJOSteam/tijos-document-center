@@ -50,17 +50,31 @@ TiStudio安装完成后重新启动Eclipse之后，Eclipse的菜单中增加了"
 
 ![TiJOSPlugin_Ti-Dev](.\img\TiJOSPlugin_DevManager.png)
 
-#### 菜单项 - TiDevManager
+#### TiDevManager
 
 运行TiDevManager设备管理器,  当需要对TiKit开发板进行设置时可通过该菜单项操作
 
-#### 菜单项 - Exception Query
+#### Exception Query
 
 异常查询， 如果用户应用中发生异常通过打印口或其它方式输出时，可使用该功能对异常进行分析和定位。
 
-#### 菜单项 - Document Center
+#### Development Kit 
 
-文档资源中心， 可在线查看相关文档
+快速导航到TiKit 开发套件在线文档，方便用户查看相关开发板帮助文档
+
+#### Driver Store
+
+快速导航到驱动中心网站， 方便用户获得相关驱动源码及例程
+
+#### Samples
+
+快速导航到方案及例程在线文档， 方便用户进行参考
+
+#### Document Center
+
+文档资源中心，可在线查看相关帮助文档
+
+
 
 ### TiDevManager设备管理器
 

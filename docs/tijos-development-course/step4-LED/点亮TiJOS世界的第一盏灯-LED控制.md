@@ -52,7 +52,7 @@ import java.io.IOException;
 
 import tijos.framework.devicecenter.TiGPIO;
 import tijos.framework.transducer.led.TiLED;
-import tijos.util.Delay;
+import tijos.framework.util.Delay;
 ```
 
 首先在主类ControlLED中定义main方法，并定义所需要使用的TiGPIO port以及所需要使用的pin引脚（按照硬件设计所连接的pin编号）。然后创建TiGPIO对象gpio0并打开需要使用的pin编号。最后创建红色灯的TiLED对象，并与对应的pin绑定。
