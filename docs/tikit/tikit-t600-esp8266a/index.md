@@ -187,7 +187,7 @@ CH340 UART驱动: <http://www.wch.cn/download/CH341SER_EXE.html>
 #### 问题3. 应用无法下载？
 
 1. 确保顶板USB已正确连接计算机并且串口驱动（CP2102芯片）已经成功安装。
-2. 确保**系统终端**程序(Terminal APP)已经启动，启动方法：按住BOOT按键，按一次RESET按键，然后松开BOOT按键。
+2. 确保**系统终端**程序(Terminal APP)已经启动，启动方法：按住BOOK/KEY按键，按一次RESET按键，然后松开RESET按键。
 
 #### 问题4. 开发板的两个USB接口分别有什么功能？驱动如何安装？
 
