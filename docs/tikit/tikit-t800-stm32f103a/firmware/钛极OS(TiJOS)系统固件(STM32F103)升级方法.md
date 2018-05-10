@@ -48,9 +48,9 @@ TiKit-T800-STM32F103A系列。
 
 ### 启动固件下载
 
-1. 选择目标固件版本文件程序，文件名：tijos-fw-tikit-t800-stm32f103_x.xx.hex。
-
-2. 点击工具上的“开始烧录”按钮，固件开始下载，如下图所示。
+1. 选择目标固件版本文件程序，文件路径：tijos-fw-tikit-t800-stm32f103_3.00/fw/
+2. 固件文件名称：tijos-fw-tikit-t800-stm32f103_3.00.hex。
+3. 点击工具上的“开始烧录”按钮，固件开始下载，如下图所示。
 
 
 ![programer-update](./img/programer-update.png)
