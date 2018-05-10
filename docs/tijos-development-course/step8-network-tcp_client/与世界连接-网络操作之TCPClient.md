@@ -27,7 +27,7 @@ try
 {
   //启动连接WLAN, 10秒超时
   //WLAN的设置可通过TiDevManager配置
-  TiWLAN.getInstance().startup(10);
+  TiWiFi.getInstance().startup(10);
 
   //启动DNS
   TiDNS.getInstance().startup();

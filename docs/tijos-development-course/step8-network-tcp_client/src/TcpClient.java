@@ -3,8 +3,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 
-import tijos.framework.networkcenter.TiWLAN;
-import tijos.framework.networkcenter.TiDNS;
+import tijos.framework.networkcenter.dns.TiDNS;
+import tijos.framework.platform.wlan.TiWiFi;
 
 public class TcpClient {
 
@@ -13,7 +13,7 @@ public class TcpClient {
 		try {
 			// 启动连接WLAN, 10秒超时
 			// WLAN的设置可通过TiDevManager配置
-			TiWLAN.getInstance().startup(10);
+			TiWiFi.getInstance().startup(10);
 
 			// 启动DNS
 			TiDNS.getInstance().startup();

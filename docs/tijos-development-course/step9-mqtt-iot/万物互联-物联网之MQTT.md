@@ -37,7 +37,7 @@ https://cloud.baidu.com/product/iot.html
 ```java
 try{
 //启动WLAN及DNS
-TiWLAN.getInstance().startup(10);
+TiWiFi.getInstance().startup(10);
 TiDNS.getInstance().startup();
 }
 catch(IOException ex)
