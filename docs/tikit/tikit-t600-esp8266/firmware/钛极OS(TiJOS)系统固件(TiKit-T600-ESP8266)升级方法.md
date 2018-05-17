@@ -14,7 +14,7 @@ TiKit-T600-ESP8266系列。
 
 ### 下载最新固件包
 
-[tijos-fw-tikit-t600-esp8266_3.00.zip](./package/tijos-fw-tikit-t600-esp8266_3.00.zip)
+[tijos-fw-tikit-t600-esp8266_3.00.zip](http://dev.tijos.net/tikit/tikit-t600-esp8266/tijos-fw-tikit-t600-esp8266_3.00.zip)
 
 如果需要下载历史版本, 请点击[下载其它版本](#固件历史版本)
 
@@ -75,4 +75,4 @@ TiKit-T600-ESP8266系列。
 
 ## 固件历史版本
 
-[tijos-fw-tikit-t600-esp8266_2.06.zip](./package/tijos-fw-tikit-t600-esp8266_2.06.zip)
+[tijos-fw-tikit-t600-esp8266_2.06.zip](http://dev.tijos.net/tikit/tikit-t600-esp8266/tijos-fw-tikit-t600-esp8266_2.06.zip)

@@ -14,7 +14,7 @@ TiKit-T800-STM32F103系列。
 
 ### 下载最新固件包
 
-[tijos-fw-tikit-t800-stm32f103_3.00.zip](./package/tijos-fw-tikit-t800-stm32f103_3.00.zip)
+[tijos-fw-tikit-t800-stm32f103_3.00.zip](http://dev.tijos.net/tikit/tikit-t800-stm32f103/tijos-fw-tikit-t800-stm32f103_3.00.zip)
 
 如果需要下载历史版本, 请点击[下载其它版本](#固件历史版本)
 
