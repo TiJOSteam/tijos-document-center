@@ -15,7 +15,7 @@ TiKit开发套件根据平台及应用领域的不同分为多个型号，目前
 
 | 型号                  | 主控芯片      | 特点                               | 用户手册                                 | 购买                                                         |
 | --------------------- | ------------- | ---------------------------------- | ---------------------------------------- | ------------------------------------------------------------ |
-| TiKit-T600-ESP8266A   | ESP8266       | 低成本，内置WIFI，可直接连接云平台 | [详情](./tikit-t600-esp8266a/index.md)   | [购买](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-17249217063.10.2dda38f3kWJaYO&id=560447108229) |
-| TiKit-T800-STM32F103A | STM32F103VET6 | IO丰富，应用广泛                   | [详情](./tikit-t800-stm32f103a/index.md) | [购买](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-17249217063.13.2dda38f3kWJaYO&id=568569480895)                                                         |
+| TiKit-T600-ESP8266A   | ESP8266       | 低成本，内置WIFI，可直接连接云平台 | [详情](./tikit-t600-esp8266/index.md)   | [购买](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-17249217063.10.2dda38f3kWJaYO&id=560447108229) |
+| TiKit-T800-STM32F103A | STM32F103VET6 | IO丰富，应用广泛                   | [详情](./tikit-t800-stm32f103/index.md) | [购买](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-17249217063.13.2dda38f3kWJaYO&id=568569480895)                                                         |
 |                       |               |                                    |                                          |                                                              |
 

@@ -38,19 +38,19 @@ TiStudio插件必须在Eclipse上在线安装，安装方式参见文档[TiStudi
 
 |           | 课程名称                                                     |
 | :-------: | ------------------------------------------------------------ |
-| Lesson 1  | [TiJOS应用开发集成环境-TiStudio](./step1-enviornment_setup/TiJOS应用开发环境-TiStudio.md) |
-| Lesson 2  | [初识TiDevManager设备管理器](./step2-device_manager/初识TiDevManager设备管理器.md) |
-| Lesson 3  | [世界,你好-HelloWorld](./step3-helloworld/世界,你好-HelloWorld.md) |
-| Lesson 4  | [点亮TiJOS世界的第一盏灯-LED控制](step4-LED/点亮TiJOS世界的第一盏灯-LED控制.md) |
-| Lesson 5  | [按我一下-Button按键操作](step5-button/按我一下-Button按键操作.md) |
-| Lesson 6  | [感知世界的温暖-温度采集](step6-temperature/感知世界的温暖-温度采集.md) |
-| Lesson 7  | [生产者与消费者-多线程](./step7-mutithread/生产者与消费者-多线程.md) |
-| Lesson 8  | [与世界连接-网络操作之TCP Client](./step8-network-tcp_client/与世界连接-网络操作之TCPClient.md) |
-| Lesson 9  | [万物互联-物联网之MQTT](./step9-mqtt-iot/万物互联-物联网之MQTT.md) |
-| Lesson 10 | [着火啦-可燃气体监测仪例程](./step10-gas-monitoring/可燃气体监测仪.md)                                    |
-| Lesson 11 | [请注意，倒车-多功能超声波测距仪例程](./step11-range-detection/多功能超声波测距仪.md)                         |
-| Lesson 12 | [基于 ESP8266、TiJOS 与百度云的可燃气体监测仪](./step12-baidu-iot/基于百度云的可燃气体监测仪.md)                 |
-| Lesson 13 | [基于钛极OS(TiJOS)的阿里云IOT接入案例](./step13-ali-iot/阿里云IOT接入.md)                         |
+| Lesson 1  | [TiJOS应用开发集成环境-TiStudio](./step1-enviornment_setup/about_tistudio.md) |
+| Lesson 2  | [初识TiDevManager设备管理器](./step2-device_manager/about_tidevmanager.md) |
+| Lesson 3  | [世界,你好-HelloWorld](./step3-helloworld/hello_world.md) |
+| Lesson 4  | [点亮TiJOS世界的第一盏灯-LED控制](step4-LED/turn_on_led.md) |
+| Lesson 5  | [按我一下-Button按键操作](step5-button/press_me_button.md) |
+| Lesson 6  | [感知世界的温暖-温度采集](step6-temperature/get_temperature.md) |
+| Lesson 7  | [生产者与消费者-多线程](./step7-mutithread/multi_thread.md) |
+| Lesson 8  | [与世界连接-网络操作之TCP Client](./step8-network-tcp_client/connect_world_tcpclient.md) |
+| Lesson 9  | [万物互联-物联网之MQTT](./step9-mqtt-iot/iot_mqtt.md) |
+| Lesson 10 | [着火啦-可燃气体监测仪例程](./step10-gas-monitoring/gas_monitoring.md)                                    |
+| Lesson 11 | [请注意，倒车-多功能超声波测距仪例程](./step11-range-detection/range_detection.md)                         |
+| Lesson 12 | [基于 ESP8266、TiJOS 与百度云的可燃气体监测仪](./step12-baidu-iot/baidu_iot_gas_monitoring.md)                 |
+| Lesson 13 | [基于钛极OS(TiJOS)的阿里云IOT接入案例](./step13-ali-iot/ali_iot_connection.md)                         |
 
 ### 6、深入学习钛极OS开发
 

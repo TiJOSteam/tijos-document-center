@@ -23,19 +23,19 @@ pages:
 
     - '快速入门': 
         - 概述: 'tijos-development-course/index.md'
-        - L1-TiJOS应用开发集成环境-TiStudio: 'tijos-development-course/step1-enviornment_setup/TiJOS应用开发环境-TiStudio.md'
-        - L2-初识TiDevManager设备管理器: 'tijos-development-course/step2-device_manager/初识TiDevManager设备管理器.md'
-        - L3-世界,你好-HelloWorld: 'tijos-development-course/step3-helloworld/世界,你好-HelloWorld.md'
-        - L4-点亮TiJOS世界的第一盏灯-LED控制: 'tijos-development-course/step4-LED/点亮TiJOS世界的第一盏灯-LED控制.md'
-        - L5-按我一下-Button按键操作: 'tijos-development-course/step5-button/按我一下-Button按键操作.md'
-        - L6-感知世界的温暖-温度采集: 'tijos-development-course/step6-temperature/感知世界的温暖-温度采集.md'
-        - L7-生产者与消费者-多线程: 'tijos-development-course/step7-mutithread/生产者与消费者-多线程.md'
-        - L8-与世界连接-网络操作之TCP Client: 'tijos-development-course/step8-network-tcp_client/与世界连接-网络操作之TCPClient.md'
-        - L9-万物互联-物联网之MQTT: 'tijos-development-course/step9-mqtt-iot/万物互联-物联网之MQTT.md'
-        - L10-着火啦-可燃气体监测仪例程: 'tijos-development-course/step10-gas-monitoring/可燃气体监测仪.md'
-        - L11-请注意,倒车-多功能超声波测距仪例程: 'tijos-development-course/step11-range-detection/多功能超声波测距仪.md'
-        - L12-接入百度云: 'tijos-development-course/step12-baidu-iot/基于百度云的可燃气体监测仪.md'
-        - L13-接入阿里云: 'tijos-development-course/step13-ali-iot/阿里云IOT接入.md'
+        - L1-TiJOS应用开发集成环境-TiStudio: 'tijos-development-course/step1-enviornment_setup/about_tistudio.md'
+        - L2-初识TiDevManager设备管理器: 'tijos-development-course/step2-device_manager/about_tidevmanager.md'
+        - L3-世界,你好-HelloWorld: 'tijos-development-course/step3-helloworld/hello_world.md'
+        - L4-点亮TiJOS世界的第一盏灯-LED控制: 'tijos-development-course/step4-LED/turn_on_led.md'
+        - L5-按我一下-Button按键操作: 'tijos-development-course/step5-button/press_me_button.md'
+        - L6-感知世界的温暖-温度采集: 'tijos-development-course/step6-temperature/get_temperature.md'
+        - L7-生产者与消费者-多线程: 'tijos-development-course/step7-mutithread/multi_thread.md'
+        - L8-与世界连接-网络操作之TCP Client: 'tijos-development-course/step8-network-tcp_client/connect_world_tcpclient.md'
+        - L9-万物互联-物联网之MQTT: 'tijos-development-course/step9-mqtt-iot/iot_mqtt.md'
+        - L10-着火啦-可燃气体监测仪例程: 'tijos-development-course/step10-gas-monitoring/gas_monitoring.md'
+        - L11-请注意,倒车-多功能超声波测距仪例程: 'tijos-development-course/step11-range-detection/range_detection.md'
+        - L12-接入百度云: 'tijos-development-course/step12-baidu-iot/baidu_iot_gas_monitoring.md'
+        - L13-接入阿里云: 'tijos-development-course/step13-ali-iot/ali_iot_connection.md'
 
 
     - '开发指南': 
@@ -87,13 +87,13 @@ pages:
         - '传感器模块介绍': 'tikit/tikit_sensors.md'
         - '传感器应用例程': 'tijos-samples/tijos_docs_sensor_sample.md'  
         - 'TiKit-T600-ESP8266A': 
-            - 用户手册: 'tikit/tikit-t600-esp8266a/index.md'
-            - 系统固件更新: 'tikit/tikit-t600-esp8266a/firmware/钛极OS(TiJOS)系统固件(ESP8266)升级方法.md'
-            - 固件发布说明: 'tikit/tikit-t600-esp8266a/firmware/钛极OS(TiJOS)系统固件(ESP8266)版本发布说明.md'
+            - 用户手册: 'tikit/tikit-t600-esp8266/index.md'
+            - 系统固件更新: 'tikit/tikit-t600-esp8266/firmware/How-to-upgrade-firmware(TiKit-T600-ESP8266).md'
+            - 固件发布说明: 'tikit/tikit-t600-esp8266/firmware/Firmware-ReleaseNotes(TiKit-T600-ESP8266).md'
         - 'TiKit-T800-STM32F103A': 
-            - 用户手册: 'tikit/tikit-t800-stm32f103a/index.md'
-            - 系统固件更新: 'tikit/tikit-t800-stm32f103a/firmware/钛极OS(TiJOS)系统固件(STM32F103)升级方法.md'
-            - 固件发布说明: 'tikit/tikit-t800-stm32f103a/firmware/钛极OS(TiJOS)系统固件(STM32F103)版本发布说明.md'
+            - 用户手册: 'tikit/tikit-t800-stm32f103/index.md'
+            - 系统固件更新: 'tikit/tikit-t800-stm32f103/firmware/How-to-upgrade-firmware(TiKit-T800-STM32F103).md'
+            - 固件发布说明: 'tikit/tikit-t800-stm32f103/firmware/Firmware-ReleaseNotes(TiKit-T800-STM32F103).md'
 
     - '驱动仓库':
          - '概述': 'tijos-driver/index.md'
