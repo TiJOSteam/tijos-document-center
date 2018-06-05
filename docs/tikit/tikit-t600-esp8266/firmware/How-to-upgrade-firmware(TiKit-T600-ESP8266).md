@@ -26,6 +26,19 @@ TiKit-T600-ESP8266系列。
 
    ![updateport](./img/updateport.png)
    用户可通过计算机设备管理器查看升级接口识别情况，出现如上图片内容说明系统已经识别，**请记住当前串口号，如：COM6，后续将用到**。
+   如显示未识别的设备，请先安装USB串口驱动
+   
+#### USB驱动安装
+
+    如果连接USB接口后在Windows设备管理器中未显示如下类似端口信息，则需要安装开发板上 USB 转 UART 芯片的驱动：
+
+    ![tikit_port](.\Picture\tikit_port.png)
+
+    请从如下链接下载驱动文件进行安装即可
+
+    CP210X UART驱动: <http://www.silabs.com/documents/public/software/CP210x_Windows_Drivers.zip>
+    CH340 UART驱动: <http://www.wch.cn/download/CH341SER_EXE.html>
+
 
 3. 在运行下载工具前, 请从右下角手动退出TiDevManager
 
@@ -35,11 +48,11 @@ TiKit-T600-ESP8266系列。
 
 ### 启动下载工具
 
-双击启动“ESP_DOWNLOAD_TOOL_V2.3.exe”工具。
+双击启动“ESP_DOWNLOAD_TOOL_V2.3.exe”工具，固件包中已包含该工具。
 
 ### 选择下载串口
 
-工具启动后，界面如下图所示，用户只需要在“COM PORT”选项中选择有效的COM口即可，这里使用COM6。
+工具启动后，界面如下图所示，用户只需要在“COM PORT”选项中选择对应的COM口即可，这里使用COM6。
 
 ![download1](./img/download1.png)
 
