@@ -51,6 +51,29 @@
 
 ![20171123104401](./img/20171123104401.png)
 
+### 加入驱动库配置
+
+在工程属性中找到“Java Build Path" 中Libraries中选择"Add Library" 
+
+![javabuildpath](..\img\javabuildpath.png)
+
+
+
+选择"TiJOS Driver Library Classpath Container" 
+
+![1528246646906](..\img\addlibrary.png)
+
+点击"Next"选中"TiJOS Driver Library" 点击"Finish" 加入钛极OS标准驱动包。
+
+
+
+![1528246811450](..\img\DriverLibrary.png)
+
+
+
+标准驱动包的相关源码可在钛极驱动仓库中找到， 在实际开发过程中如果需要其它驱动， 可从钛极驱动仓库找到相关源码加入即可。
+
+### 修改配置
 转到包net.tijos.aliyun下找到Main类，Main类包含基于MQTT协议的接入阿里云的代码，在代码前面部分有与连接相关的常量参数，分别对应设备名称、broker地址、用户名、用户密码。将参数修改为我们前面阿里云物联网套件下对应的数据，然后保存。接着将修改后的代码下载至设备中，下载步骤选中工程右键弹出菜单点击Run as --> TiJOS Application实时下载至硬件中。
 
 ![20171123104341](./img/20171123104341.png)

@@ -8,6 +8,28 @@
 
 请参考《钛极OS(TiJOS)应用开发环境搭建》以及《HelloWorld 第一个钛极OS(TiJOS)应用》搭建环境并创建例程：DS18B20Sample。
 
+
+在工程属性中找到“Java Build Path" 中Libraries中选择"Add Library" 
+
+![javabuildpath](..\img\javabuildpath.png)
+
+
+
+选择"TiJOS Driver Library Classpath Container" 
+
+![1528246646906](..\img\addlibrary.png)
+
+点击"Next"选中"TiJOS Driver Library" 点击"Finish" 加入钛极OS标准驱动包。
+
+
+
+![1528246811450](..\img\DriverLibrary.png)
+
+
+
+标准驱动包的相关源码可在钛极驱动仓库中找到， 在实际开发过程中如果需要其它驱动， 可从钛极驱动仓库找到相关源码加入即可。
+
+
 ### 2. 硬件环境
 
 例程所需（以TiKit-T600-ESP8266A开发套件为例）：

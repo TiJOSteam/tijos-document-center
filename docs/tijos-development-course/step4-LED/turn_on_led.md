@@ -6,7 +6,29 @@
 
 ### 1. 软件环境
 
-请参考《钛极OS(TiJOS)应用开发环境搭建》以及《HelloWorld 第一个钛极OS(TiJOS)应用》搭建环境并创建例程：ControlLEDSapmle。
+请参考《钛极OS(TiJOS)应用开发环境搭建》以及《HelloWorld 第一个钛极OS(TiJOS)应用》搭建环境并创建例程：ControlLEDSample。
+
+在工程属性中找到“Java Build Path" 中Libraries中选择"Add Library" 
+
+![javabuildpath](..\img\javabuildpath.png)
+
+
+
+选择"TiJOS Driver Library Classpath Container" 
+
+![1528246646906](..\img\addlibrary.png)
+
+点击"Next"选中"TiJOS Driver Library" 点击"Finish" 加入钛极OS标准驱动包。
+
+
+
+![1528246811450](..\img\DriverLibrary.png)
+
+
+
+标准驱动包的相关源码可在钛极驱动仓库中找到， 在实际开发过程中如果需要其它驱动， 可从钛极驱动仓库找到相关源码加入即可。
+
+
 
 ### 2. 硬件环境
 
@@ -45,7 +67,7 @@
 
 ### 2. 例程编写
 
-在之前创建的工程ControlLEDSapmle中新建ControlLED.java文件，并引入以下包：
+在之前创建的工程ControlLEDSample中新建ControlLED.java文件，并引入以下包：
 
 ```java
 import java.io.IOException;

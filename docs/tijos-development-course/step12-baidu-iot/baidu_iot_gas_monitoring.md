@@ -96,9 +96,35 @@ wss://gas.mqtt.iot.bj.baidubce.com:8884
 
 ## 代码编译
 
-从GitHub下载已完成的代码，通过Ti-Dev Studio导入到Workspace中（注：Ti-Dev Studio工具的安装请参考文档《Ti-Dev Studio用户手册》）。在Ti-Dev Studio中可以看到工程基于TiJOS Framework开发，所有源码和API都是Java代码，依托于Java的跨平台特性，我们可以将代码运行在任何硬件平台上。TiJOS Framework对各种外设传感器做了抽象封装，通过API可方便快捷的操作外设硬件。下面将修改工程源码进行上线前调试。
+从GitHub下载已完成的代码，通过Ti-Dev Studio导入到Workspace中（注：TiStudio工具的安装请参考文档《TiStudio用户手册》）。在TiStudio中可以看到工程基于TiJOS Framework开发，所有源码和API都是Java代码，依托于Java的跨平台特性，我们可以将代码运行在任何硬件平台上。TiJOS Framework对各种外设传感器做了抽象封装，通过API可方便快捷的操作外设硬件。
+
+下面将修改工程源码进行上线前调试。
 
 ![20171109172632](./img/20171109172632.png)
+
+### 加入驱动库配置
+
+在工程属性中找到“Java Build Path" 中Libraries中选择"Add Library" 
+
+![javabuildpath](..\img\javabuildpath.png)
+
+
+
+选择"TiJOS Driver Library Classpath Container" 
+
+![1528246646906](..\img\addlibrary.png)
+
+点击"Next"选中"TiJOS Driver Library" 点击"Finish" 加入钛极OS标准驱动包。
+
+
+
+![1528246811450](..\img\DriverLibrary.png)
+
+
+
+标准驱动包的相关源码可在钛极驱动仓库中找到， 在实际开发过程中如果需要其它驱动， 可从钛极驱动仓库找到相关源码加入即可。
+
+### 修改配置
 
 转到包net.tijos.gas.mqtt下找到BaiduMqttService类，BaiduMqttService类包含基于MQTT协议的接入百度云的代码，在代码前面部分有与连接相关的常量参数，分别对应设备名称、broker地址、用户名、用户密码。将参数修改为我们前面百度云物接入配置对应的数据，然后保存。接着将修改后的代码下载至设备中，下载步骤选中工程右键弹出菜单点击Run as --> TiJOS Application实时下载至硬件中。
 
