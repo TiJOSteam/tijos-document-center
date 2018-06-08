@@ -20,11 +20,11 @@ Eclipse可在[http://www.eclipse.org/downloads/](http://www.eclipse.org/download
 
 ### 3、安装钛极OS的开发工具TiStudio插件
 
-TiStudio插件必须在Eclipse上在线安装，安装方式参见文档[TiStudio插件安装方法](http://dev.tijos.net/setup/tijos_application_devsuite_setup/)。
+TiStudio插件必须在Eclipse上在线安装，安装方式参见文档[TiStudio插件安装方法](../tijos-setup/tijos_application_devsuite_setup.md)。
 
 ### 4、钛极OS开发套件
 
-建议用户先购买我公司<钛极OS物联网开发套件 for ESP8266>,详细介绍: <http://www.tijos.net/product/TiKit/63.html>
+建议用户先购买我公司<钛极OS物联网开发套件 for ESP8266>,详细介绍: [ESP8266](../tikit/tikit-t600-esp8266/index.md)
 
 淘宝搜索TiJOS即可[购买](https://shop423269048.taobao.com/)
 
@@ -54,7 +54,7 @@ TiStudio插件必须在Eclipse上在线安装，安装方式参见文档[TiStudi
 
 ### 6、深入学习钛极OS开发
 
-在完成基本例程的尝试后，用户仔细研究钛极OS的[**文档中心**](http://dev.tijos.net/docstore/)，了解钛极OS支持的API信息，尝试着按照自己的思路来实现硬件功能。
+在完成基本例程的尝试后，用户仔细研究钛极OS的[**文档中心**](http://doc.tijos.net/)，了解钛极OS支持的API信息，尝试着按照自己的思路来实现硬件功能。
 
 ### 7、钛极驱动中心
 
