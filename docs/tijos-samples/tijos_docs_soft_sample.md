@@ -17,5 +17,6 @@
 | BASE64编码解码例程                   | [Base64Sample](https://github.com/TiJOSTeam/tijos-software-example/tree/master/src/base64/Base64Sample) |
 | JSON字符串生成和解析例程                 | [JSONSample](https://github.com/TiJOSTeam/tijos-software-example/tree/master/src/json/JSONSample) |
 | 基于MqttClient的MQTT客户端例程         | [MQTTClientSample](https://github.com/TiJOSTeam/tijos-software-example/tree/master/src/MQTT/MQTTClientSample) |
+| WIFI SmartConfig快速连接例程         | [SmartConfig](https://github.com/TiJOSTeam/tijos-software-example/tree/master/src/WiFI/smartconfig) |
 |                                |                                          |
 

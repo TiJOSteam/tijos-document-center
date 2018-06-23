@@ -222,6 +222,7 @@ CH340 UART驱动: <http://www.wch.cn/download/CH341SER_EXE.html>
 | 支持硬件接口 | Wi-Fi                  | 无    |
 | 支持数量   | 1个                     | 无    |
 | 支持工作模式 | 同时支持Station和SoftAP工作模式 | 无    |
+| IP配置 | 支持自动模式(SmartConfig)和手动模式 | 无    |
 
 | GPIO特性       | 支持   | 说明                             |
 | ------------ | ---- | ------------------------------ |

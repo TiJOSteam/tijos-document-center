@@ -12,7 +12,8 @@ TiJOS应用与标准Java 应用类似，通过在Eclipse中安装TiStudio插件�
 
 如果您已安装Eclipses, 可直接安装TiStuido即可。
 
-Eclipse版本支持：4.6 及以上
+Eclipse版本支持：4.6 及以上  （请选择Eclipse IDE for Java EE Developers 或 Eclipse IDE for Java Developers 版本)
+Eclipse下载地址: http://www.eclipse.org/downloads/eclipse-packages/
 
 ## TiStudio安装
 
@@ -30,6 +31,10 @@ Eclipse版本支持：4.6 及以上
 
    ![TiJOSPlugin_Location](.\img\TiJOSPlugin_Location.png)
 
+   ```
+   Name可以任意输入字符串， 请在Location中输入 http://dev.tijos.net/studio/release
+   ```
+   
 3. 从显示出的"Available Software"中选择"TiJOS"下的"TiStudio Release"后， 点击"Next"按钮开始进行安装
 
    ![TiJOSPlugin_Selection](.\img\TiJOSPlugin_Selection.png)
