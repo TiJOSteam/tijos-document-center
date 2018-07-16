@@ -14,7 +14,7 @@ TiKit-T600-ESP8266系列。
 
 ### 下载最新固件包
 
-[tijos-fw-tikit-t600-esp8266_3.01.zip](http://dev.tijos.net/tikit/tikit-t600-esp8266/tijos-fw-tikit-t600-esp8266_3.01.zip)
+[tijos-fw-tikit-t600-esp8266_3.02.zip](http://dev.tijos.net/tikit/tikit-t600-esp8266/tijos-fw-tikit-t600-esp8266_3.02.zip)
 
 如果需要下载历史版本, 请点击[下载其它版本](#固件历史版本)
 
@@ -31,11 +31,11 @@ TiKit-T600-ESP8266系列。
 #### USB驱动安装
 
     如果连接USB接口后在Windows设备管理器中未显示如下类似端口信息，则需要安装开发板上 USB 转 UART 芯片的驱动：
-
+    
     ![tikit_port](.\Picture\tikit_port.png)
-
+    
     请从如下链接下载驱动文件进行安装即可
-
+    
     CP210X UART驱动: <http://www.silabs.com/documents/public/software/CP210x_Windows_Drivers.zip>
     CH340 UART驱动: <http://www.wch.cn/download/CH341SER_EXE.html>
 
