@@ -26,16 +26,15 @@ TiStudio提供如下功能:
 
 - Windows 7及以上
 
-- Eclipse 4.6 (Mars) or later
+- Eclipse 4.6 (Mars) or later （请选择Eclipse IDE for Java EE Developers 或 Eclipse IDE for Java Developers 版本)
 
 - Java 6 or later
 
+Eclipse下载地址: http://www.eclipse.org/downloads/eclipse-packages/
 
 ### 安装过程
 
 ​   请参考《钛极OS(TiJOS)应用开发环境搭建》文档
-
-
 
 ## 创建工程
 
@@ -117,10 +116,11 @@ TiStudio提供如下功能:
 
 5. TiJOS LogCat不输出日志
 
-   请检查TiDevManager中是否打开端口，打开端口后日志输出恢复正常。如仍无法正常输出日志，请尝试重启Eclipse。
+   请检查TiDevManager中是否打开端口，打开端口后日志输出恢复正常。如仍无法正常输出日志，请尝试在TiDevManager中手动连接进行测试。
 
 6. 提示tijos.framework.sensor 或 tijos.framework.transducer 不存在
    请在Java Build Path中的Library中加入“TiJOS Driver Library ClassPath Container"，如下图所示：
    ![1528160152630](.\img\1528160152630.png)
 
 
+  

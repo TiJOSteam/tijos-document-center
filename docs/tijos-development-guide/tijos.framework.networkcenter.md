@@ -30,12 +30,34 @@ TiWiFi为单例，在操作网络时可通过getInstance获得实例并调用相
 | void setSoftAPStaticAddress(String localAddress, String gateWayAddress, int subnetPrefix) | 设置SoftAP的静态地址, 如果任何一个参数为null将使用默认IP地址 |
 | String getAddress()                                          | 获取当前IP地址                                               |
 | String getSoftAPAddress()                                    | 获取SoftAP当前IP地址                                         |
+| void smartConfig()                                           | 启动WIFI Smart Config, 可通过手机来进行无线WIFI快速设置      |
 
 TiWiFi类中他方法的技术说明请参考TiJOS Framework说明文档。
 
 ### WiFi设置例程
 
-WiFi连接目标AP，IP地址动态分配（推荐使用方式），WiFi相关设置也可从TiDevManager中设置，这样就无需在代码设置WiFi连接参数
+WIFI设置支持手动设置和自动设置, 手动设置可通过TiDevManager工具进行设置， 自动设置则需要通过SmartConfig的方式进行， SmartConfig一种WiFi快连技术，可通过手机APP对WIFI设备直接进行IP地址配置，具体细节请搜索SmartConfig相关资料
+
+#### 自动配置
+现在的智能硬件产品，以WiFi品类居多，这些WiFi硬件没有人机交互界面，但设备要上网肯定要配置SSID等相关信息，于是WiFi快连应运而生， SmartConfig就是目前使用最广泛的WIFI快连技术。 
+在TiJOS中可通过TiWiFi类中的smartConfig接口来完成相应的配置， 在实际使用时，可接合外部触发来启动SmartConfig, 如按键，等等。 
+
+在使用自动配置时，需要在手机端安装相应的APP， 请从以下路径安装相应的APP - <https://github.com/EspressifApp/EsptouchForAndroid>
+自动配置成功后， 下次启动时会自动连接该WIFI路由， 因此只需设置一次即可。
+
+```java
+...
+ //请从手机打开SmartConfig软件,
+  //启动smartConfig, 超时30秒， 出错或超时会抛出相应的异常
+  TiWiFi.getInstance().smartConfig(30);
+  System.out.println(" SSID: " + TiWiFi.getInstance().getSSID());
+  System.out.println(" Password: " + TiWiFi.getInstance().getPassword());
+
+...
+```
+
+#### 手动配置
+WiFi连接目标AP，WiFi相关设置也可从TiDevManager中设置，这样就无需在代码设置WiFi连接参数
 
 ```java
 ...

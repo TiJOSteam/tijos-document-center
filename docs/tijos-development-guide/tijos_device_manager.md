@@ -32,10 +32,6 @@ TiDevManager设备管理器是TiKit的控制面板，可非常方便的对设备
 
 ![DevInfo](.\img\DevInfo.png)
 
-
-
-
-
 ## 系统设置
 
 ### 设备属性
