@@ -48,7 +48,7 @@ pages:
         - '硬件应用开发指南':
             - 智能硬件应用开发: 'tijos-development-guide/tijos_sensor_application_guide.md'
             - 硬件事件中心: 'tijos-development-guide/tijos.framework.eventcenter.md'
-            - 电源管理: 'tijos-development-guide/tijos.framework.platform.power.md'
+            - 电源管理: 'tijos-development-guide/tijos.framework.platform.md'
             - 设备总线支持:
                 - 概述: 'tijos-development-guide/tijos.framework.devicecenter.md'
                 - TiADC模数转换器: 'tijos-development-guide/tijos.framework.devicecenter.TiADC.md'
