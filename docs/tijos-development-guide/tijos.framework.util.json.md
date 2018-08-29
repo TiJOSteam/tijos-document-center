@@ -7,6 +7,22 @@ TiJOS Framework中的JSON实现来自<https://github.com/stleary/JSON-java>, 支
 ## Java包
 tijos.framework.util
 
+
+
+主要类说明
+
+| 类          | 说明                           |
+| ----------- | ------------------------------ |
+| JSONObject  | JSON对象, 可用于构造JSON字符串 |
+| JSONArray   | JSON数组                       |
+| JSONTokener | JSON解析类                     |
+
+
+
+具体使用方法可参考 https://blog.csdn.net/jediael_lu/article/details/25779087
+
+注意，钛极OS的JSON不支持与反射有关的方法
+
 例程:
 
 1. JSON格式编码
