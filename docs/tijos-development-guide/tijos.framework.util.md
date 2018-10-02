@@ -15,6 +15,7 @@ tijos.framework.util
 | LittleBitConverter | Byte与Int, Long相互转换，小尾模式 |
 | Delay | 延时，支持毫秒，微妙延时 |
 | Formatter | 支持Double/float/byte[] 转字符串, 方便显示 |
+| KeyValueStorage | 键值对存储访问,用于用户设置操作 |
 
 
 
@@ -129,3 +130,25 @@ System.out.println(Formatter.toHexString(buff));
 
 ```
 
+## KeyValueStorage
+键值对文件存储,方便用户在应用中通过键值对的方式保存和获取设置, 设置在应用间是共享的.
+| 方法                                        | 说明                                                      |
+| ------------------------------------------- | --------------------------------------------------------- |
+| void setValue(String filePath, String key, String value) | 将Key/Value保存到filePath文件中,文件名最长32字符，文件不存在时会自动创建 |
+| String getValue(String filePath, String key) | 从文件中获取指定Key的值 |
+| String getKeyValues(String filePath) | 从文件中获取所有Key和对应value的值,用逗号隔开 |
+| void deleteStorageFile(String filePath) | 删除设置文件 |
+
+例如
+```java
+
+//将name=test保存到config文件中
+KeyValueStorage.setValue("config","name","test");
+//从config文件中获取name的值 
+KeyValueStorage.getValue("config","name");
+//从config文件中获取所有key/value的信息
+KeyValueStorage.getKeyValues("config");
+//删除config文件
+KeyValueStorage.deleteStorageFile("config");
+
+```
