@@ -14,10 +14,6 @@ TiKit-T600-ESP8266系列。
 
 ### 下载最新固件包
 
-[tijos-fw-tikit-t600-esp8266_3.02.zip](http://dev.tijos.net/tikit/tikit-t600-esp8266/tijos-fw-tikit-t600-esp8266_3.02.zip)
-
-如果需要下载历史版本, 请点击[下载其它版本](#固件历史版本)
-
 ### 连接开发板
 
 1. 去掉开发板**底板**上的UART接口上的外设（此接口与固件升级接口复用，故需要提前让出接口）。
@@ -86,8 +82,3 @@ TiKit-T600-ESP8266系列。
 
 **注：此固件升级教程以3.00固件版本为例，用户需根据实际升级版本来判断。**
 
-## 固件历史版本
-
-[tijos-fw-tikit-t600-esp8266_3.00.zip](http://dev.tijos.net/tikit/tikit-t600-esp8266/tijos-fw-tikit-t600-esp8266_3.00.zip)
-
-[tijos-fw-tikit-t600-esp8266_2.06.zip](http://dev.tijos.net/tikit/tikit-t600-esp8266/tijos-fw-tikit-t600-esp8266_2.06.zip)

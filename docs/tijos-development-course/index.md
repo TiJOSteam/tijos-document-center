@@ -24,7 +24,7 @@ TiStudio插件必须在Eclipse上在线安装，安装方式参见文档[TiStudi
 
 ### 4、钛极OS开发套件
 
-建议用户先购买我公司<钛极OS物联网开发套件 for ESP8266>,详细介绍: [ESP8266](../tikit/tikit-t600-esp8266/index.md)
+建议用户先购买我公司钛极小龟物联网开发套件系列,详细介绍: [钛极小龟物联网开发套件系列](../tikit/tijos_docs_tikit.md)
 
 淘宝搜索TiJOS即可[购买](https://shop423269048.taobao.com/)
 
