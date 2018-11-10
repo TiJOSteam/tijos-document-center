@@ -28,9 +28,9 @@
 3. 接入网络实时记录并上传测量记录，增加转向电机模块，可实现远距离定向测距，可用于高危特种作业环境的距离测量；
 4. 可载入智能小车，作为避障源动态监测各方向离障碍物的距离。
 
-目录如下：
 
-- RangefinderSample
+相关源码请参考[GasMonitoringSample.java](./src/RangefinderSample.java)
+
 
 ## 加入驱动库配置
 

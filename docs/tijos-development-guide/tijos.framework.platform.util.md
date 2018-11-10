@@ -1,4 +1,4 @@
-# platform util - 平台相关工具类
+# Platform Utility - 平台相关工具类
 
 tijos.framework.platform.util中提供了一些与平台工具特性相关的类，如：KV存储, 共享缓存区。
 

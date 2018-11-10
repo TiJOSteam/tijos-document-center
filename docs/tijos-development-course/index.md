@@ -30,27 +30,11 @@ TiStudio插件必须在Eclipse上在线安装，安装方式参见文档[TiStudi
 
 ![tikit-suite](.\img\TiKit-Suite.png)
 
-公司官网上有针对套件编写的《钛极OS(TiJOS)应用开发教程 Step by Step》，共有13课，从建立开发环境、设备管理工具介绍、点亮TiJOS世界的第一盏灯、到MQTT的使用、百度云和阿里云的接入、还包括2个产品案例。
+每个套件中都包含了完整的应用开发教程, 方便用户快速熟悉钛极OS的开发模式。
 
 ### 5、学习钛极OS的开发
 
-新用户可以按照教程在硬件上运行每个例子，通过学习来了解钛极OS的编程方法、下载方法、串口打印调试、异常信息处理等。
-
-|           | 课程名称                                                     |
-| :-------: | ------------------------------------------------------------ |
-| Lesson 1  | [TiJOS应用开发集成环境-TiStudio](./step1-enviornment_setup/about_tistudio.md) |
-| Lesson 2  | [初识TiDevManager设备管理器](./step2-device_manager/about_tidevmanager.md) |
-| Lesson 3  | [世界,你好-HelloWorld](./step3-helloworld/hello_world.md) |
-| Lesson 4  | [点亮TiJOS世界的第一盏灯-LED控制](step4-LED/turn_on_led.md) |
-| Lesson 5  | [按我一下-Button按键操作](step5-button/press_me_button.md) |
-| Lesson 6  | [感知世界的温暖-温度采集](step6-temperature/get_temperature.md) |
-| Lesson 7  | [生产者与消费者-多线程](./step7-mutithread/multi_thread.md) |
-| Lesson 8  | [与世界连接-网络操作之TCP Client](./step8-network-tcp_client/connect_world_tcpclient.md) |
-| Lesson 9  | [万物互联-物联网之MQTT](./step9-mqtt-iot/iot_mqtt.md) |
-| Lesson 10 | [着火啦-可燃气体监测仪例程](./step10-gas-monitoring/gas_monitoring.md)                                    |
-| Lesson 11 | [请注意，倒车-多功能超声波测距仪例程](./step11-range-detection/range_detection.md)                         |
-| Lesson 12 | [基于 ESP8266、TiJOS 与百度云的可燃气体监测仪](./step12-baidu-iot/baidu_iot_gas_monitoring.md)                 |
-| Lesson 13 | [基于钛极OS(TiJOS)的阿里云IOT接入案例](./step13-ali-iot/ali_iot_connection.md)                         |
+新用户可以按照开发套件中提供的教程在硬件上运行每个例子，通过学习来了解钛极OS的编程方法、下载方法、串口打印调试、异常信息处理等。
 
 ### 6、深入学习钛极OS开发
 

@@ -34,9 +34,7 @@
 
 3. 加以火焰监测、高温监测等传感器，可用于楼宇消防安全。
 
-目录如下：
-
-- GasMonitoringSample
+相关源码请参考[GasMonitoringSample.java](./src/GasMonitoringSample.java)
 
 ## 加入驱动库配置
 
@@ -100,7 +98,7 @@
 
 ### 示意图
 
-![TiButton 四按键功能例程](./Picture/TiOS_GasMonitoringSample.png)
+![TiJOS_GasMonitoring](./Picture/TiOS_GasMonitoringSample.png)
 
 ### 注意事项
 

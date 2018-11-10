@@ -2,4 +2,4 @@
 
 钛极OS(TiJOS)提供了更多传感器驱动支持，并对源码进行了开放, 用户可在如下链接找到相关的驱动支持并可根据对应的源码开发自己的驱动， 更多驱动在陆续增加中。
 
-<https://github.com/tijos-sensor-library>
+[进入钛极(TiJOS)驱动仓库](http://store.tijos.net)

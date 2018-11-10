@@ -9,7 +9,6 @@ copyright: "Copyright © 2017 - 2020 钛云物联"
 pages:
     - '钛极OS':
         - 文档资源目录: 'index.md'
-        - 关于钛云物联: 'tijos-overview/1.tijos_introduction.md'
         - 钛极OS介绍: 'tijos-overview/1.tijos_introduction.md'
         - Java特性支持: 'tijos-overview/2.tijos_javaspec.md'
         - 处理器支持: 'tijos-overview/3.tijos_cpu.md'
@@ -23,34 +22,49 @@ pages:
         - 应用开发流程: 'tijos-overview/11.tijos_devprocess.md'
 
     - '快速入门': 
-        - 概述: 'tijos-development-course/index.md'
-        - L1-TiJOS应用开发集成环境-TiStudio: 'tijos-development-course/step1-enviornment_setup/about_tistudio.md'
-        - L2-初识TiDevManager设备管理器: 'tijos-development-course/step2-device_manager/about_tidevmanager.md'
-        - L3-世界,你好-HelloWorld: 'tijos-development-course/step3-helloworld/hello_world.md'
-        - L4-点亮TiJOS世界的第一盏灯-LED控制: 'tijos-development-course/step4-LED/turn_on_led.md'
-        - L5-按我一下-Button按键操作: 'tijos-development-course/step5-button/press_me_button.md'
-        - L6-感知世界的温暖-温度采集: 'tijos-development-course/step6-temperature/get_temperature.md'
-        - L7-生产者与消费者-多线程: 'tijos-development-course/step7-mutithread/multi_thread.md'
-        - L8-与世界连接-网络操作之TCP Client: 'tijos-development-course/step8-network-tcp_client/connect_world_tcpclient.md'
-        - L9-万物互联-物联网之MQTT: 'tijos-development-course/step9-mqtt-iot/iot_mqtt.md'
-        - L10-着火啦-可燃气体监测仪例程: 'tijos-development-course/step10-gas-monitoring/gas_monitoring.md'
-        - L11-请注意,倒车-多功能超声波测距仪例程: 'tijos-development-course/step11-range-detection/range_detection.md'
-        - L12-接入百度云: 'tijos-development-course/step12-baidu-iot/baidu_iot_gas_monitoring.md'
-        - L13-接入阿里云: 'tijos-development-course/step13-ali-iot/ali_iot_connection.md'
+        - 概述: 'tijos-development-course2/index.md'
+        - '入门篇':
+            - 学习使用前必读: 'tijos-development-course2/introductory/LESSON1/read_me_first.md'
+            - 钛极小龟与驾驭之术—开发板与开发环境简介: 'tijos-development-course2/introductory/LESSON2/development_environement.md'           
+            - 炼制驾驭小龟法宝与法宝试用—开发环境搭建与开发板测试: 'tijos-development-course2/introductory/LESSON3/tistudio_and_tikit_verification.md'
+            - 初识java王国—基础语法教程: 'tijos-development-course2/introductory/LESSON4/java_basic.md'
+            - 欢迎来到TiJOS世界—新建工程Hello TiJOS: 'tijos-development-course2/introductory/LESSON5/hello_tijos.md'
+            - 傻瓜式操作—快捷应用: 'tijos-development-course2/introductory/LESSON6/one_step_application.md'
 
+        - '基础篇':
+            - TiJOS的故事,屏幕文本滚动显示: 'tijos-development-course2/basic/LESSON1/olde_story_of_tijos.md'
+            - 按我一下,控制按钮KEY: 'tijos-development-course2/basic/LESSON2/button_push_me.md'
+            - 摸我一下,Touch触摸按钮: 'tijos-development-course2/basic/LESSON3/button_touch_me.md'
+            - DIY温湿度计,温湿度采集: 'tijos-development-course2/basic/LESSON4/temperature_and_humidity.md'
+            - 感受光明,光照度采集: 'tijos-development-course2/basic/LESSON5/Illumination_collection.md'
+            - 静悄悄的开灯,延时触摸开关: 'tijos-development-course2/basic/LESSON6/delay_touch_button.md'
+            - 咳一声灯亮了,延时声控开关: 'tijos-development-course2/basic/LESSON7/sound_control_switch.md'
+            - 认识红外遥控器,红外编解码: 'tijos-development-course2/basic/LESSON8/remote_controller.md'
+
+        - '进阶篇':
+            - 认识多应用，一机多用与应用间调用: 'tijos-development-course2/advanced/LESSON1/multiple_application.md'
+            - 认识多线程，声控灯与温湿度采集: 'tijos-development-course2/advanced/LESSON2/multiple_thread.md'
+            - 设备与网络，TCP通讯技术实现: 'tijos-development-course2/advanced/LESSON4/network_tcp_client.md'
+            - 设备与物联云，MQTT通讯技术实现: 'tijos-development-course2/advanced/LESSON5/mqtt_client.md'
+            - 综合应用及TiDevManager设备管理器应用: 'tijos-development-course2/advanced/LESSON6/integration_application.md'
 
     - '开发指南': 
         - '概述': 'tijos-development-guide/index.md'
-        - '开发环境':
-            - 环境搭建: 'tijos-setup/tijos_application_devsuite_setup.md'
-            - TiStudio集成开发环境: 'tijos-development-guide/tijos_dev_studio.md'
-            - TiDevManager设备管理器: 'tijos-development-guide/tijos_device_manager.md'
-            - 第一个TiJOS应用: 'tijos-development-guide/tijos_helloworld.md'
+        - '基础知识': 
+            - 概述: 'tijos-development-course/index.md'
+            - 初识Java王国: 'tijos-development-guide/java_basic.md'
+            - TiJOS传感器驱动: 'tijos-development-course/step3.1-driver_library/tijos_driver_library.md'
+            - TiJOS应用开发集成环境-TiStudio: 'tijos-development-course/step1-enviornment_setup/about_tistudio.md'
+            - 初识TiDevManager设备管理器: 'tijos-development-course/step2-device_manager/about_tidevmanager.md'
+            - 生产者与消费者-多线程: 'tijos-development-course/step7-mutithread/multi_thread.md'
+            - 与世界连接-网络操作之TCP Client: 'tijos-development-course/step8-network-tcp_client/connect_world_tcpclient.md'
+            - 万物互联-物联网之MQTT: 'tijos-development-course/step9-mqtt-iot/iot_mqtt.md'
+
         - '硬件应用开发指南':
             - 智能硬件应用开发: 'tijos-development-guide/tijos_sensor_application_guide.md'
             - 硬件事件中心: 'tijos-development-guide/tijos.framework.eventcenter.md'
             - 电源管理: 'tijos-development-guide/tijos.framework.platform.md'
-            - 设备总线支持:
+        - '设备总线开发指南':
                 - 概述: 'tijos-development-guide/tijos.framework.devicecenter.md'
                 - TiADC模数转换器: 'tijos-development-guide/tijos.framework.devicecenter.TiADC.md'
                 - TiGPIO通用输入/输出: 'tijos-development-guide/tijos.framework.devicecenter.TiGPIO.md'
@@ -59,8 +73,7 @@ pages:
                 - TiPWM 脉冲宽度调制发生器: 'tijos-development-guide/tijos.framework.devicecenter.TiPWM.md'
                 - TiSPIMaster串行外设接口: 'tijos-development-guide/tijos.framework.devicecenter.TiSPIMaster.md'
                 - TiUART通用异步收发传输器: 'tijos-development-guide/tijos.framework.devicecenter.TiUART.md'
-        - 应用管理开发指南: 'tijos-development-guide/tijos.framework.appcenter.md'
-        - 网络应用开发指南:  
+        - '网络应用开发指南':  
             - 概述: 'tijos-development-guide/tijos_net.md'
             - MQTT 客户端: 'tijos-development-guide/tijos.framework.networkcenter.mqtt.md'
             - CoAP 客户端: 'tijos-development-guide/tijos.framework.networkcenter.coap.md'
@@ -68,25 +81,37 @@ pages:
             - 网络管理中心: 'tijos-development-guide/tijos.framework.networkcenter.md'
             - WLAN无线网络管理: 'tijos-development-guide/tijos.framework.platform.wlan.md'
             - NB-IoT网络管理: 'tijos-development-guide/tijos.framework.platform.lpwan.TiNBIoT.md'
-        - 常用工具类:
+        
+        - '应用管理开发指南': 'tijos-development-guide/tijos.framework.appcenter.md'
+        - '系统设置':
+            - 系统设置: 'tijos-development-guide/tijos.framework.platform.md'
+            - 系统工具:  'tijos-development-guide/tijos.framework.platform.util.md'
+        - '常用工具类':
             - 概述: 'tijos-development-guide/tijos.framework.util.md'
             - BASE64编码: 'tijos-development-guide/tijos.framework.util.base64.md'
             - CRC校验码: 'tijos-development-guide/tijos.framework.util.crc.md'
             - JSON: 'tijos-development-guide/tijos.framework.util.json.md'
             - 日志输出: 'tijos-development-guide/tijos.framework.util.logging.md'
-        - 其它:
-            - 系统设置: 'tijos-development-guide/tijos.framework.platform.md'
-            - 系统工具:  'tijos-development-guide/tijos.framework.platform.util.md'
         - 'API参考':
             - TiJOS Java标准库支持: 'tijos-development-guide/tijos_java_standard_support.md'
             - TiJOS Framework: 'tijos-development-guide/tijos_framework_sdk.md'
 
     - '方案例程':   
         - '概述': 'tijos-samples/index.md'
-        - '传感器应用例程': 'tijos-samples/tijos_docs_sensor_sample.md'  
+        - '传感器应用例程':
+           - 点亮TiJOS世界的第一盏灯-LED控制: 'tijos-development-course/step4-LED/turn_on_led.md'
+           - 按我一下-Button按键操作: 'tijos-development-course/step5-button/press_me_button.md'
+           - 感知世界的温暖-温度采集: 'tijos-development-course/step6-temperature/get_temperature.md'
+           - 着火啦-可燃气体监测仪例程: 'tijos-development-course/step10-gas-monitoring/gas_monitoring.md'
+           - 请注意,倒车-多功能超声波测距仪例程: 'tijos-development-course/step11-range-detection/range_detection.md'
+           - 更多传感器应用例程: 'tijos-samples/tijos_docs_sensor_sample.md'  
+ 
         - '软件应用相关例程': 'tijos-samples/tijos_docs_soft_sample.md'   
-        - '物联云接入相关例程': 'tijos-samples/tijos_docs_cloud_sample.md'   
-    
+        - '公有云接入例程':
+            - 接入百度云: 'tijos-development-course/step12-baidu-iot/baidu_iot_gas_monitoring.md'
+            - 接入阿里云: 'tijos-development-course/step13-ali-iot/ali_iot_connection.md'
+            - 物联云接入相关例程: 'tijos-samples/tijos_docs_cloud_sample.md'   
+
     - '开发套件': 
         - '概述': 'tikit/tijos_docs_tikit.md'
         - '传感器模块介绍': 'tikit/tikit_sensors.md'

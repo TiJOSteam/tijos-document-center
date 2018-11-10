@@ -1,4 +1,4 @@
-# wlan - 无线局域网
+# WLAN - 无线局域网
 
 无线[局域网络](https://baike.baidu.com/item/%E5%B1%80%E5%9F%9F%E7%BD%91%E7%BB%9C/5593831)英文全名：Wireless Local Area Networks；简写为： [WLAN](https://baike.baidu.com/item/WLAN)。它是相当便利的[数据传输系统](https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E7%B3%BB%E7%BB%9F/143597)，它利用[射频](https://baike.baidu.com/item/%E5%B0%84%E9%A2%91/775402)（Radio Frequency； RF）的技术，使用电磁波，取代旧式碍手碍脚的双绞铜线（Coaxial）所构成的局域网络，在空中进行通信连接，使得[无线局域网](https://baike.baidu.com/item/%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91)络能利用简单的存取架构让用户透过它，达到“信息随身化、便利走天下”的理想境界。WLAN的实现协议有很多，其中最为著名也是应用最为广泛的当属无线保真技术--Wi-Fi，它实际上提供了一种能够将各种终端都使用无线进行互联的技术，为用户屏蔽了各种终端之间的差异性。具体可参考https://baike.baidu.com/item/%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91?fromtitle=WLAN&fromid=612199或https://baike.sogou.com/v8603.htm?fromTitle=WLAN。
 
