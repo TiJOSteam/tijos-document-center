@@ -45,6 +45,8 @@ TiSettings.resetLoggerLevel(1000); //设置全局日志等级为1000
 | void sleep()                 | 系统进入Sleep模式，通过外部事件(GPIO)自动唤醒。 唤醒后程序会**继续**运行。 |
 | void stop(int timeWakeup)    | 系统进入Stop模式，通过外部事件(GPIO)或指定时间后自动唤醒，时间单位：秒。 唤醒后程序会**继续**运行。 |
 | void standby(int timeWakeup) | 系统进入StandBy模式，通过唤醒引脚或在指定时间后自动唤醒，时间单位：秒。唤醒后程序会**重新**运行。 |
+| void reboot(int time) | 系统在指定时间后重启，时间单位：秒。重启后程序会**重新**运行。 |
+| void getStartupMode() | 获取系统启动模式，0 - 重新启动  1 - 从Standby手动唤醒运行 2 - 从Standby自动唤醒 |
 
 TiPower类中他方法的技术说明请参考TiJOS Framework说明文档。
 
