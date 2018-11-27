@@ -16,8 +16,6 @@ tijos.framework.devicecenter
 | INPUT_PULLDOWN | 下拉输入模式       |
 | OUTPUT_OD      | 开漏输出模式       |
 | OUTPUT_PP      | 推挽输出模式       |
-| IO_FLOATING_OD | 开漏输出复合浮空输入模式 |
-
 
 
 ## TiGPIO事件模式定义
