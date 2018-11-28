@@ -20,15 +20,15 @@ tijos.framework.devicecenter
 
 TiI2CMaster类中主要的方法：
 
-| 方法                                       | 说明                                       |
-| ---------------------------------------- | ---------------------------------------- |
-| TiI2CMaster(int portID)                  | 静态方法，通过指定port打开I2C Master，返回TiI2CMaster对象，**若需要再次打开或打开为其他设备时需要先调用close关闭当前对象** |
-| void close()                             | 关闭当前对象                                   |
-| void setWorkBaudrate(int baudRate)       | 设置通讯波特率                                  |
-| oid read(int address, byte[] data, int offset, int len) | 从从机读数据，7、10位从机地址。                        |
-| void write(int address, byte[] data, int offset, int len) | 向从机写数据，7、10位从机地址。                        |
-| void read(int address, byte[] data, int offset, int len, boolean repeated) | 从从机读数据并使能重复，即，不发送stop，从7、10位从机地址。        |
-| void write(int address, byte[] data, int offset, int len, boolean repeated) | 向从机写数据并使能重复，即，不发送stop，7、10位从机地址。         |
+| 方法                                                         | 说明                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| TiI2CMaster(int portID)                                      | 静态方法，通过指定port打开I2C Master，返回TiI2CMaster对象，**若需要再次打开或打开为其他设备时需要先调用close关闭当前对象** |
+| void close()                                                 | 关闭当前对象                                                 |
+| void setWorkBaudrate(int baudRate)                           | 设置通讯波特率                                               |
+| void read(int address, byte[] data, int offset, int len)     | 从从机读数据，7、10位从机地址。                              |
+| void write(int address, byte[] data, int offset, int len)    | 向从机写数据，7、10位从机地址。                              |
+| void read(int address, byte[] data, int offset, int len, boolean repeated) | 从从机读数据并使能重复，即，不发送stop，从7、10位从机地址。  |
+| void write(int address, byte[] data, int offset, int len, boolean repeated) | 向从机写数据并使能重复，即，不发送stop，7、10位从机地址。    |
 
 TiI2CMaster类中他方法的技术说明请参考TiJOS Framework说明文档。
 

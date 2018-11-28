@@ -50,11 +50,11 @@ pages:
 
     - '开发指南': 
         - '概述': 'tijos-development-guide/index.md'
-        - '基础知识': 
+        - '开发准备指南': 
             - 概述: 'tijos-development-course/index.md'
             - 初识Java王国: 'tijos-development-guide/java_basic.md'
             - TiJOS传感器驱动: 'tijos-development-course/step3.1-driver_library/tijos_driver_library.md'
-            - TiJOS应用开发集成环境-TiStudio: 'tijos-development-course/step1-enviornment_setup/about_tistudio.md'
+            - TiJOS应用开发集成环境搭建: 'tijos-development-course/step1-enviornment_setup/about_tistudio.md'
             - 初识TiDevManager设备管理器: 'tijos-development-course/step2-device_manager/about_tidevmanager.md'
             - 生产者与消费者-多线程: 'tijos-development-course/step7-mutithread/multi_thread.md'
             - 与世界连接-网络操作之TCP Client: 'tijos-development-course/step8-network-tcp_client/connect_world_tcpclient.md'
@@ -74,7 +74,8 @@ pages:
                 - TiSPIMaster串行外设接口: 'tijos-development-guide/tijos.framework.devicecenter.TiSPIMaster.md'
                 - TiOWMaster单总线: 'tijos-development-guide/tijos.framework.devicecenter.TiOWMaster.md'
         - '网络应用开发指南':  
-            - 概述: 'tijos-development-guide/tijos_net.md'
+            - 概述:'tijos-development-guide/tijos_net.md'
+			- 标准JAVA的TCP,UDP,DNS网络:'tijos-development-guide/java.net.md'
             - MQTT 客户端: 'tijos-development-guide/tijos.framework.networkcenter.mqtt.md'
             - CoAP 客户端: 'tijos-development-guide/tijos.framework.networkcenter.coap.md'
             - 网络时间协议客户端: 'tijos-development-guide/tijos.framework.networkcenter.ntp.md'
@@ -85,7 +86,7 @@ pages:
         - '应用管理开发指南': 'tijos-development-guide/tijos.framework.appcenter.md'
         - '系统设置':
             - 系统设置: 'tijos-development-guide/tijos.framework.platform.md'
-            - 系统工具:  'tijos-development-guide/tijos.framework.platform.util.md'
+            - 系统工具: 'tijos-development-guide/tijos.framework.platform.util.md'
         - '常用工具类':
             - 概述: 'tijos-development-guide/tijos.framework.util.md'
             - BASE64编码: 'tijos-development-guide/tijos.framework.util.base64.md'
