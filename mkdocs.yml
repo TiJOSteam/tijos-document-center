@@ -7,22 +7,21 @@ extra_css:
   - "css/my_style.css"
 copyright: "Copyright © 2017 - 2020 钛云物联"
 pages:
-    - '钛极OS':
-        - 文档资源目录: 'index.md'
-        - 钛极OS介绍: 'tijos-overview/1.tijos_introduction.md'
-        - Java特性支持: 'tijos-overview/2.tijos_javaspec.md'
-        - 处理器支持: 'tijos-overview/3.tijos_cpu.md'
-        - 设备总线支持: 'tijos-overview/4.tijos_peripherals.md'
-        - 传感器支持: 'tijos-overview/5.tijos_driverstore.md'
-        - 网络特性支持: 'tijos-overview/6.tijos_network.md'
-        - 电源管理: 'tijos-overview/7.tijos_power.md'
-        - 应用管理: 'tijos-overview/8.tijos_appcenter.md'
-        - TiKit开发板: 'tijos-overview/9.tijos_tikitboard.md'
-        - 应用开发套件: 'tijos-overview/10.tijos_appsuite.md'
-        - 应用开发流程: 'tijos-overview/11.tijos_devprocess.md'
-
     - '快速入门': 
-        - 概述: 'tijos-development-course2/index.md'
+        - 文档资源目录: 'index.md'
+        - '钛极OS':
+            - 钛极OS介绍: 'tijos-overview/1.tijos_introduction.md'
+            - Java特性支持: 'tijos-overview/2.tijos_javaspec.md'
+            - 处理器支持: 'tijos-overview/3.tijos_cpu.md'
+            - 设备总线支持: 'tijos-overview/4.tijos_peripherals.md'
+            - 传感器支持: 'tijos-overview/5.tijos_driverstore.md'
+            - 网络特性支持: 'tijos-overview/6.tijos_network.md'
+            - 电源管理: 'tijos-overview/7.tijos_power.md'
+            - 应用管理: 'tijos-overview/8.tijos_appcenter.md'
+            - TiKit开发板: 'tijos-overview/9.tijos_tikitboard.md'
+            - 应用开发套件: 'tijos-overview/10.tijos_appsuite.md'
+            - 应用开发流程: 'tijos-overview/11.tijos_devprocess.md'
+            - 概述: 'tijos-development-course2/index.md'
         - '入门篇':
             - 学习使用前必读: 'tijos-development-course2/introductory/LESSON1/read_me_first.md'
             - 钛极小龟与驾驭之术—开发板与开发环境简介: 'tijos-development-course2/introductory/LESSON2/development_environement.md'           
@@ -74,8 +73,8 @@ pages:
                 - TiSPIMaster串行外设接口: 'tijos-development-guide/tijos.framework.devicecenter.TiSPIMaster.md'
                 - TiOWMaster单总线: 'tijos-development-guide/tijos.framework.devicecenter.TiOWMaster.md'
         - '网络应用开发指南':  
-            - 概述:'tijos-development-guide/tijos_net.md'
-			- 标准JAVA的TCP,UDP,DNS网络:'tijos-development-guide/java.net.md'
+            - 概述: 'tijos-development-guide/tijos_net.md'
+            - 标准JAVA的TCP/UDP/DNS网络: 'tijos-development-guide/java.net.md'
             - MQTT 客户端: 'tijos-development-guide/tijos.framework.networkcenter.mqtt.md'
             - CoAP 客户端: 'tijos-development-guide/tijos.framework.networkcenter.coap.md'
             - 网络时间协议客户端: 'tijos-development-guide/tijos.framework.networkcenter.ntp.md'
@@ -158,6 +157,13 @@ pages:
                 - 继电器: 'tijos-driver/tijos.framework.transducer.relay.md'
                 - 通用传感器: 'tijos-driver/tijos.framework.sensor.general.md'
                 - 更多传感器支持: 'tijos-driver/tijos.framework.sensor.more.md'
+    - '钛极云平台': 
+        - '概述': 'ticloud/index.md'
+        - '主要概念': 'ticloud/ticloud_concept.md'
+        - '产品管理': 'ticloud/ticloud_product_management.md'
+        - '设备管理': 'ticloud/ticloud_device_management.md'
+        - '报警管理': 'ticloud/ticloud_alarm_management.md'
+        - '组态管理': 'ticloud/ticloud_configuration_view.md'
     - '更多资源': 
         - 在线资源: 'resources.md'   
  
