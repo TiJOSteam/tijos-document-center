@@ -6,78 +6,76 @@ import tijos.framework.platform.peripheral.TiKeyboard;
 import tijos.framework.transducer.oled.TiOLED_UG2864;
 
 /**
- * ¼àÌýÕß
- * 
- * @author tijos
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  *
+ * @author tijos
  */
 class KEYListener implements ITiKeyboardListener {
 
 
-	TiOLED_UG2864 _oled;
+    TiOLED_UG2864 _oled;
 
-	public KEYListener(TiOLED_UG2864 oled) {
-		// TODO Auto-generated constructor stub
-		this._oled = oled;
-	}
+    public KEYListener(TiOLED_UG2864 oled) {
+        // TODO Auto-generated constructor stub
+        this._oled = oled;
+    }
 
-	@Override
-	public void onPressed(int arg0, long arg1) {
-		try {
-			// ÆÁÄ»ÊµÏÖ
-			this._oled.print(2, 0, "onPressed. ");
-			// ÖÕ¶Ë´òÓ¡
-			System.out.println("onPressed. ");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+    @Override
+    public void onPressed(int arg0, long arg1) {
+        try {
+            // ï¿½ï¿½Ä»Êµï¿½ï¿½
+            this._oled.print(2, 0, "onPressed. ");
+            // ï¿½Õ¶Ë´ï¿½Ó¡
+            System.out.println("onPressed. ");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-	@Override
-	public void onReleased(int arg0, long arg1) {
-		try {
-			// ÆÁÄ»ÊµÏÖ
-			this._oled.print(2, 0, "onReleased.");
-			// ÖÕ¶Ë´òÓ¡
-			System.out.println("onReleased.");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+    @Override
+    public void onReleased(int arg0, long arg1) {
+        try {
+            // ï¿½ï¿½Ä»Êµï¿½ï¿½
+            this._oled.print(2, 0, "onReleased.");
+            // ï¿½Õ¶Ë´ï¿½Ó¡
+            System.out.println("onReleased.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
 
 /**
- * °´ÎÒÒ»ÏÂ£¬¿ØÖÆ°´Å¥KEY
- * 
- * @author tijos
+ * ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Â£ï¿½ï¿½ï¿½ï¿½Æ°ï¿½Å¥KEY
  *
+ * @author tijos
  */
 public class PressMe {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		try {
-			TiI2CMaster i2cm0 = TiI2CMaster.open(0);
-			// I2CÖ÷»ú×ÜÏß×ÊÔ´ÓëÆÁÄ»¶ÔÏó°ó¶¨£¬ÆÁÄ»µØÖ·£º0x3C
-			TiOLED_UG2864 oled = new TiOLED_UG2864(i2cm0, 0x3c);	
-			// ÆÁÄ»¿ªÆô²¢ÇåÆÁ
-			oled.turnOn();
-			oled.clear();
-			// ÏÔÊ¾²¢´òÓ¡±êÌâ
-			oled.print(0, 0, "Press me.");
-			System.out.println("Press me");
-			// ´´½¨¼àÌý¶ÔÏó
-			KEYListener lc = new KEYListener(oled);
-			// »ñÈ¡¼üÅÌÊµÀý
-			TiKeyboard kb = TiKeyboard.getInstance();
-			// ÉèÖÃ¼üÅÌÊÂ¼þ¼àÌý¶ÔÏó
-			kb.setEventListener(lc);
+        try {
+            TiI2CMaster i2cm0 = TiI2CMaster.open(0);
+            // I2Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ó¶¨£ï¿½ï¿½ï¿½Ä»ï¿½ï¿½Ö·ï¿½ï¿½0x3C
+            TiOLED_UG2864 oled = new TiOLED_UG2864(i2cm0, 0x3c);
+            // ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            oled.turnOn();
+            oled.clear();
+            // ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½
+            oled.print(0, 0, "Press me.");
+            System.out.println("Press me");
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            KEYListener lc = new KEYListener(oled);
+            // ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½
+            TiKeyboard kb = TiKeyboard.getInstance();
+            // ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            kb.setEventListener(lc);
 
-			while (true) {
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+            while (true) {
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

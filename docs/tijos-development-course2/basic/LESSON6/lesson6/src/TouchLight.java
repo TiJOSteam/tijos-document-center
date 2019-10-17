@@ -9,89 +9,87 @@ import tijos.framework.transducer.relay.TiRelay1CH;
 import tijos.framework.util.Delay;
 
 /**
- * ¼àÌýÀà
- * 
- * @author tijos
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  *
+ * @author tijos
  */
 class TouchListener implements ITiButtonEventListener {
-	boolean _isOnPressed = false;
+    boolean _isOnPressed = false;
 
-	@Override
-	public void onPressed(TiButton arg0) {
-		synchronized (this) {
-			// ÖÃ°´ÏÂ±êÖ¾
-			this._isOnPressed = true;
-		}
-	}
+    @Override
+    public void onPressed(TiButton arg0) {
+        synchronized (this) {
+            // ï¿½Ã°ï¿½ï¿½Â±ï¿½Ö¾
+            this._isOnPressed = true;
+        }
+    }
 
-	@Override
-	public void onReleased(TiButton arg0) {
-		synchronized (this) {
-			// ÖÃÊÍ·Å±êÖ¾
-			this._isOnPressed = false;
-		}
-	}
+    @Override
+    public void onReleased(TiButton arg0) {
+        synchronized (this) {
+            // ï¿½ï¿½ï¿½Í·Å±ï¿½Ö¾
+            this._isOnPressed = false;
+        }
+    }
 
-	public boolean isPressed() {
-		boolean pressed = false;
-		synchronized (this) {
-			// ·µ»ØÖÃ°´ÏÂ±êÖ¾
-			pressed = this._isOnPressed;
-		}
-		return pressed;
-	}
+    public boolean isPressed() {
+        boolean pressed = false;
+        synchronized (this) {
+            // ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ï¿½Â±ï¿½Ö¾
+            pressed = this._isOnPressed;
+        }
+        return pressed;
+    }
 }
 
 /**
- * ¾²ÇÄÇÄµÄ¿ªµÆ£¬ÑÓÊ±´¥Ãþ¿ª¹Ø
- * 
- * @author tijos
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ÄµÄ¿ï¿½ï¿½Æ£ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  *
+ * @author tijos
  */
 public class TouchLight {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		try {
-			// GPIO×ÊÔ´·ÖÅä£¬GPIO0µÄPIN2ºÍPIN4½Å
-			TiGPIO gpio0 = TiGPIO.open(0, 2, 4);
-			// GPIO×ÊÔ´·ÖÅä£¬GPIO0µÄPIN4½Å
-			TiI2CMaster i2cm0 = TiI2CMaster.open(0);
-			// I2CÖ÷»ú×ÜÏß×ÊÔ´ÓëÆÁÄ»¶ÔÏó°ó¶¨£¬ÆÁÄ»µØÖ·£º0x3C
-			TiOLED_UG2864 oled = new TiOLED_UG2864(i2cm0, 0x3c);	
-			// ÆÁÄ»¿ªÆô²¢ÇåÆÁ
-			oled.turnOn();
-			oled.clear();
-			oled.print(0, 0, "TouchLight");
-			// GPIO×ÜÏß×ÊÔ´Óë¼ÌµçÆ÷¶ÔÏó°ó¶¨
-			TiRelay1CH relay = new TiRelay1CH(gpio0, 2);
-			// GPIO×ÜÏß×ÊÔ´Óë´¥Ãþ°´Å¥¶ÔÏó°ó¶¨£¬´¥·¢µçÆ½£º¸ßµçÆ½
-			TiButton touch = new TiButton(gpio0, 4, true);
-			// ´´½¨´¥Ãþ°´Å¥ÊÂ¼þ¼àÌýÕß
-			TouchListener lc = new TouchListener();
-			// ÉèÖÃ´¥Ãþ°´Å¥ÊÂ¼þ¼àÌýÕß
-			touch.setEventListener(lc);
-			// Ñ­»·¼ì²â
-			while (true) {
-				// ¼ì²âµ½°´Å¥°´ÏÂ
-				if (lc.isPressed()) {
-					// ´ò¿ª¼ÌµçÆ÷
-					relay.turnOn();
-					oled.print(2, 0, "Open switch");
-					// ÑÓÊ±10Ãë
-					Delay.msDelay(10*1000);
-				} else {
-					// ¹Ø±Õ¼ÌµçÆ÷
-					relay.turnOff();
-					oled.print(2, 0, "Close switch");
-				}
-				// ¼ì²â¼ä¸ô100ms
-				Delay.msDelay(100);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+        try {
+            // GPIOï¿½ï¿½Ô´ï¿½ï¿½ï¿½ä£¬GPIO0ï¿½ï¿½PIN2ï¿½ï¿½PIN4ï¿½ï¿½
+            TiGPIO gpio0 = TiGPIO.open(0, 2, 4);
+            // GPIOï¿½ï¿½Ô´ï¿½ï¿½ï¿½ä£¬GPIO0ï¿½ï¿½PIN4ï¿½ï¿½
+            TiI2CMaster i2cm0 = TiI2CMaster.open(0);
+            // I2Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ó¶¨£ï¿½ï¿½ï¿½Ä»ï¿½ï¿½Ö·ï¿½ï¿½0x3C
+            TiOLED_UG2864 oled = new TiOLED_UG2864(i2cm0, 0x3c);
+            // ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            oled.turnOn();
+            oled.clear();
+            oled.print(0, 0, "TouchLight");
+            // GPIOï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            TiRelay1CH relay = new TiRelay1CH(gpio0, 2);
+            // GPIOï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ë´¥ï¿½ï¿½ï¿½ï¿½Å¥ï¿½ï¿½ï¿½ï¿½ó¶¨£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ½ï¿½ï¿½ï¿½ßµï¿½Æ½
+            TiButton touch = new TiButton(gpio0, 4, true);
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¥ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            TouchListener lc = new TouchListener();
+            // ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ï¿½ï¿½Å¥ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            touch.setEventListener(lc);
+            // Ñ­ï¿½ï¿½ï¿½ï¿½ï¿½
+            while (true) {
+                // ï¿½ï¿½âµ½ï¿½ï¿½Å¥ï¿½ï¿½ï¿½ï¿½
+                if (lc.isPressed()) {
+                    // ï¿½ò¿ª¼Ìµï¿½ï¿½ï¿½
+                    relay.turnOn();
+                    oled.print(2, 0, "Open switch");
+                    // ï¿½ï¿½Ê±10ï¿½ï¿½
+                    Delay.msDelay(10 * 1000);
+                } else {
+                    // ï¿½Ø±Õ¼Ìµï¿½ï¿½ï¿½
+                    relay.turnOff();
+                    oled.print(2, 0, "Close switch");
+                }
+                // ï¿½ï¿½ï¿½ï¿½ï¿½100ms
+                Delay.msDelay(100);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

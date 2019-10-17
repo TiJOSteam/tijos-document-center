@@ -77,6 +77,7 @@ pages:
             - 标准JAVA的TCP/UDP/DNS网络: 'tijos-development-guide/java.net.md'
             - MQTT 客户端: 'tijos-development-guide/tijos.framework.networkcenter.mqtt.md'
             - CoAP 客户端: 'tijos-development-guide/tijos.framework.networkcenter.coap.md'
+            - LwM2M 客户端: 'tijos-development-guide/tijos.framework.networkcenter.lwm2m.md'
             - 网络时间协议客户端: 'tijos-development-guide/tijos.framework.networkcenter.ntp.md'
             - 网络管理中心: 'tijos-development-guide/tijos.framework.networkcenter.md'
             - WLAN无线网络管理: 'tijos-development-guide/tijos.framework.platform.wlan.md'
@@ -92,6 +93,7 @@ pages:
             - CRC校验码: 'tijos-development-guide/tijos.framework.util.crc.md'
             - JSON: 'tijos-development-guide/tijos.framework.util.json.md'
             - 日志输出: 'tijos-development-guide/tijos.framework.util.logging.md'
+            - 数据加解密: 'tijos-development-guide/tijos.security.crypto.md'
         - 'API参考':
             - TiJOS Java标准库支持: 'tijos-development-guide/tijos_java_standard_support.md'
             - TiJOS Framework: 'tijos-development-guide/tijos_framework_sdk.md'

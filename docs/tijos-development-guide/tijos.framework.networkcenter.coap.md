@@ -1,4 +1,4 @@
-# CoAP - 域名解析系统协议客户端
+# CoAP - CoAP协议协议客户端
 
 CoAP（Constrained Application Protocol）是专用于低资源硬件的物联网协议, 它是一种基于UDP的应用层协议, 支持URL方式访问,就像HTTP请求一样,支持GET,POST,PUT,DELETE等操作。
 

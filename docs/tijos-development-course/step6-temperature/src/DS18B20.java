@@ -14,54 +14,52 @@ import tijos.framework.util.Delay;
  * 当同一根总线上上挂有多个DIS18B20传感器时，需要先调用tijos.runtime.sensor.ds18b20.TiDS18B20类中的<code>enumeration</code>方法枚举总线上的设备,<br>
  * 然后再调用该类中的<code>select</code>方法选择要操作的传感器，最后再循环调用<code>measure</code>方法并调用<code>getTemperature</code>方法获取对应温度传感器的温度。
  * <p>
- * 
- * @author Jason
  *
+ * @author Jason
  */
 public class DS18B20 {
-	/**
-	 * 程序入口，由TiJOS调用
-	 * 
-	 * @param args
-	 *            入口参数， TiJOS中一直等于null
-	 */
-	public static void main(String[] args) {
-		try {
-			/*
-			 * 定义使用的TiOWMaster port
-			 */
-			int owPort0 = 0;
-			/*
-			 * 定义使用的TiOWMaster io
-			 */
-			int owIo0 = 0;
-			/*
-			 * 资源分配， 将owPort0与owIo0分配给TiOWMaster的对象ow0
-			 */
-			TiOWMaster ow0 = TiOWMaster.open(owPort0, owIo0);
-			/*
-			 * 资源绑定， 创建TiDS18B20对象ds18b20并将ow0和owIo0与其绑定
-			 */
-			TiDS18B20 ds18b20 = new TiDS18B20(ow0, owIo0);
-			/*
-			 * 资源使用， 选择只有单传感器模式 启动测量并获取温度数据
-			 */
-			ds18b20.selectSingle();
+    /**
+     * 程序入口，由TiJOS调用
+     *
+     * @param args 入口参数， TiJOS中一直等于null
+     */
+    public static void main(String[] args) {
+        try {
+            /*
+             * 定义使用的TiOWMaster port
+             */
+            int owPort0 = 0;
+            /*
+             * 定义使用的TiOWMaster io
+             */
+            int owIo0 = 0;
+            /*
+             * 资源分配， 将owPort0与owIo0分配给TiOWMaster的对象ow0
+             */
+            TiOWMaster ow0 = TiOWMaster.open(owPort0, owIo0);
+            /*
+             * 资源绑定， 创建TiDS18B20对象ds18b20并将ow0和owIo0与其绑定
+             */
+            TiDS18B20 ds18b20 = new TiDS18B20(ow0, owIo0);
+            /*
+             * 资源使用， 选择只有单传感器模式 启动测量并获取温度数据
+             */
+            ds18b20.selectSingle();
 
-			while (true) {
-				try {
-					ds18b20.measure();
-					double temperature = ds18b20.getTemperature();
-					System.out.println("Temperature = " + temperature + " C");
+            while (true) {
+                try {
+                    ds18b20.measure();
+                    double temperature = ds18b20.getTemperature();
+                    System.out.println("Temperature = " + temperature + " C");
 
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
 
-				Delay.msDelay(1000);
-			}
-		} catch (IOException ex) {
-			ex.printStackTrace();
-		}
-	}
+                Delay.msDelay(1000);
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
 }

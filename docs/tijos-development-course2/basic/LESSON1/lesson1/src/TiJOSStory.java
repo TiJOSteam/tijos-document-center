@@ -5,47 +5,46 @@ import tijos.framework.transducer.oled.TiOLED_UG2864;
 import tijos.framework.util.Delay;
 
 /**
- * TiJOSµÄ¹ÊÊÂ£¬ÆÁÄ»ÎÄ±¾¹ö¶¯ÏÔÊ¾
- * 
- * @author tijos
+ * TiJOSï¿½Ä¹ï¿½ï¿½Â£ï¿½ï¿½ï¿½Ä»ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾
  *
+ * @author tijos
  */
 public class TiJOSStory {
-	// µÚ1ÆÁ×Ö·û´®ÄÚÈÝ
-	static String screen1 = "Hi, i am TiJOS. " + "I'm an operating" + "system that can " + "be programmed in";
-	// µÚ2ÆÁ×Ö·û´®ÄÚÈÝ
-	static String screen2 = "java language.  " + "I'm trying to   " + "become a Android" + "in the Internet ";
-	// µÚ3ÆÁ×Ö·û´®ÄÚÈÝ
-	static String screen3 = "of things.";
+    // ï¿½ï¿½1ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    static String screen1 = "Hi, i am TiJOS. " + "I'm an operating" + "system that can " + "be programmed in";
+    // ï¿½ï¿½2ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    static String screen2 = "java language.  " + "I'm trying to   " + "become a Android" + "in the Internet ";
+    // ï¿½ï¿½3ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    static String screen3 = "of things.";
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		try {
-			// I2CÖ÷»ú×ÜÏß×ÊÔ´·ÖÅä£¬I2C PORT0
-			TiI2CMaster i2cm0 = TiI2CMaster.open(0);
-			// I2CÖ÷»ú×ÜÏß×ÊÔ´ÓëÆÁÄ»¶ÔÏó°ó¶¨£¬ÆÁÄ»µØÖ·£º0x3C
-			TiOLED_UG2864 oled = new TiOLED_UG2864(i2cm0, 0x3c);	
-			// ÆÁÄ»¿ªÆô²¢ÇåÆÁ
-			oled.turnOn();
-			oled.clear();
-			// Í¨¹ýÆÁÄ»Ñ­»·´òÓ¡
-			while (true) {
-				// ÏÔÊ¾µÚ1ÆÁÄÚÈÝ£¬µÈ´ý2ÃëºóÇåÆÁ
-				oled.output(screen1);
-				Delay.msDelay(2000);
-				oled.clear();
-				// ÏÔÊ¾µÚ2ÆÁÄÚÈÝ£¬µÈ´ý2ÃëºóÇåÆÁ
-				oled.output(screen2);
-				Delay.msDelay(2000);
-				oled.clear();
-				// ÏÔÊ¾µÚ3ÆÁÄÚÈÝ£¬µÈ´ý2ÃëºóÇåÆÁ
-				oled.output(screen3);
-				Delay.msDelay(2000);
-				oled.clear();
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+        try {
+            // I2Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ä£¬I2C PORT0
+            TiI2CMaster i2cm0 = TiI2CMaster.open(0);
+            // I2Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ó¶¨£ï¿½ï¿½ï¿½Ä»ï¿½ï¿½Ö·ï¿½ï¿½0x3C
+            TiOLED_UG2864 oled = new TiOLED_UG2864(i2cm0, 0x3c);
+            // ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            oled.turnOn();
+            oled.clear();
+            // Í¨ï¿½ï¿½ï¿½ï¿½Ä»Ñ­ï¿½ï¿½ï¿½ï¿½Ó¡
+            while (true) {
+                // ï¿½ï¿½Ê¾ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½ï¿½È´ï¿½2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                oled.output(screen1);
+                Delay.msDelay(2000);
+                oled.clear();
+                // ï¿½ï¿½Ê¾ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½ï¿½È´ï¿½2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                oled.output(screen2);
+                Delay.msDelay(2000);
+                oled.clear();
+                // ï¿½ï¿½Ê¾ï¿½ï¿½3ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½ï¿½È´ï¿½2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                oled.output(screen3);
+                Delay.msDelay(2000);
+                oled.clear();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

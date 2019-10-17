@@ -1,4 +1,4 @@
- 
+
 import tijos.framework.networkcenter.dns.TiDNS;
 import tijos.framework.platform.wlan.TiWiFi;
 import tijos.framework.networkcenter.mqtt.MqttClient;
@@ -11,144 +11,137 @@ import java.io.IOException;
 import tijos.framework.util.logging.Logger;
 
 /**
- * 
- * MQTT Client Àý³Ì, ÔÚÔËÐÐ´ËÀý³ÌÊ±ÇëÈ·±£MQTT ServerµØÖ·¼°ÓÃ»§ÃûÃÜÂëÕýÈ·
- * 
+ * MQTT Client ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½È·ï¿½ï¿½MQTT Serverï¿½ï¿½Ö·ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È·
+ *
  * @author TiJOS
  */
 
 /**
- * MQTT ÊÂ¼þ¼àÌý 
- * 
+ * MQTT ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ 
+ *
  */
-class MqttEventLister implements MqttClientListener
-{
-	
-	@Override
-	public void connectComplete(Object userContext, boolean reconnect) {
-		Logger.info("MqttEventLister","connectComplete");
-		
-	}
+class MqttEventLister implements MqttClientListener {
 
-	@Override
-	public void connectionLost(Object userContext) {
-		Logger.info("MqttEventLister","connectionLost");
-		
-	}
-	
-	@Override
-	public void onMqttConnectFailure(Object userContext, int cause) {
-		Logger.info("MqttEventLister","onMqttConnectFailure cause = " + cause);
-		
-	}
+    @Override
+    public void connectComplete(Object userContext, boolean reconnect) {
+        Logger.info("MqttEventLister", "connectComplete");
 
-	@Override
-	public void onMqttConnectSuccess(Object userContext) {
-		Logger.info("MqttEventLister","onMqttConnectSuccess");
-		
-	}
-	
+    }
 
-	@Override
-	public void messageArrived(Object userContext, String topic, byte[] payload) {
-		Logger.info("MqttEventLister","messageArrived topic = " + topic + new String(payload));
-		
-	}
+    @Override
+    public void connectionLost(Object userContext) {
+        Logger.info("MqttEventLister", "connectionLost");
 
-	@Override
-	public void publishCompleted(Object userContext, int msgId, String topic, int result) {
-		Logger.info("MqttEventLister","publishCompleted topic = " + topic + " result = " + result + "msgid = " + msgId);
-	
-	}
+    }
 
-	@Override
-	public void subscribeCompleted(Object userContext, int msgId,String topic, int result) {
-		Logger.info("MqttEventLister","subscribeCompleted topic = " + topic + " result " + result + "msgid = " + msgId);
-	
-	}
+    @Override
+    public void onMqttConnectFailure(Object userContext, int cause) {
+        Logger.info("MqttEventLister", "onMqttConnectFailure cause = " + cause);
 
-	@Override
-	public void unsubscribeCompleted(Object userContext, int msgId, String topic, int result) {
-		Logger.info("MqttEventLister","unsubscribeCompleted topic = " + topic + "result " + result + "msgid = " + msgId);
+    }
 
-	}
+    @Override
+    public void onMqttConnectSuccess(Object userContext) {
+        Logger.info("MqttEventLister", "onMqttConnectSuccess");
+
+    }
+
+
+    @Override
+    public void messageArrived(Object userContext, String topic, byte[] payload) {
+        Logger.info("MqttEventLister", "messageArrived topic = " + topic + new String(payload));
+
+    }
+
+    @Override
+    public void publishCompleted(Object userContext, int msgId, String topic, int result) {
+        Logger.info("MqttEventLister", "publishCompleted topic = " + topic + " result = " + result + "msgid = " + msgId);
+
+    }
+
+    @Override
+    public void subscribeCompleted(Object userContext, int msgId, String topic, int result) {
+        Logger.info("MqttEventLister", "subscribeCompleted topic = " + topic + " result " + result + "msgid = " + msgId);
+
+    }
+
+    @Override
+    public void unsubscribeCompleted(Object userContext, int msgId, String topic, int result) {
+        Logger.info("MqttEventLister", "unsubscribeCompleted topic = " + topic + "result " + result + "msgid = " + msgId);
+
+    }
 
 }
 
 public class MqttClientDemo {
 
-	public static void main(String args[]) {
-		
-		try{
-		//Æô¶¯WLAN¼°DNS
-		TiWiFi.getInstance().startup(10);
-		TiDNS.getInstance().startup();
-		}
-		catch(IOException ex)
-		{
-			ex.printStackTrace();
-			return ;
-		}
-		//MQTT Server µØÖ· 
-		final String broker       = "tcp://192.168.0.102:8885";
-		//MQTT Server ÓÃ»§Ãû
-        final String username     = "TiJOS";
-      //MQTT Server ÃÜÂë
-        final String password     = "tijos";
+    public static void main(String args[]) {
+
+        try {
+            //ï¿½ï¿½ï¿½ï¿½WLANï¿½ï¿½DNS
+            TiWiFi.getInstance().startup(10);
+            TiDNS.getInstance().startup();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return;
+        }
+        //MQTT Server ï¿½ï¿½Ö·
+        final String broker = "tcp://192.168.0.102:8885";
+        //MQTT Server ï¿½Ã»ï¿½ï¿½ï¿½
+        final String username = "TiJOS";
+        //MQTT Server ï¿½ï¿½ï¿½ï¿½
+        final String password = "tijos";
 
         //ClientID
-        final String clientId     = "mqtt_test_java_tijos";
-	        
-        	//MQTTÁ¬½ÓÉèÖÃ
-            MqttConnectOptions connOpts = new MqttConnectOptions();
-            connOpts.setUserName(username);
-            connOpts.setPassword(password);
-            //ÔÊÐí×Ô¶¯ÖØÐÂÁ¬½Ó
-            connOpts.setAutomaticReconnect(true);
+        final String clientId = "mqtt_test_java_tijos";
 
-            MqttClient mqttClient = new MqttClient(broker, clientId);
-       
-            int qos = 1;
+        //MQTTï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        MqttConnectOptions connOpts = new MqttConnectOptions();
+        connOpts.setUserName(username);
+        connOpts.setPassword(password);
+        //ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        connOpts.setAutomaticReconnect(true);
 
-	        try {
-	           
-	        	mqttClient.SetMqttClientListener(new MqttEventLister());
-	
-	        	//Á¬½ÓMQTT·þÎñÆ÷
-	            mqttClient.connect(connOpts, mqttClient);
-	            
-	            //Ö÷Ìâtopic
-	            String topic        = "topic2";
-	            String head         = "Message from TiJOS NO. ";
-	            
-	            //¶©ÔÄtopic
-	            int msgId = mqttClient.subscribe(topic, qos);
-	            Logger.info("MQTTClientDemo", "Subscribe to topic: " + topic + " msgid = " + msgId);
-	         
-	            int counter = 0;
-	            while(true)
-	            {
-	            	String content = head + counter;
-	            	//·¢²¼topic
-	            	msgId = mqttClient.publish(topic,content.getBytes(), qos, false);
-	                Logger.info("MQTTClientDemo", "Topic " + topic + "Publish message: " + content  + " msgid = " + msgId);
-	               
-	            	counter ++;
-	            	Thread.sleep(1000);
-	           }
+        MqttClient mqttClient = new MqttClient(broker, clientId);
 
-	        } catch(Exception ex) {
-	        	
-	            ex.printStackTrace(); 
-	        }
-	        finally
-	        {	
-	        	try {
-	        		//¹Ø±ÕMQTT Server 
-					mqttClient.close();
-				} catch (MqttException e) {
-					/*ignore*/
-				} 
-	        }
-	    }
+        int qos = 1;
+
+        try {
+
+            mqttClient.SetMqttClientListener(new MqttEventLister());
+
+            //ï¿½ï¿½ï¿½ï¿½MQTTï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            mqttClient.connect(connOpts, mqttClient);
+
+            //ï¿½ï¿½ï¿½ï¿½topic
+            String topic = "topic2";
+            String head = "Message from TiJOS NO. ";
+
+            //ï¿½ï¿½ï¿½ï¿½topic
+            int msgId = mqttClient.subscribe(topic, qos);
+            Logger.info("MQTTClientDemo", "Subscribe to topic: " + topic + " msgid = " + msgId);
+
+            int counter = 0;
+            while (true) {
+                String content = head + counter;
+                //ï¿½ï¿½ï¿½ï¿½topic
+                msgId = mqttClient.publish(topic, content.getBytes(), qos, false);
+                Logger.info("MQTTClientDemo", "Topic " + topic + "Publish message: " + content + " msgid = " + msgId);
+
+                counter++;
+                Thread.sleep(1000);
+            }
+
+        } catch (Exception ex) {
+
+            ex.printStackTrace();
+        } finally {
+            try {
+                //ï¿½Ø±ï¿½MQTT Server
+                mqttClient.close();
+            } catch (MqttException e) {
+                /*ignore*/
+            }
+        }
+    }
 }

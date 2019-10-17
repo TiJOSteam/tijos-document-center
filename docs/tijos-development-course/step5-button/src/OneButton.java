@@ -14,25 +14,24 @@ import tijos.framework.sensor.button.ITiButtonEventListener;
  * 2.如果实际应用中，需要较长时间来处理某事件，建议在新的线程中<br>
  * 处理。<br>
  * <p>
- * 
- * @author Andy
  *
+ * @author Andy
  */
 class OneButtonEventListener implements ITiButtonEventListener {
 
-	/**
-	 * 按键按下事件处理
-	 */
-	public void onPressed(TiButton arg0) {
-		System.out.println("onPressed" + "  time(us):" + arg0.getEventTime());
-	}
+    /**
+     * 按键按下事件处理
+     */
+    public void onPressed(TiButton arg0) {
+        System.out.println("onPressed" + "  time(us):" + arg0.getEventTime());
+    }
 
-	/**
-	 * 按键释放事件处理
-	 */
-	public void onReleased(TiButton arg0) {
-		System.out.println("onReleased" + "  time(us):" + arg0.getEventTime());
-	}
+    /**
+     * 按键释放事件处理
+     */
+    public void onReleased(TiButton arg0) {
+        System.out.println("onReleased" + "  time(us):" + arg0.getEventTime());
+    }
 }
 
 /**
@@ -42,48 +41,46 @@ class OneButtonEventListener implements ITiButtonEventListener {
  * 2.“资源绑定”，新创建TiButton对象，将其与1.中分配的GPIO对象以及指定pin绑定。<br>
  * 3.“资源使用”，向TiButton对象中设置事件监听对象，事件监听类需要继承TiButtonEventListener接口，根据发生的事件类型处理事件逻辑。<br>
  * <p>
- * 
- * @author Andy
  *
+ * @author Andy
  */
 public class OneButton {
-	/**
-	 * 程序入口，由TiJOS调用
-	 * 
-	 * @param args
-	 *            入口参数， TiJOS中一直等于null
-	 */
-	public static void main(String[] args) {
-		try {
-			/*
-			 * 定义使用的TiGPIO port
-			 */
-			int gpioPort0 = 0;
-			/*
-			 * 定义使用的TiGPIO pin
-			 */
-			int gpioPin0 = 0;
+    /**
+     * 程序入口，由TiJOS调用
+     *
+     * @param args 入口参数， TiJOS中一直等于null
+     */
+    public static void main(String[] args) {
+        try {
+            /*
+             * 定义使用的TiGPIO port
+             */
+            int gpioPort0 = 0;
+            /*
+             * 定义使用的TiGPIO pin
+             */
+            int gpioPin0 = 0;
 
-			/*
-			 * 资源分配， 将gpioPort0与gpioPin0分配给TiGPIO对象gpio0
-			 */
-			TiGPIO gpio0 = TiGPIO.open(gpioPort0, gpioPin0);
-			/*
-			 * 资源绑定， 创建TiButton对象buttonS1并将gpio0和gpioPin0与其绑定
-			 */
-			TiButton buttonS1 = new TiButton(gpio0, gpioPin0);
-			/*
-			 * 资源使用， 创建事件监听对象并设置事件监听 在事件监听中处理按键事件逻辑
-			 */
-			OneButtonEventListener lc = new OneButtonEventListener();
-			buttonS1.setEventListener(lc);
+            /*
+             * 资源分配， 将gpioPort0与gpioPin0分配给TiGPIO对象gpio0
+             */
+            TiGPIO gpio0 = TiGPIO.open(gpioPort0, gpioPin0);
+            /*
+             * 资源绑定， 创建TiButton对象buttonS1并将gpio0和gpioPin0与其绑定
+             */
+            TiButton buttonS1 = new TiButton(gpio0, gpioPin0);
+            /*
+             * 资源使用， 创建事件监听对象并设置事件监听 在事件监听中处理按键事件逻辑
+             */
+            OneButtonEventListener lc = new OneButtonEventListener();
+            buttonS1.setEventListener(lc);
 
-			while (true) {
-				Delay.msDelay(1000);
-			}
-		} catch (IOException ex) {
-			ex.printStackTrace();
-		}
-	}
+            while (true) {
+                Delay.msDelay(1000);
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
 
 }

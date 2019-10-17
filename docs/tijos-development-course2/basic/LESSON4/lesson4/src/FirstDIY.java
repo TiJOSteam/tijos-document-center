@@ -8,42 +8,41 @@ import tijos.framework.util.Delay;
 
 
 /**
- * DIYÎÂÊª¶È¼Æ£¬ÎÂÊª¶È²É¼¯
- * 
- * @author andy
+ * DIYï¿½ï¿½Êªï¿½È¼Æ£ï¿½ï¿½ï¿½Êªï¿½È²É¼ï¿½
  *
+ * @author andy
  */
 public class FirstDIY {
 
-	public static void main(String[] args) {
-		
-		try {
-			// GPIO×ÊÔ´·ÖÅä£¬GPIO0µÄPIN3½Å
-			TiGPIO gpio0 = TiGPIO.open(0, 3);
-			// I2CÖ÷»ú×ÜÏß×ÊÔ´·ÖÅä£¬I2C PORT0
-			TiI2CMaster i2cm0 = TiI2CMaster.open(0);
-			// GPIO×ÜÏß×ÊÔ´ÓëÎÂÊª¶È´«¸ÐÆ÷DHT11°ó¶¨
-			TiDHT dht11 = new TiDHT(gpio0, 3);
-			// I2CÖ÷»ú×ÜÏß×ÊÔ´ÓëÆÁÄ»¶ÔÏó°ó¶¨£¬ÆÁÄ»µØÖ·£º0x3C
-			TiOLED_UG2864 oled = new TiOLED_UG2864(i2cm0, 0x3c);
-			// ÆÁÄ»¿ªÆô²¢ÇåÆÁ
-			oled.turnOn();
-			oled.clear();
-			// ÏÔÊ¾±êÌâ
-			oled.print(0, 0, "My first DIY");
-			// Í¨¹ýÆÁÄ»Ñ­»·´òÓ¡
-			while (true) {
-				// ¿ªÆô²âÁ¿
-				dht11.measure();
-				// ÏÔÊ¾ÎÂÊª¶È
-				oled.print(2, 0, "TEMP: " + dht11.getTemperature() + "  C");
-				oled.print(3, 0, "HUMI: " + dht11.getHumidity() + "  %");
-				// µÈ´ý2Ãë
-				Delay.msDelay(2000);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+    public static void main(String[] args) {
+
+        try {
+            // GPIOï¿½ï¿½Ô´ï¿½ï¿½ï¿½ä£¬GPIO0ï¿½ï¿½PIN3ï¿½ï¿½
+            TiGPIO gpio0 = TiGPIO.open(0, 3);
+            // I2Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ä£¬I2C PORT0
+            TiI2CMaster i2cm0 = TiI2CMaster.open(0);
+            // GPIOï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½Êªï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½DHT11ï¿½ï¿½
+            TiDHT dht11 = new TiDHT(gpio0, 3);
+            // I2Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ó¶¨£ï¿½ï¿½ï¿½Ä»ï¿½ï¿½Ö·ï¿½ï¿½0x3C
+            TiOLED_UG2864 oled = new TiOLED_UG2864(i2cm0, 0x3c);
+            // ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            oled.turnOn();
+            oled.clear();
+            // ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½
+            oled.print(0, 0, "My first DIY");
+            // Í¨ï¿½ï¿½ï¿½ï¿½Ä»Ñ­ï¿½ï¿½ï¿½ï¿½Ó¡
+            while (true) {
+                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                dht11.measure();
+                // ï¿½ï¿½Ê¾ï¿½ï¿½Êªï¿½ï¿½
+                oled.print(2, 0, "TEMP: " + dht11.getTemperature() + "  C");
+                oled.print(3, 0, "HUMI: " + dht11.getHumidity() + "  %");
+                // ï¿½È´ï¿½2ï¿½ï¿½
+                Delay.msDelay(2000);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

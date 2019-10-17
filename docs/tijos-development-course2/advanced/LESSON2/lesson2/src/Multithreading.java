@@ -7,137 +7,134 @@ import tijos.framework.transducer.relay.TiRelay1CH;
 import tijos.framework.util.Delay;
 
 /**
- * Éù¿ØµÆÏß³Ì
- * 
- * @author tijos
+ * ï¿½ï¿½ï¿½Øµï¿½ï¿½ß³ï¿½
  *
+ * @author tijos
  */
 class LightThread extends Thread {
 
-	TiGPIO _gpio;
-	int _ctlPin;
-	TiADC _adc;
-	int _inChl;
+    TiGPIO _gpio;
+    int _ctlPin;
+    TiADC _adc;
+    int _inChl;
 
-	/**
-	 * ¹¹Ôì
-	 * 
-	 * @param gpio
-	 * @param ctlPin
-	 * @param adc
-	 * @param inChl
-	 */
-	public LightThread(TiGPIO gpio, int ctlPin, TiADC adc, int inChl) {
-		this._gpio = gpio;
-		this._ctlPin = ctlPin;
-		this._adc = adc;
-		this._inChl = inChl;
-	}
+    /**
+     * ï¿½ï¿½ï¿½ï¿½
+     *
+     * @param gpio
+     * @param ctlPin
+     * @param adc
+     * @param inChl
+     */
+    public LightThread(TiGPIO gpio, int ctlPin, TiADC adc, int inChl) {
+        this._gpio = gpio;
+        this._ctlPin = ctlPin;
+        this._adc = adc;
+        this._inChl = inChl;
+    }
 
-	public void run() {
+    public void run() {
 
-		System.out.println("LightThread running...");
+        System.out.println("LightThread running...");
 
-		try {
-			// GPIO×ÜÏß×ÊÔ´Óë¼ÌµçÆ÷¶ÔÏó°ó¶¨
-			TiRelay1CH relay = new TiRelay1CH(this._gpio, this._ctlPin);
-			// ÉèÖÃADC²Î¿¼µçÑ¹1.0V£¬Íâ²¿2±¶·ÖÑ¹
-			this._adc.setRefVoltageValue(1.0, 2);
-			// ¶¨Òå²É¼¯µçÑ¹±È½ÏãÐÖµÎª£º14.0ºÁ·ü
-			double threshold = 14.0;
-			// Ñ­»·¼ì²â
-			while (true) {
-				// ¼ì²âµ½°´Å¥°´ÏÂ
-				if (this._adc.getVoltageValue(this._inChl) * 1000 > threshold) {
-					// ´ò¿ª¼ÌµçÆ÷
-					relay.turnOn();
-					// ÑÓÊ±10Ãë
-					Delay.msDelay(10 * 1000);
-				} else {
-					// ¹Ø±Õ¼ÌµçÆ÷
-					relay.turnOff();
-				}
-				// ¼ì²â¼ä¸ô100ms
-				Delay.msDelay(100);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+        try {
+            // GPIOï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            TiRelay1CH relay = new TiRelay1CH(this._gpio, this._ctlPin);
+            // ï¿½ï¿½ï¿½ï¿½ADCï¿½Î¿ï¿½ï¿½ï¿½Ñ¹1.0Vï¿½ï¿½ï¿½â²¿2ï¿½ï¿½ï¿½ï¿½Ñ¹
+            this._adc.setRefVoltageValue(1.0, 2);
+            // ï¿½ï¿½ï¿½ï¿½É¼ï¿½ï¿½ï¿½Ñ¹ï¿½È½ï¿½ï¿½ï¿½ÖµÎªï¿½ï¿½14.0ï¿½ï¿½ï¿½ï¿½
+            double threshold = 14.0;
+            // Ñ­ï¿½ï¿½ï¿½ï¿½ï¿½
+            while (true) {
+                // ï¿½ï¿½âµ½ï¿½ï¿½Å¥ï¿½ï¿½ï¿½ï¿½
+                if (this._adc.getVoltageValue(this._inChl) * 1000 > threshold) {
+                    // ï¿½ò¿ª¼Ìµï¿½ï¿½ï¿½
+                    relay.turnOn();
+                    // ï¿½ï¿½Ê±10ï¿½ï¿½
+                    Delay.msDelay(10 * 1000);
+                } else {
+                    // ï¿½Ø±Õ¼Ìµï¿½ï¿½ï¿½
+                    relay.turnOff();
+                }
+                // ï¿½ï¿½ï¿½ï¿½ï¿½100ms
+                Delay.msDelay(100);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
 
 /**
- * ÎÂÊª¶È²É¼¯Ïß³Ì
- * 
- * @author tijos
+ * ï¿½ï¿½Êªï¿½È²É¼ï¿½ï¿½ß³ï¿½
  *
+ * @author tijos
  */
 class HumitureThread extends Thread {
 
-	TiGPIO _gpio;
-	int _dataPin;
+    TiGPIO _gpio;
+    int _dataPin;
 
-	/**
-	 * ¹¹Ôì
-	 * 
-	 * @param gpio
-	 * @param dataPin
-	 */
-	public HumitureThread(TiGPIO gpio, int dataPin) {
-		this._gpio = gpio;
-		this._dataPin = dataPin;
-	}
+    /**
+     * ï¿½ï¿½ï¿½ï¿½
+     *
+     * @param gpio
+     * @param dataPin
+     */
+    public HumitureThread(TiGPIO gpio, int dataPin) {
+        this._gpio = gpio;
+        this._dataPin = dataPin;
+    }
 
-	public void run() {
+    public void run() {
 
-		System.out.println("HumitureThread running...");
+        System.out.println("HumitureThread running...");
 
-		try {
-			// ´´½¨ÎÂÊª¶È´«¸ÐÆ÷¶ÔÏó
-			TiDHT dht11 = new TiDHT(this._gpio, this._dataPin);
-			while (true) {
-				// Æô¶¯²âÁ¿
-				dht11.measure();
-				// ½á¹û´òÓ¡
-				System.out.println("TEMP: " + dht11.getTemperature() + "  C");
-				System.out.println("HUMI: " + dht11.getHumidity() + "  %");
-				// ÑÓÊ±2Ãë
-				Delay.msDelay(2000);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+        try {
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êªï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            TiDHT dht11 = new TiDHT(this._gpio, this._dataPin);
+            while (true) {
+                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                dht11.measure();
+                // ï¿½ï¿½ï¿½ï¿½ï¿½Ó¡
+                System.out.println("TEMP: " + dht11.getTemperature() + "  C");
+                System.out.println("HUMI: " + dht11.getHumidity() + "  %");
+                // ï¿½ï¿½Ê±2ï¿½ï¿½
+                Delay.msDelay(2000);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
 
 /**
- * ÈÏÊ¶¶àÏß³Ì£¬Éù¿ØµÆÓëÎÂÊª¶È²É¼¯
- * 
- * @author tijos
+ * ï¿½ï¿½Ê¶ï¿½ï¿½ï¿½ß³Ì£ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½Êªï¿½È²É¼ï¿½
  *
+ * @author tijos
  */
 public class Multithreading {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		TiGPIO gpio0 = null;
-		TiADC adc0 = null;
-		try {
-			// GPIO×ÊÔ´·ÖÅä£¬GPIO0µÄPIN2ºÍPIN3½Å
-			gpio0 = TiGPIO.open(0, 2, 3);
-			// ADC×ÊÔ´·ÖÅä£¬ADC0µÄCH0Í¨µÀ
-			adc0 = TiADC.open(0, 0);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		// ´´½¨Éù¿ØµÆÏß³Ì¶ÔÏó
-		LightThread thread1 = new LightThread(gpio0, 2, adc0, 0);
-		// ´´½¨ÎÂÊª¶È²É¼¯Ïß³Ì¶ÔÏó
-		HumitureThread thread2 = new HumitureThread(gpio0, 3);
-		// Æô¶¯Á½¸öÏß³Ì
-		thread1.start();
-		thread2.start();
-		// µ±Ç°Ïß³ÌÍË³ö
-		System.out.println("MainThread exit.");
-	}
+        TiGPIO gpio0 = null;
+        TiADC adc0 = null;
+        try {
+            // GPIOï¿½ï¿½Ô´ï¿½ï¿½ï¿½ä£¬GPIO0ï¿½ï¿½PIN2ï¿½ï¿½PIN3ï¿½ï¿½
+            gpio0 = TiGPIO.open(0, 2, 3);
+            // ADCï¿½ï¿½Ô´ï¿½ï¿½ï¿½ä£¬ADC0ï¿½ï¿½CH0Í¨ï¿½ï¿½
+            adc0 = TiADC.open(0, 0);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½ß³Ì¶ï¿½ï¿½ï¿½
+        LightThread thread1 = new LightThread(gpio0, 2, adc0, 0);
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êªï¿½È²É¼ï¿½ï¿½ß³Ì¶ï¿½ï¿½ï¿½
+        HumitureThread thread2 = new HumitureThread(gpio0, 3);
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½
+        thread1.start();
+        thread2.start();
+        // ï¿½ï¿½Ç°ï¿½ß³ï¿½ï¿½Ë³ï¿½
+        System.out.println("MainThread exit.");
+    }
 }

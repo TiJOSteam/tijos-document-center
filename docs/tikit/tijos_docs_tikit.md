@@ -10,7 +10,7 @@ TiKit开发套件根据平台及应用领域的不同分为多个型号，目前
 
 2. 钛极小龟NB-IoT(1+1)版(TiKit-T800-STM32F103B) 标准版, 适用于意法半导体STM32F103系列芯片及移远BC95/BC28系列NB-IoT模组
 
-3. 钛极小龟NB-IoT(Open CPU)版(TiKit-T600-MTK2625) 标准版, 适用于联发科MT2625 NB-IoT系列芯片
+3. 钛极小龟NB-IoT(Open CPU)版(TiKit-T600-MTK2625A) 标准版, 适用于联发科MT2625 NB-IoT系列芯片
 
 更多不同平台及应用领域的开发套件在不断丰富中, 您可进入[钛极在线商城](https://shop423269048.taobao.com)购买相应的开发套件进行学习和开发。
 

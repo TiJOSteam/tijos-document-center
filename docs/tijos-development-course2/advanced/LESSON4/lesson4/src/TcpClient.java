@@ -8,71 +8,71 @@ import tijos.framework.platform.wlan.TiWiFi;
 
 public class TcpClient {
 
-	public static void main(String[] args) {
-		
-		
+    public static void main(String[] args) {
 
-		try {
-			// Æô¶¯Á¬½ÓWLAN, 10Ãë³¬Ê±
-			// WLANµÄÉèÖÃ¿ÉÍ¨¹ýTiDevManagerÅäÖÃ
-			TiWiFi.getInstance().startup(10);
 
-			// Æô¶¯DNS
-			TiDNS.getInstance().startup();
-		} catch (IOException ex) {
-			// ÍøÂçÁ¬½ÓÊ§°Ü
-			ex.printStackTrace();
-			return;
-		}
+        try {
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½WLAN, 10ï¿½ë³¬Ê±
+            // WLANï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½Í¨ï¿½ï¿½TiDevManagerï¿½ï¿½ï¿½ï¿½
+            TiWiFi.getInstance().startup(10);
 
-		// TCP·þÎñÆ÷IP¼°¶Ë¿ÚºÅ
-		String host = "192.168.0.113";
-		int port = 8080;
-		Socket client = null;
+            // ï¿½ï¿½ï¿½ï¿½DNS
+            TiDNS.getInstance().startup();
+        } catch (IOException ex) {
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½
+            ex.printStackTrace();
+            return;
+        }
 
-		try {
-			// ÓÃTCPÁ¬½Óµ½·þÎñÆ÷
-			client = new Socket(host, port);
-			System.out.print("Connect : " + client.getRemoteSocketAddress());
+        // TCPï¿½ï¿½ï¿½ï¿½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿Úºï¿½
+        String host = "192.168.0.113";
+        int port = 8080;
+        Socket client = null;
 
-			OutputStream output = client.getOutputStream();
+        try {
+            // ï¿½ï¿½TCPï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            client = new Socket(host, port);
+            System.out.print("Connect : " + client.getRemoteSocketAddress());
 
-			// ·¢ËÍÊý¾Ýµ½TCP·þÎñÆ÷
-			output.write("Hello, this is client".getBytes());
-			output.write("\r\n".getBytes());
-			output.flush();
+            OutputStream output = client.getOutputStream();
 
-			// ´Ó·þÎñÆ÷»ñÈ¡Ô¶³ÌÊý¾Ý
-			InputStream input = client.getInputStream();
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½TCPï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            output.write("Hello, this is client".getBytes());
+            output.write("\r\n".getBytes());
+            output.flush();
 
-			byte[] buffer = new byte[1024];
-			while (true) {
-				int len = -1;
-				len = input.read(buffer);
+            // ï¿½Ó·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            InputStream input = client.getInputStream();
 
-				if (len > 0) {
-					
-					//´òÓ¡Êä³ö½ÓÊÕµ½µÄÄÚÈÝ
-					System.out.println("Message form server:" + new String(buffer, 0, len));
-					
-					// ·¢ËÍÊý¾Ýµ½TCP·þÎñÆ÷
-					output.write("Message form client:".getBytes());
-					//·¢ËÍ½ÓÊÕµÄÊý¾Ý¸ø·þÎñÆ÷
-					output.write(buffer, 0, len);
-					//·¢ËÍ»»ÐÐ·û¸ø·þÎñÆ÷
-					output.write("\r\n".getBytes());
-					output.flush();
-				}
-			}
-		} catch (IOException e) {
+            byte[] buffer = new byte[1024];
+            while (true) {
+                int len = -1;
+                len = input.read(buffer);
 
-			e.printStackTrace();
-		} finally {
-			try {
-				client.close();
-			} catch (IOException e) {
-				/* ignore */}
-		}
+                if (len > 0) {
 
-	}
+                    //ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                    System.out.println("Message form server:" + new String(buffer, 0, len));
+
+                    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½TCPï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                    output.write("Message form client:".getBytes());
+                    //ï¿½ï¿½ï¿½Í½ï¿½ï¿½Õµï¿½ï¿½ï¿½ï¿½Ý¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                    output.write(buffer, 0, len);
+                    //ï¿½ï¿½ï¿½Í»ï¿½ï¿½Ð·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                    output.write("\r\n".getBytes());
+                    output.flush();
+                }
+            }
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        } finally {
+            try {
+                client.close();
+            } catch (IOException e) {
+                /* ignore */
+            }
+        }
+
+    }
 }

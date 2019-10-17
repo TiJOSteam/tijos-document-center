@@ -4,35 +4,34 @@ import tijos.framework.appcenter.TiAPP;
 import tijos.framework.appcenter.TiAPPManager;
 
 /**
- * ÈÏÊ¶¶àÓ¦ÓÃ£¬Ò»»ú¶àÓÃÓëÓ¦ÓÃ¼äµ÷ÓÃ£¬Ö÷Ó¦ÓÃ³ÌĞò
- * 
- * @author tijos
+ * ï¿½ï¿½Ê¶ï¿½ï¿½Ó¦ï¿½Ã£ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Ã¼ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½Ó¦ï¿½Ã³ï¿½ï¿½ï¿½
  *
+ * @author tijos
  */
 public class mainAPP {
 
-	public static void main(String[] args) {
-		// »ñÈ¡Ó¦ÓÃ¹ÜÀíÆ÷ÊµÀı
-		TiAPPManager mgr = TiAPPManager.getInstance();
-		try {
-			TiAPP app = null;
-			// Ã¶¾ÙÒòÓ¦ÓÃÁĞ±í
-			TiAPP[] list = mgr.enumerate();
-			// Ñ­»·´òÓ¡Ó¦ÓÃIDºÍÓ¦ÓÃÃû×Ö
-			for (int i = 0; i < list.length; i++) {
-				System.out.println("APP ID:" + list[i].getId() + "  APP name:" + list[i].getName());
-				// Èç¹ûÕÒµ½Ãû×ÖÎªAPP1µÄÓ¦ÓÃ£¬±£´æÓ¦ÓÃÊµÀı
-				if (list[i].getName().equals("lesson1-APP1")) {
-					app = list[i];
-				}
-			}
-			// ÒÑ¾­ÕÒAPP1£¬Á¢¼´Ö´ĞĞAPP1£¬µ±Ç°Ó¦ÓÃÍË³ö
-			if (app != null) {
-				app.execute(true, "P1 P2 P3 P4");
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+    public static void main(String[] args) {
+        // ï¿½ï¿½È¡Ó¦ï¿½Ã¹ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½
+        TiAPPManager mgr = TiAPPManager.getInstance();
+        try {
+            TiAPP app = null;
+            // Ã¶ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½Ğ±ï¿½
+            TiAPP[] list = mgr.enumerate();
+            // Ñ­ï¿½ï¿½ï¿½ï¿½Ó¡Ó¦ï¿½ï¿½IDï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            for (int i = 0; i < list.length; i++) {
+                System.out.println("APP ID:" + list[i].getId() + "  APP name:" + list[i].getName());
+                // ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½ÎªAPP1ï¿½ï¿½Ó¦ï¿½Ã£ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½Êµï¿½ï¿½
+                if (list[i].getName().equals("lesson1-APP1")) {
+                    app = list[i];
+                }
+            }
+            // ï¿½Ñ¾ï¿½ï¿½ï¿½APP1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½APP1ï¿½ï¿½ï¿½ï¿½Ç°Ó¦ï¿½ï¿½ï¿½Ë³ï¿½
+            if (app != null) {
+                app.execute(true, "P1 P2 P3 P4");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

@@ -1,17 +1,16 @@
 
 /**
- * хой╤╤Юс╕сцё╛р╩╩З╤ЮсцсКс╕сц╪Д╣Всцё╛с╕сцЁлпР2
- * 
- * @author tijos
+ * О©╫О©╫й╤О©╫О©╫с╕О©╫цёО©╫р╩О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫с╕О©╫ц╪О©╫О©╫О©╫цёО©╫с╕О©╫цЁО©╫О©╫О©╫2
  *
+ * @author tijos
  */
 public class APP2 {
 
-	public static void main(String[] args) {
-		System.out.println("Hi, i am APP2:");
-		for (int i = 0; i < args.length; i++) {
-			System.out.println(args[i]);
-		}
-	}
+    public static void main(String[] args) {
+        System.out.println("Hi, i am APP2:");
+        for (int i = 0; i < args.length; i++) {
+            System.out.println(args[i]);
+        }
+    }
 
 }

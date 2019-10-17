@@ -8,55 +8,54 @@ import tijos.framework.transducer.relay.TiRelay1CH;
 import tijos.framework.util.Delay;
 
 /**
- * ¿ÈÒ»ÉùµÆÁÁÁË£¬ÑÓÊ±Éù¿Ø¿ª¹Ø
- * 
- * @author tijos
+ * ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ø¿ï¿½ï¿½ï¿½
  *
+ * @author tijos
  */
 public class VoiceLight {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		try {
-			// GPIO×ÊÔ´·ÖÅä£¬GPIO0µÄPIN2ºÍPIN4½Å
-			TiGPIO gpio0 = TiGPIO.open(0, 2, 4);
-			// GPIO×ÊÔ´·ÖÅä£¬GPIO0µÄPIN4½Å
-			TiI2CMaster i2cm0 = TiI2CMaster.open(0);
-			// I2CÖ÷»ú×ÜÏß×ÊÔ´ÓëÆÁÄ»¶ÔÏó°ó¶¨£¬ÆÁÄ»µØÖ·£º0x3C
-			TiOLED_UG2864 oled = new TiOLED_UG2864(i2cm0, 0x3c);	
-			// ÆÁÄ»¿ªÆô²¢ÇåÆÁ
-			oled.turnOn();
-			oled.clear();
-		    oled.print(0, 0, "VoiceLight");
+        try {
+            // GPIOï¿½ï¿½Ô´ï¿½ï¿½ï¿½ä£¬GPIO0ï¿½ï¿½PIN2ï¿½ï¿½PIN4ï¿½ï¿½
+            TiGPIO gpio0 = TiGPIO.open(0, 2, 4);
+            // GPIOï¿½ï¿½Ô´ï¿½ï¿½ï¿½ä£¬GPIO0ï¿½ï¿½PIN4ï¿½ï¿½
+            TiI2CMaster i2cm0 = TiI2CMaster.open(0);
+            // I2Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ó¶¨£ï¿½ï¿½ï¿½Ä»ï¿½ï¿½Ö·ï¿½ï¿½0x3C
+            TiOLED_UG2864 oled = new TiOLED_UG2864(i2cm0, 0x3c);
+            // ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            oled.turnOn();
+            oled.clear();
+            oled.print(0, 0, "VoiceLight");
 
-			// ADC×ÊÔ´·ÖÅä£¬ADC0µÄCH0Í¨µÀ
-			TiADC adc0 = TiADC.open(0, 0);
-			// GPIO×ÜÏß×ÊÔ´Óë¼ÌµçÆ÷¶ÔÏó°ó¶¨
-			TiRelay1CH relay = new TiRelay1CH(gpio0, 2);
-			// ÉèÖÃADC²Î¿¼µçÑ¹1.0V£¬Íâ²¿2±¶·ÖÑ¹
-			adc0.setRefVoltageValue(1.0, 2);
-			// ¶¨Òå²É¼¯µçÑ¹±È½ÏãÐÖµ:Ä¿Ç°Îª15.0ºÁ·ü£¬ÐèÒª¸ù¾ÝÊµ¼ÊÇé¿öµ÷Õû¡£
-			double threshold = 15.0;
-			// Ñ­»·¼ì²â
-			while (true) {
-				// ¼ì²âµ½°´Å¥°´ÏÂ
-				if (adc0.getVoltageValue(0) * 1000 > threshold) {
-					// ´ò¿ª¼ÌµçÆ÷
-					relay.turnOn();
-					// ÑÓÊ±10Ãë
-					oled.print(2, 0, "Open switch");
-					Delay.msDelay(10 * 1000);
-				} else {
-					// ¹Ø±Õ¼ÌµçÆ÷
-					relay.turnOff();
-					oled.print(2, 0, "Close switch");
-				}
-				// ¼ì²â¼ä¸ô100ms
-				Delay.msDelay(100);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+            // ADCï¿½ï¿½Ô´ï¿½ï¿½ï¿½ä£¬ADC0ï¿½ï¿½CH0Í¨ï¿½ï¿½
+            TiADC adc0 = TiADC.open(0, 0);
+            // GPIOï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            TiRelay1CH relay = new TiRelay1CH(gpio0, 2);
+            // ï¿½ï¿½ï¿½ï¿½ADCï¿½Î¿ï¿½ï¿½ï¿½Ñ¹1.0Vï¿½ï¿½ï¿½â²¿2ï¿½ï¿½ï¿½ï¿½Ñ¹
+            adc0.setRefVoltageValue(1.0, 2);
+            // ï¿½ï¿½ï¿½ï¿½É¼ï¿½ï¿½ï¿½Ñ¹ï¿½È½ï¿½ï¿½ï¿½Öµ:Ä¿Ç°Îª15.0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            double threshold = 15.0;
+            // Ñ­ï¿½ï¿½ï¿½ï¿½ï¿½
+            while (true) {
+                // ï¿½ï¿½âµ½ï¿½ï¿½Å¥ï¿½ï¿½ï¿½ï¿½
+                if (adc0.getVoltageValue(0) * 1000 > threshold) {
+                    // ï¿½ò¿ª¼Ìµï¿½ï¿½ï¿½
+                    relay.turnOn();
+                    // ï¿½ï¿½Ê±10ï¿½ï¿½
+                    oled.print(2, 0, "Open switch");
+                    Delay.msDelay(10 * 1000);
+                } else {
+                    // ï¿½Ø±Õ¼Ìµï¿½ï¿½ï¿½
+                    relay.turnOff();
+                    oled.print(2, 0, "Close switch");
+                }
+                // ï¿½ï¿½ï¿½ï¿½ï¿½100ms
+                Delay.msDelay(100);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

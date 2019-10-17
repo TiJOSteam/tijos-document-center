@@ -17,245 +17,239 @@ import tijos.framework.transducer.relay.TiRelay1CH;
 import tijos.framework.util.Delay;
 
 /**
- * WiFi SmartConfigÏß³ÌÀà
- * 
- * @author tijos
+ * WiFi SmartConfigï¿½ß³ï¿½ï¿½ï¿½
  *
+ * @author tijos
  */
 class WiFiSCThread implements Runnable {
-	TiOLED_UG2864 _oled;
+    TiOLED_UG2864 _oled;
 
-	// ¹¹Ôì
-	public WiFiSCThread(TiOLED_UG2864 oled) {
-		this._oled = oled;
-	}
+    // ï¿½ï¿½ï¿½ï¿½
+    public WiFiSCThread(TiOLED_UG2864 oled) {
+        this._oled = oled;
+    }
 
-	@Override
-	public void run() {
+    @Override
+    public void run() {
 
-		try {
-			// ÏÔÊ¾SmartConfigÆô¶¯ÐÅÏ¢
-			this._oled.print(3, 0, "Wi-Fi SC startup ");
-			// Æô¶¯SmartConfig 30Ãë³¬Ê±
-			TiWiFi.getInstance().smartConfig(30);
-			// ÏÔÊ¾³É¹¦ÐÅÏ¢
-			this._oled.print(3, 0, "Wi-Fi SC success");
-		} catch (IOException e) {
-			try {
-				// ÏÔÊ¾Ê§°ÜÐÅÏ¢
-				this._oled.print(3, 0, "Wi-Fi SC fail   ");
-			} catch (IOException e1) {
-			}
-		}
-	}
+        try {
+            // ï¿½ï¿½Ê¾SmartConfigï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+            this._oled.print(3, 0, "Wi-Fi SC startup ");
+            // ï¿½ï¿½ï¿½ï¿½SmartConfig 30ï¿½ë³¬Ê±
+            TiWiFi.getInstance().smartConfig(30);
+            // ï¿½ï¿½Ê¾ï¿½É¹ï¿½ï¿½ï¿½Ï¢
+            this._oled.print(3, 0, "Wi-Fi SC success");
+        } catch (IOException e) {
+            try {
+                // ï¿½ï¿½Ê¾Ê§ï¿½ï¿½ï¿½ï¿½Ï¢
+                this._oled.print(3, 0, "Wi-Fi SC fail   ");
+            } catch (IOException e1) {
+            }
+        }
+    }
 
 }
 
 /**
- * MICÄ£ÄâÐÅºÅ²É¼¯Ïß³ÌÀà
- * 
- * @author tijos
+ * MICÄ£ï¿½ï¿½ï¿½ÅºÅ²É¼ï¿½ï¿½ß³ï¿½ï¿½ï¿½
  *
+ * @author tijos
  */
 class EMICThread implements Runnable {
-	TiADC _adc;
-	TiOLED_UG2864 _oled;
+    TiADC _adc;
+    TiOLED_UG2864 _oled;
 
-	// ¹¹Ôì
-	public EMICThread(TiADC adc, TiOLED_UG2864 oled) {
-		this._adc = adc;
-		this._oled = oled;
-	}
+    // ï¿½ï¿½ï¿½ï¿½
+    public EMICThread(TiADC adc, TiOLED_UG2864 oled) {
+        this._adc = adc;
+        this._oled = oled;
+    }
 
-	@Override
-	public void run() {
+    @Override
+    public void run() {
 
-		try {
-			while (true) {
-				// »ñÈ¡ßäÍ·(MIC)µçÑ¹
-				int val = this._adc.getRawValue(0);
-				// ÏÔÊ¾ßäÍ·(MIC)µçÑ¹
-				this._oled.print(2, 0, "MIC: " + val + "    ");
-				Delay.msDelay(50);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+        try {
+            while (true) {
+                // ï¿½ï¿½È¡ï¿½ï¿½Í·(MIC)ï¿½ï¿½Ñ¹
+                int val = this._adc.getRawValue(0);
+                // ï¿½ï¿½Ê¾ï¿½ï¿½Í·(MIC)ï¿½ï¿½Ñ¹
+                this._oled.print(2, 0, "MIC: " + val + "    ");
+                Delay.msDelay(50);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
 
 /**
- * ¼üÅÌ¼àÌýÀà
- * 
- * @author tijos
+ * ï¿½ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ï¿½ï¿½
  *
+ * @author tijos
  */
 class KeyboardListener implements ITiKeyboardListener {
-	TiOLED_UG2864 _oled;
-	Thread _thread;
+    TiOLED_UG2864 _oled;
+    Thread _thread;
 
-	// ¹¹Ôì
-	public KeyboardListener(TiOLED_UG2864 oled) {
-		this._oled = oled;
-	}
+    // ï¿½ï¿½ï¿½ï¿½
+    public KeyboardListener(TiOLED_UG2864 oled) {
+        this._oled = oled;
+    }
 
-	@Override
-	public void onPressed(int arg0, long arg1) {
+    @Override
+    public void onPressed(int arg0, long arg1) {
 
-	}
+    }
 
-	@Override
-	public void onReleased(int arg0, long arg1) {
-		// È·±£SmartConfigÏß³Ì»¹Î´´´½¨
-		if (this._thread != null && this._thread.isAlive()) {
-			return;
-		}
-		// ´´½¨SmartConfigÏß³Ì²¢Æô¶¯
-		this._thread = new Thread(new WiFiSCThread(this._oled));
-		this._thread.start();
-	}
+    @Override
+    public void onReleased(int arg0, long arg1) {
+        // È·ï¿½ï¿½SmartConfigï¿½ß³Ì»ï¿½Î´ï¿½ï¿½ï¿½ï¿½
+        if (this._thread != null && this._thread.isAlive()) {
+            return;
+        }
+        // ï¿½ï¿½ï¿½ï¿½SmartConfigï¿½ß³Ì²ï¿½ï¿½ï¿½ï¿½ï¿½
+        this._thread = new Thread(new WiFiSCThread(this._oled));
+        this._thread.start();
+    }
 
 }
 
 /**
- * ºìÍâ½âÂë¼àÌýÀà
- * 
- * @author tijos
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  *
+ * @author tijos
  */
 class IRDecodeListener implements ITiVS1838BNECEventListener {
-	TiOLED_UG2864 _oled;
+    TiOLED_UG2864 _oled;
 
-	// ¹¹Ôì
-	public IRDecodeListener(TiOLED_UG2864 oled) {
-		this._oled = oled;
-	}
+    // ï¿½ï¿½ï¿½ï¿½
+    public IRDecodeListener(TiOLED_UG2864 oled) {
+        this._oled = oled;
+    }
 
-	@Override
-	public void cmdReceived(TiVS1838BNEC arg0) {
-		try {
-			// ÏÔÊ¾ºìÍâ½âÂëÖµ
-			this._oled.print(3, 0, "IR: " + arg0.getAddress() + " - " + arg0.getCommand() + "      ");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+    @Override
+    public void cmdReceived(TiVS1838BNEC arg0) {
+        try {
+            // ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+            this._oled.print(3, 0, "IR: " + arg0.getAddress() + " - " + arg0.getCommand() + "      ");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-	@Override
-	public void cmdRepeat(TiVS1838BNEC arg0) {
-	}
+    @Override
+    public void cmdRepeat(TiVS1838BNEC arg0) {
+    }
 
 }
 
 /**
- * ´¥Ãþ¼àÌýÀà
- * 
- * @author tijos
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  *
+ * @author tijos
  */
 class TouchListener implements ITiButtonEventListener {
-	TiRelay1CH _relay;
+    TiRelay1CH _relay;
 
-	// ¹¹Ôì
-	public TouchListener(TiRelay1CH relay) {
-		this._relay = relay;
-	}
+    // ï¿½ï¿½ï¿½ï¿½
+    public TouchListener(TiRelay1CH relay) {
+        this._relay = relay;
+    }
 
-	@Override
-	public void onPressed(TiButton arg0) {
-		try {
-			// ¼ÌµçÆ÷´ò¿ª
-			this._relay.turnOn();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+    @Override
+    public void onPressed(TiButton arg0) {
+        try {
+            // ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½
+            this._relay.turnOn();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-	@Override
-	public void onReleased(TiButton arg0) {
-		try {
-			// ¼ÌµçÆ÷¹Ø±Õ
-			this._relay.turnOff();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+    @Override
+    public void onReleased(TiButton arg0) {
+        try {
+            // ï¿½Ìµï¿½ï¿½ï¿½ï¿½Ø±ï¿½
+            this._relay.turnOff();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
 
 /**
- * ¿ª·¢°åÈ«¹¦ÄÜ²âÊÔ
- * 
- * @author tijos
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½Ü²ï¿½ï¿½ï¿½
  *
+ * @author tijos
  */
 public class TiKitTest {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		try {
-			/* ---×ÊÔ´·ÖÅä--- */
-			// GPIO×ÊÔ´·ÖÅä£¬GPIO0µÄPIN2/3/4/5½Å
-			TiGPIO gpio0 = TiGPIO.open(0, 2, 3, 4, 5);
-			// I2CÖ÷»ú×ÜÏß×ÊÔ´·ÖÅä£¬I2CM0
-			TiI2CMaster i2cm0 = TiI2CMaster.open(0);
-			// ADC×ÊÔ´·ÖÅä£¬ADC0µÄCH0Í¨µÀ
-			TiADC adc0 = TiADC.open(0, 0);
+        try {
+            /* ---ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½--- */
+            // GPIOï¿½ï¿½Ô´ï¿½ï¿½ï¿½ä£¬GPIO0ï¿½ï¿½PIN2/3/4/5ï¿½ï¿½
+            TiGPIO gpio0 = TiGPIO.open(0, 2, 3, 4, 5);
+            // I2Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ä£¬I2CM0
+            TiI2CMaster i2cm0 = TiI2CMaster.open(0);
+            // ADCï¿½ï¿½Ô´ï¿½ï¿½ï¿½ä£¬ADC0ï¿½ï¿½CH0Í¨ï¿½ï¿½
+            TiADC adc0 = TiADC.open(0, 0);
 
-			/* ---×ÊÔ´°ó¶¨--- */
-			// I2CÖ÷»ú×ÜÏß×ÊÔ´PORT0ÓëÆÁÄ»¶ÔÏó°ó¶¨£¬ÆÁÄ»µØÖ·£º0x3C
-			TiOLED_UG2864 oled = new TiOLED_UG2864(i2cm0, 0x3c);
-			// I2CÖ÷»ú×ÜÏß×ÊÔ´PORT0ÓëÕÕ¶È¼ÆBH1750¶ÔÏó°ó¶¨£¬Ä¬ÈÏµØÖ·£º0x23
-			TiBH1750 bh1750 = new TiBH1750(i2cm0);
-			// GPIO×ÜÏß×ÊÔ´PIN2Óë¼ÌµçÆ÷¶ÔÏó°ó¶¨
-			TiRelay1CH relay = new TiRelay1CH(gpio0, 2);
-			// GPIO×ÜÏß×ÊÔ´PIN3ÓëÎÂÊª¶È´«¸ÐÆ÷DHT11°ó¶¨
-			TiDHT dht11 = new TiDHT(gpio0, 3);
-			// GPIO×ÜÏß×ÊÔ´PIN4Óë´¥Ãþ°´Å¥¶ÔÏó°ó¶¨£¬´¥·¢µçÆ½£º¸ßµçÆ½
-			TiButton touch = new TiButton(gpio0, 4, true);
-			// GPIO×ÜÏß×ÊÔ´PIN5ÓëºìÍâ½âÂë¶ÔÏó°ó¶¨
-			TiVS1838BNEC vs1838b = new TiVS1838BNEC(gpio0, 5);
-			// »ñÈ¡¼üÅÌÊµÀý²¢ÉèÖÃ¼üÅÌÊÂ¼þ¼àÌý¶ÔÏó
-			TiKeyboard keyboard = TiKeyboard.getInstance();
-			keyboard.setEventListener(new KeyboardListener(oled));
-			// ÉèÖÃºìÍâ½âÂëÊÂ¼þ¼àÌý¶ÔÏó
-			vs1838b.setEventListener(new IRDecodeListener(oled));
-			// ÉèÖÃ´¥Ãþ°´Å¥ÊÂ¼þ¼àÌý¶ÔÏó
-			touch.setEventListener(new TouchListener(relay));
-			// ÉèÖÃADC²Î¿¼µçÑ¹¼°·ÖÑ¹±¶Êý
-			adc0.setRefVoltageValue(1.0, 2);
+            /* ---ï¿½ï¿½Ô´ï¿½ï¿½--- */
+            // I2Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´PORT0ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ó¶¨£ï¿½ï¿½ï¿½Ä»ï¿½ï¿½Ö·ï¿½ï¿½0x3C
+            TiOLED_UG2864 oled = new TiOLED_UG2864(i2cm0, 0x3c);
+            // I2Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´PORT0ï¿½ï¿½ï¿½Õ¶È¼ï¿½BH1750ï¿½ï¿½ï¿½ï¿½ó¶¨£ï¿½Ä¬ï¿½Ïµï¿½Ö·ï¿½ï¿½0x23
+            TiBH1750 bh1750 = new TiBH1750(i2cm0);
+            // GPIOï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´PIN2ï¿½ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            TiRelay1CH relay = new TiRelay1CH(gpio0, 2);
+            // GPIOï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´PIN3ï¿½ï¿½ï¿½ï¿½Êªï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½DHT11ï¿½ï¿½
+            TiDHT dht11 = new TiDHT(gpio0, 3);
+            // GPIOï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´PIN4ï¿½ë´¥ï¿½ï¿½ï¿½ï¿½Å¥ï¿½ï¿½ï¿½ï¿½ó¶¨£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ½ï¿½ï¿½ï¿½ßµï¿½Æ½
+            TiButton touch = new TiButton(gpio0, 4, true);
+            // GPIOï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´PIN5ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            TiVS1838BNEC vs1838b = new TiVS1838BNEC(gpio0, 5);
+            // ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            TiKeyboard keyboard = TiKeyboard.getInstance();
+            keyboard.setEventListener(new KeyboardListener(oled));
+            // ï¿½ï¿½ï¿½Ãºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            vs1838b.setEventListener(new IRDecodeListener(oled));
+            // ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ï¿½ï¿½Å¥ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            touch.setEventListener(new TouchListener(relay));
+            // ï¿½ï¿½ï¿½ï¿½ADCï¿½Î¿ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½
+            adc0.setRefVoltageValue(1.0, 2);
 
-			/* ---×ÊÔ´Ê¹ÓÃ--- */
-			// ÆÁÄ»¿ªÆô²¢ÇåÆÁ
-			oled.turnOn();
-			oled.clear();
-			oled.print(3, 0,"Welcomes YOU ! ");
-			System.out.println("Congratulations! The test routine runs successfully in TiJOS. ");
-			// ´´½¨MICÄ£ÄâµçÑ¹²É¼¯Ïß³Ì¶ÔÏó²¢Æô¶¯Ïß³Ì
-			Thread thread = new Thread(new EMICThread(adc0, oled));
-			thread.setDaemon(true);
-			thread.start();
-		
-			while (true) {
-				// Æô¶¯ÎÂÊª¶È²âÁ¿
-				dht11.measure();
-				// »ñÈ¡ÎÂÊª¶ÈÖµ
-				double temp = dht11.getTemperature();
-				double humi = dht11.getHumidity();
-				// »ñÈ¡¹âÕÕ¶ÈÖµ
-				int lux = bh1750.readLightLevel();
-				// ÏÔÊ¾ÎÂÊª¶È¼°¹âÕÕ¶È
-				oled.print(0, 0, "TH: " + temp + "C  " + humi + "%");
-				oled.print(1, 0, "LUX: " + lux + "    ");
-				
-				// µÈ´ý2Ãë
-				Delay.msDelay(2000);
-			}
+            /* ---ï¿½ï¿½Ô´Ê¹ï¿½ï¿½--- */
+            // ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            oled.turnOn();
+            oled.clear();
+            oled.print(3, 0, "Welcomes YOU ! ");
+            System.out.println("Congratulations! The test routine runs successfully in TiJOS. ");
+            // ï¿½ï¿½ï¿½ï¿½MICÄ£ï¿½ï¿½ï¿½Ñ¹ï¿½É¼ï¿½ï¿½ß³Ì¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½
+            Thread thread = new Thread(new EMICThread(adc0, oled));
+            thread.setDaemon(true);
+            thread.start();
 
-		} catch (IOException e) {
-			e.printStackTrace();
-		
-		}
-	}
+            while (true) {
+                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êªï¿½È²ï¿½ï¿½ï¿½
+                dht11.measure();
+                // ï¿½ï¿½È¡ï¿½ï¿½Êªï¿½ï¿½Öµ
+                double temp = dht11.getTemperature();
+                double humi = dht11.getHumidity();
+                // ï¿½ï¿½È¡ï¿½ï¿½ï¿½Õ¶ï¿½Öµ
+                int lux = bh1750.readLightLevel();
+                // ï¿½ï¿½Ê¾ï¿½ï¿½Êªï¿½È¼ï¿½ï¿½ï¿½ï¿½Õ¶ï¿½
+                oled.print(0, 0, "TH: " + temp + "C  " + humi + "%");
+                oled.print(1, 0, "LUX: " + lux + "    ");
+
+                // ï¿½È´ï¿½2ï¿½ï¿½
+                Delay.msDelay(2000);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
+    }
 
 }

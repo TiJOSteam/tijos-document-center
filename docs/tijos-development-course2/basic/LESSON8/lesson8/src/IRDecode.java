@@ -7,71 +7,69 @@ import tijos.framework.sensor.vs1838b.TiVS1838BNEC;
 import tijos.framework.transducer.oled.TiOLED_UG2864;
 
 /**
- * ¼àÌýÀà
- * 
- * @author tijos
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  *
+ * @author tijos
  */
 class IRDecodeListener implements ITiVS1838BNECEventListener {
-	TiOLED_UG2864 _oled;
+    TiOLED_UG2864 _oled;
 
-	// ¹¹Ôì
-	public IRDecodeListener(TiOLED_UG2864 oled) {
-		this._oled = oled;
-	}
+    // ï¿½ï¿½ï¿½ï¿½
+    public IRDecodeListener(TiOLED_UG2864 oled) {
+        this._oled = oled;
+    }
 
-	@Override
-	public void cmdReceived(TiVS1838BNEC arg0) {
-		try {
-			this._oled.print(2, 0, "IR: COMMAND=" + arg0.getCommand());
-			this._oled.print(3, 0, "IR: ADDRESS=" + arg0.getAddress());
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+    @Override
+    public void cmdReceived(TiVS1838BNEC arg0) {
+        try {
+            this._oled.print(2, 0, "IR: COMMAND=" + arg0.getCommand());
+            this._oled.print(3, 0, "IR: ADDRESS=" + arg0.getAddress());
 
-	@Override
-	    
-	public void cmdRepeat(TiVS1838BNEC arg0) {
-	}
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+
+    public void cmdRepeat(TiVS1838BNEC arg0) {
+    }
 
 }
 
 /**
- * ÈÏÊ¶ºìÍâÒ£¿ØÆ÷£¬ºìÍâ±à½âÂë
- * 
- * @author tijos
+ * ï¿½ï¿½Ê¶ï¿½ï¿½ï¿½ï¿½Ò£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  *
+ * @author tijos
  */
 public class IRDecode {
 
-	public static void main(String[] args) {
-		
-		try {
-			// GPIO×ÊÔ´·ÖÅä£¬GPIO0µÄPIN5½Å
-			TiGPIO gpio0 = TiGPIO.open(0, 5);
-			// I2CÖ÷»ú×ÜÏß×ÊÔ´·ÖÅä£¬I2C PORT0
-			TiI2CMaster i2cm0 = TiI2CMaster.open(0);
-			// I2CÖ÷»ú×ÜÏß×ÊÔ´ÓëÆÁÄ»¶ÔÏó°ó¶¨£¬ÆÁÄ»µØÖ·£º0x3C			
-			TiOLED_UG2864 oled = new TiOLED_UG2864(i2cm0, 0x3c);
-			// GPIO×ÜÏß×ÊÔ´ÓëºìÍâ½âÂë¶ÔÏó°ó¶¨
-			TiVS1838BNEC vs1838b = new TiVS1838BNEC(gpio0, 5);
-			// ÆÁÄ»¿ªÆô²¢ÇåÆÁ
-			oled.turnOn();
-			oled.clear();
-			// ÏÔÊ¾±êÌâ
-			oled.print(0, 0, "IRDecode.");
-			// ´´½¨ºìÍâ½âÂë¼àÌýÕß£¬²¢´«ÈëÆÁÄ»ÊµÀý
-			IRDecodeListener lc = new IRDecodeListener(oled);
-			// ÉèÖÃºìÍâ½âÂëÊÂ¼þ¼àÌýÕß
-			vs1838b.setEventListener(lc);
+    public static void main(String[] args) {
 
-			while (true) {
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+        try {
+            // GPIOï¿½ï¿½Ô´ï¿½ï¿½ï¿½ä£¬GPIO0ï¿½ï¿½PIN5ï¿½ï¿½
+            TiGPIO gpio0 = TiGPIO.open(0, 5);
+            // I2Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ä£¬I2C PORT0
+            TiI2CMaster i2cm0 = TiI2CMaster.open(0);
+            // I2Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ó¶¨£ï¿½ï¿½ï¿½Ä»ï¿½ï¿½Ö·ï¿½ï¿½0x3C
+            TiOLED_UG2864 oled = new TiOLED_UG2864(i2cm0, 0x3c);
+            // GPIOï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            TiVS1838BNEC vs1838b = new TiVS1838BNEC(gpio0, 5);
+            // ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            oled.turnOn();
+            oled.clear();
+            // ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½
+            oled.print(0, 0, "IRDecode.");
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä»Êµï¿½ï¿½
+            IRDecodeListener lc = new IRDecodeListener(oled);
+            // ï¿½ï¿½ï¿½Ãºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            vs1838b.setEventListener(lc);
+
+            while (true) {
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

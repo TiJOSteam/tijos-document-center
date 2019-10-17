@@ -5,44 +5,43 @@ import tijos.framework.sensor.bh1750.TiBH1750;
 import tijos.framework.transducer.oled.TiOLED_UG2864;
 import tijos.framework.util.Delay;
 
-    /**
-	 * ¹âÕÕ¶È²É¼¯£¬ÆÁÄ»ÏÔÊ¾
-	 * 
-	 * @author tijos
-	 *
-	 */
+/**
+ * ï¿½ï¿½ï¿½Õ¶È²É¼ï¿½ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½Ê¾
+ *
+ * @author tijos
+ */
 
 public class Illuminance {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		try {
-			// I2CÖ÷»ú×ÜÏß×ÊÔ´·ÖÅä£¬I2C PORT0
-			TiI2CMaster i2cm0 = TiI2CMaster.open(0);
-			// I2CÖ÷»ú×ÜÏß×ÊÔ´ÓëÆÁÄ»¶ÔÏó°ó¶¨£¬ÆÁÄ»µØÖ·£º0x3C
-			TiOLED_UG2864 oled = new TiOLED_UG2864(i2cm0, 0x3c);
-			// I2CÖ÷»ú×ÜÏß×ÊÔ´ÓëÕÕ¶È¼ÆBH1750¶ÔÏó°ó¶¨£¬Ä¬ÈÏµØÖ·£º0x23			
-			TiBH1750 bh1750 = new TiBH1750(i2cm0);
-			// ÆÁÄ»¿ªÆô²¢ÇåÆÁ
-			oled.turnOn();
-			oled.clear();
-			// ÏÔÊ¾±êÌâ
-			oled.print(0, 0, "Illuminamce test");
-			// Ñ­»·²É¼¯ÕÕ¶È²¢ÏÔÊ¾ºÍ´òÓ¡
-			while (true) {			
-				//»ñÈ¡¹âÕÕ¶ÈÖµ
-				int lux = bh1750.readLightLevel();
-                //ÈÕÖ¾´òÓ¡Êä³ö 
-				System.out.println("Light : " + lux + " lux");
-				//Òº¾§ÆÁÊä³ö
-				oled.print(2, 0, "Light : " + lux + " lux");
-				Delay.msDelay(1000);
-			}
+        try {
+            // I2Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ä£¬I2C PORT0
+            TiI2CMaster i2cm0 = TiI2CMaster.open(0);
+            // I2Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ó¶¨£ï¿½ï¿½ï¿½Ä»ï¿½ï¿½Ö·ï¿½ï¿½0x3C
+            TiOLED_UG2864 oled = new TiOLED_UG2864(i2cm0, 0x3c);
+            // I2Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½Õ¶È¼ï¿½BH1750ï¿½ï¿½ï¿½ï¿½ó¶¨£ï¿½Ä¬ï¿½Ïµï¿½Ö·ï¿½ï¿½0x23
+            TiBH1750 bh1750 = new TiBH1750(i2cm0);
+            // ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            oled.turnOn();
+            oled.clear();
+            // ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½
+            oled.print(0, 0, "Illuminamce test");
+            // Ñ­ï¿½ï¿½ï¿½É¼ï¿½ï¿½Õ¶È²ï¿½ï¿½ï¿½Ê¾ï¿½Í´ï¿½Ó¡
+            while (true) {
+                //ï¿½ï¿½È¡ï¿½ï¿½ï¿½Õ¶ï¿½Öµ
+                int lux = bh1750.readLightLevel();
+                //ï¿½ï¿½Ö¾ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½ 
+                System.out.println("Light : " + lux + " lux");
+                //Òºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                oled.print(2, 0, "Light : " + lux + " lux");
+                Delay.msDelay(1000);
+            }
 
-		} catch (IOException ex) {
-		
-			ex.printStackTrace();
-		}
-	}
+        } catch (IOException ex) {
+
+            ex.printStackTrace();
+        }
+    }
 
 }
