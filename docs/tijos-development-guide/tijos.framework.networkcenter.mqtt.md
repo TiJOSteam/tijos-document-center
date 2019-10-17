@@ -5,7 +5,7 @@ MQTT是一个物联网传输协议，它被设计用于轻量级的发布/订阅
 目前主流的物联云厂商均支持MQTT， 如Amazon, 百度云，阿里云等等， TiJOS 提供符合MQTT 3.1.1标准协议的MQTT Client, 可与所有支持MQTT 协议的服务器直接连接， 如百度物联云 <https://cloud.baidu.com/product/iot.html>  及 阿里物联云 <https://www.aliyun.com/product/iot>.
 
 ## Java包
-tijos.framework.networkcenter
+tijos.framework.networkcenter.mqtt
 
 TiJOS MQTT Client 包括如下类：
 

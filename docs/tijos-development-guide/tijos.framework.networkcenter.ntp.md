@@ -5,7 +5,7 @@ NTP是网络时间协议(Network Time Protocol)，它是用来同步网络中各
 TiJOS Framework提供NTPUDPClient来支持NTP协议， 方便运行TiJOS的设备可从网络中获得当前的准确时间， 此NTP实现来自 **org.apache.commons.net.ntp.NTPUDPClient**， 可参考相关资料获得更多信息。
 
 ## Java包
-tijos.framework.networkcenter
+tijos.framework.networkcenter.ntp
 
 调用过程如下所示：
 

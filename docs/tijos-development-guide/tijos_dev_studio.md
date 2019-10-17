@@ -26,16 +26,15 @@ TiStudio提供如下功能:
 
 - Windows 7及以上
 
-- Eclipse 4.6 (Mars) or later
+- Eclipse 4.6 (Mars) or later （请选择Eclipse IDE for Java EE Developers 或 Eclipse IDE for Java Developers 版本)
 
 - Java 6 or later
 
+Eclipse下载地址: http://www.eclipse.org/downloads/eclipse-packages/
 
 ### 安装过程
 
 ​   请参考《钛极OS(TiJOS)应用开发环境搭建》文档
-
-
 
 ## 创建工程
 
@@ -49,13 +48,17 @@ TiStudio提供如下功能:
 
 ![20170914094054](.\img\20170914094054.png)
 
-1. 在工程配置界面输入工程名并选择TiJOS SDK版本后点击Next按钮下一步进入Settings界面或者Finish按钮完成创建
+1. 在工程配置界面输入工程名称及描述并选择TiJOS SDK版本后点击Next按钮下一步进入Settings界面或者Finish按钮完成创建
 
 ![20170914094744](.\img\20170914094744.png)
 
-1. 如果进入Settings界面，配置保持默认点击Finish按钮完成创建即可。
+2. 进入Settings界面
 
    ![20170914095239](.\img\20170914095239.png)
+
+3. 如果可能用到钛极OS提供基本传感器驱动，如LED, BUTTON, OLED等，可通过Libraries选项加入“TiJOS Driver Library ClassPath Container", 也可在用到时通过Java Build Path 设置中加入也可，如下图所示
+
+	![1528160152630](.\img\1528160152630.png)
 
 ## 调试运行
 
@@ -87,7 +90,7 @@ TiStudio提供如下功能:
 
 ![20170914113234](.\img\20170925183601.png)
 
-如果Console中无法定位至代码中，也可通过点击菜单Ti-Dev --> Exception Query弹出异常查询窗口进行异常查询。在查询窗口中输入相关的错误编码并选择好工程后点击Query查询错误信息，点击Go跳转至具体具体源码位置中。
+如果Console中无法定位至代码中，也可通过点击菜单TiJOS --> Exception Query弹出异常查询窗口进行异常查询。在查询窗口中输入相关的错误编码并选择好工程后点击Query查询错误信息，点击Go跳转至具体具体源码位置中。
 
 ![20170914113837](.\img\20170914114708.png)
 
@@ -109,8 +112,15 @@ TiStudio提供如下功能:
 
 4. Run as --> TiJOS Application运行失败?
 
-   请检查TiDevManager中设备是否连接成功。
+   请检查TiDevManager中设备是否连接成功, 可进行手动连接。
 
 5. TiJOS LogCat不输出日志
 
-   请检查TiDevManager中是否打开端口，打开端口后日志输出恢复正常。如仍无法正常输出日志，请尝试重启Eclipse。
+   请检查TiDevManager中是否打开端口，打开端口后日志输出恢复正常。如仍无法正常输出日志，请尝试在TiDevManager中手动连接进行测试。
+
+6. 提示tijos.framework.sensor 或 tijos.framework.transducer 不存在
+   请在Java Build Path中的Library中加入“TiJOS Driver Library ClassPath Container"，如下图所示：
+   ![1528160152630](.\img\1528160152630.png)
+
+
+  

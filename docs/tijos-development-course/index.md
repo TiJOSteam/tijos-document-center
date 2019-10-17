@@ -20,41 +20,25 @@ Eclipse可在[http://www.eclipse.org/downloads/](http://www.eclipse.org/download
 
 ### 3、安装钛极OS的开发工具TiStudio插件
 
-TiStudio插件必须在Eclipse上在线安装，安装方式参见文档[TiStudio插件安装方法](http://dev.tijos.net/setup/tijos_application_devsuite_setup/)。
+TiStudio插件必须在Eclipse上在线安装，安装方式参见文档[TiStudio插件安装方法](../tijos-setup/tijos_application_devsuite_setup.md)。
 
 ### 4、钛极OS开发套件
 
-建议用户先购买我公司<钛极OS物联网开发套件 for ESP8266>,详细介绍: <http://www.tijos.net/product/TiKit/63.html>
+建议用户先购买我公司钛极小龟物联网开发套件系列,详细介绍: [钛极小龟物联网开发套件系列](../tikit/tijos_docs_tikit.md)
 
 淘宝搜索TiJOS即可[购买](https://shop423269048.taobao.com/)
 
 ![tikit-suite](.\img\TiKit-Suite.png)
 
-公司官网上有针对套件编写的《钛极OS(TiJOS)应用开发教程 Step by Step》，共有13课，从建立开发环境、设备管理工具介绍、点亮TiJOS世界的第一盏灯、到MQTT的使用、百度云和阿里云的接入、还包括2个产品案例。
+每个套件中都包含了完整的应用开发教程, 方便用户快速熟悉钛极OS的开发模式。
 
 ### 5、学习钛极OS的开发
 
-新用户可以按照教程在硬件上运行每个例子，通过学习来了解钛极OS的编程方法、下载方法、串口打印调试、异常信息处理等。
-
-|           | 课程名称                                                     |
-| :-------: | ------------------------------------------------------------ |
-| Lesson 1  | [TiJOS应用开发集成环境-TiStudio](./step1-enviornment_setup/TiJOS应用开发环境-TiStudio.md) |
-| Lesson 2  | [初识TiDevManager设备管理器](./step2-device_manager/初识TiDevManager设备管理器.md) |
-| Lesson 3  | [世界,你好-HelloWorld](./step3-helloworld/世界,你好-HelloWorld.md) |
-| Lesson 4  | [点亮TiJOS世界的第一盏灯-LED控制](step4-LED/点亮TiJOS世界的第一盏灯-LED控制.md) |
-| Lesson 5  | [按我一下-Button按键操作](step5-button/按我一下-Button按键操作.md) |
-| Lesson 6  | [感知世界的温暖-温度采集](step6-temperature/感知世界的温暖-温度采集.md) |
-| Lesson 7  | [生产者与消费者-多线程](./step7-mutithread/生产者与消费者-多线程.md) |
-| Lesson 8  | [与世界连接-网络操作之TCP Client](./step8-network-tcp_client/与世界连接-网络操作之TCPClient.md) |
-| Lesson 9  | [万物互联-物联网之MQTT](./step9-mqtt-iot/万物互联-物联网之MQTT.md) |
-| Lesson 10 | [着火啦-可燃气体监测仪例程](./step10-gas-monitoring/可燃气体监测仪.md)                                    |
-| Lesson 11 | [请注意，倒车-多功能超声波测距仪例程](./step11-range-detection/多功能超声波测距仪.md)                         |
-| Lesson 12 | [基于 ESP8266、TiJOS 与百度云的可燃气体监测仪](./step12-baidu-iot/基于百度云的可燃气体监测仪.md)                 |
-| Lesson 13 | [基于钛极OS(TiJOS)的阿里云IOT接入案例](./step13-ali-iot/阿里云IOT接入.md)                         |
+新用户可以按照开发套件中提供的教程在硬件上运行每个例子，通过学习来了解钛极OS的编程方法、下载方法、串口打印调试、异常信息处理等。
 
 ### 6、深入学习钛极OS开发
 
-在完成基本例程的尝试后，用户仔细研究钛极OS的[**文档中心**](http://dev.tijos.net/docstore/)，了解钛极OS支持的API信息，尝试着按照自己的思路来实现硬件功能。
+在完成基本例程的尝试后，用户仔细研究钛极OS的[**文档中心**](http://doc.tijos.net/)，了解钛极OS支持的API信息，尝试着按照自己的思路来实现硬件功能。
 
 ### 7、钛极驱动中心
 

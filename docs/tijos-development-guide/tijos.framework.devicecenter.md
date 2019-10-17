@@ -9,52 +9,11 @@ TiJOS 设备总线包括如下类：
 
 | 类名          | 说明                                       |
 | ----------- | ---------------------------------------- |
-| TiGPIO      | 通用输入/输出（General Purpose Input Output ）   |
-| TiUART      | 通用异步收发传输器（Universal Asynchronous Receiver/Transmitter） |
-| TiADC       | 模数转换器（ Analog-to-Digital Converter）      |
-| TiPWM       | 脉冲宽度调制发生器（ Pulse Width Modulation）       |
-| TiI2CMaster | 双向二线制同步串行总线（ Inter-Integrated Circuit），主机模式 |
-| TiSPIMaster | 串行外设接口 （Serial Peripheral Interface），主机模式 |
-| TiOWMaster  | 单总线（one wire），主机模式                       |
+| [TiGPIO](tijos.framework.devicecenter.TiGPIO.md)      | 通用输入/输出(General Purpose Input Output)  |
+| [TiUART](tijos.framework.devicecenter.TiUART.md)      | 通用异步收发传输器(Universal Asynchronous Receiver/Transmitter)|
+| [TiADC](tijos.framework.devicecenter.TiADC.md)       | 模数转换器(Analog-to-Digital Converter)     |
+| [TiPWM](tijos.framework.devicecenter.TiPWM.md)       | 脉冲宽度调制发生器(Pulse Width Modulation)       |
+| [TiI2CMaster](tijos.framework.devicecenter.TiI2CMaster.md) | 双向二线制同步串行总线(Inter-Integrated Circuit), 主机模式 |
+| [TiSPIMaster](tijos.framework.devicecenter.TiSPIMaster.md) | 串行外设接口(Serial Peripheral Interface), 主机模式 |
+| [TiOWMaster](tijos.framework.devicecenter.TiOWMaster.md)  | 单总线(one wire), 主机模式                       |
 
-
-
-## TiGPIO
-
-TiGPIO的详细技术资料请参考：tijos.framework.devicecenter.TiGPIO。
-
-
-
-## TiUART
-
-TiUART的详细技术资料请参考：tijos.framework.devicecenter.TiUART.md
-
-
-
-## TiADC
-
-TiADC的详细技术资料请参考：tijos.framework.devicecenter.TiADC
-
-
-
-## TiPWM
-
-TiPWM的详细技术资料请参考：tijos.framework.devicecenter.TiPWM
-
-
-
-## TiI2CMaster
-
-TiI2CMaster的详细技术资料请参考：tijos.framework.devicecenter.TiI2CMaster
-
-
-
-## TiSPIMaster
-
-TiSPIMaster的详细技术资料请参考：tijos.framework.devicecenter.TiSPIMaster
-
-
-
-## TiOWMaster
-
-TiOWMaster的详细技术资料请参考：tijos.framework.devicecenter.TiOWMaster

@@ -23,15 +23,22 @@ Internet网络连接正常
 
 从弹出的新建项目类型中选择“TiJOS Development"下的”TiJOS Application Project":
 
-
-
 ![NewTiJOSProject_TiJOSProject](.\img\NewTiJOSProject_TiJOSProject.png)
 
-点击“Next" , 输入工程名称，JRE选择默认即可，点击“Finish" 即可完成工程创建。
+创建TiJOS Application Project的过程与标准Java过程类似，输入工程名称及描述 
 
-![NewTiJOSProject_ProjectName](.\img\NewTiJOSProject_ProjectName.png)
+![20170914094744](.\img\20170914094744.png)
 
-创建TiJOS Application Project的过程与标准Java过程类似， 一般只需输入工程名称其它选择默认即可完成工程的创建过程， 创建后的工程如下图所示：
+点击“Next" , 输入工程名称，JRE选择默认即可，点击Next 进入Settings,
+![20170914095239](.\img\20170914095239.png)
+
+由于在实际应用中可能用到钛极OS提供的基本传感器驱动，如LED, BUTTON, OLED等，可通过Libraries选项加入“TiJOS Driver Library ClassPath Container", 也可在用到时通过Java Build Path 设置中加入也可，如下图所示
+
+![1528160152630](.\img\1528160152630.png)
+
+点击“Finish" 即可完成工程创建。
+
+创建后的工程如下图所示：
 
 ![NewTiJOSProject_Tree](.\img\NewTiJOSProject_Tree.png)
 

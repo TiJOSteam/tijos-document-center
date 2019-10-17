@@ -54,27 +54,32 @@ div.source-links {
 .bs-sidenav {
     margin-top: 30px;
     margin-bottom: 30px;
-    padding-top:    10px;
+    padding-top: 10px;
     padding-bottom: 10px;
     border-radius: 5px;
 }
+
 .bs-sidebar .nav > .active, .bs-sidebar .nav > .active:hover, .bs-sidebar .nav > .active:focus {
     background-color: #2F68BD;
 }
+
 .bs-sidebar .nav li:hover, .bs-sidebar .nav li:focus {
     background-color: #e7e7e7;
 }
+
 /* All levels of nav */
 .bs-sidebar .nav > li > a {
     display: block;
     padding: 5px 20px;
     z-index: 1;
 }
+
 .bs-sidebar .nav > li > a:hover,
 .bs-sidebar .nav > li > a:focus {
     text-decoration: none;
-	background-color: transparent;
+    background-color: transparent;
 }
+
 .bs-sidebar .nav > .active > a,
 .bs-sidebar .nav > .active:hover > a,
 .bs-sidebar .nav > .active:focus > a {
@@ -86,8 +91,9 @@ div.source-links {
     display: none; /* Hide by default, but at >768px, show it */
     margin-bottom: 8px;
 }
+
 .bs-sidebar .nav .nav > li > a {
-    padding-top:    3px;
+    padding-top: 3px;
     padding-bottom: 3px;
     padding-left: 30px;
     font-size: 90%;
@@ -98,24 +104,29 @@ div.source-links {
     .bs-sidebar .nav > .active > ul {
         display: block;
     }
+
     /* Widen the fixed sidebar */
     .bs-sidebar.affix,
     .bs-sidebar.affix-bottom {
         width: 213px;
     }
+
     .bs-sidebar.affix {
         position: fixed; /* Undo the static from mobile first approach */
         top: 80px;
     }
+
     .bs-sidebar.affix-bottom {
         position: absolute; /* Undo the static from mobile first approach */
     }
+
     .bs-sidebar.affix-bottom .bs-sidenav,
     .bs-sidebar.affix .bs-sidenav {
         margin-top: 0;
         margin-bottom: 0;
     }
 }
+
 @media (min-width: 1200px) {
     /* Widen the fixed sidebar again */
     .bs-sidebar.affix-bottom,
@@ -124,14 +135,13 @@ div.source-links {
     }
 }
 
-
 /* Added to support >2 level nav in drop down */
 
 .dropdown-submenu {
     position: relative;
 }
 
-.dropdown-submenu>.dropdown-menu {
+.dropdown-submenu > .dropdown-menu {
     top: 0;
     left: 100%;
     margin-top: 0px;
@@ -141,11 +151,11 @@ div.source-links {
     border-radius: 0 6px 6px 6px;
 }
 
-.dropdown-submenu:hover>.dropdown-menu {
+.dropdown-submenu:hover > .dropdown-menu {
     display: block;
 }
 
-.dropdown-submenu>a:after {
+.dropdown-submenu > a:after {
     display: block;
     content: " ";
     float: right;
@@ -159,7 +169,7 @@ div.source-links {
     margin-right: -10px;
 }
 
-.dropdown-submenu:hover>a:after {
+.dropdown-submenu:hover > a:after {
     border-left-color: #fff;
 }
 
@@ -167,7 +177,7 @@ div.source-links {
     float: none;
 }
 
-.dropdown-submenu.pull-left>.dropdown-menu {
+.dropdown-submenu.pull-left > .dropdown-menu {
     left: -100%;
     margin-left: 00px;
     -webkit-border-radius: 6px 0 6px 6px;
