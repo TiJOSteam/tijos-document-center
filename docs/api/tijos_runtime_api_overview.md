@@ -23,12 +23,16 @@ TiStudio里含TiJOS Framework，它提供了用户在应用中对硬件资源进
 | tijos.framework.networkcenter.coap | 标准的COAP协议，一种基于UDP的应用层协议, 支持URL方式访问 |
 | tijos.framework.networkcenter.dns | 域名解析系统协议客户端 |
 | tijos.framework.networkcenter.mqtt | MQTT 客户端，支持3.1.1标准 |
-| tijos.framework.networkcenter.ntp           | 网络时间协议客户端                                |
-| tijos.framework.platform | 系统设置相关类，主机名称等设置 |
+| tijos.framework.networkcenter.ntp           | 网络时间协议客户端  |
+| tijos.framework.networkcenter.http | HTTP协议客户端 |
+| tijos.framework.networkcenter.lwm2m | 标准LWM2M协议客户端 |
+| tijos.framework.networkcenter.alibaba | 阿里云物联网平台客户端 |
 | tijos.framework.platform.lpwan | 低功耗广域网(LPWAN)即NB-IoT，是物联网领域一个新兴的技术，支持低功耗设备在广域网的蜂窝数据连接 |
+| tijos.framework.platform.lpwan.lte | 4G LTE蜂窝网络 |
 | tijos.framework.platform.peripheral | 平台最小系统外设, 键盘， 按键等等 |
 | tijos.framework.platform.util | NB模组存储类， 如KeyValueStorage，SharedBuffer等。此类只适用NB模组硬件平台。 |
 | tijos.framework.platform.wlan | WLAN设置, WIFI等 |
+| tijos.framework.platform.lan | 以太网 |
 | tijos.framework.util       | 常用工具类，如Delay, byte数组与int之间相互转换, 按格式生成字符串等等|
 | tijos.framework.util.base64 | BASE64转换类 |
 | tijos.framework.util.crc                 | CRC校验算法                                |
@@ -319,59 +323,84 @@ tijos.framework.networkcenter.coap
 | void putResponseArrived(String uri, int msgid, boolean result, int msgCode) | PUT消息返回事件 |
 | void deleteResponseArrived(String uri, int msgid, boolean result, int msgCode) | DELETE消息返回事件 |
 
-## 域名解析设置 networkcenter.dns包
-
-### TiDNS
-
-DNS设置方法如下：
-
-|  方法            |  说明            |
-| ------------------------ | ---------- |
-| TiDNS getInstance() | 获得TiDNS实例 |
-| void startup() | 启动DNS客户端服务 |
-| void shutdown() | 关闭DNS客户端服务 |
-| void changeServer(String primaryAddress, String secondaryAddress) | 更改DNS服务器地址 |
-| String[] getServer() | 获取DNS服务器地址 |
 
 ## MQTT客户端 networkcenter.mqtt包
 
 tijos.framework.networkcenter.mqtt
 
-### MQTT Client 
-包括如下类：
-| 类名 | 说明 |
-| ------------------ | ---------- |
-| MqttClient | Mqtt客户端 |
-| MqttConnectOptions | Mqtt连接项设置 |
-| MqttClientListener | Mqtt消息监听接口 |
-| MqttException | Mqtt异常 |
 
-### MQTT 连接配置
+## MQTT 连接配置
 
-| 配置项 | MqttConnectOptions | 说明 |
-| ------------------ | ------------------------------------- | ---------------------------------------- |
-| CleanSession | setCleanSession(boolean) | 设置 Client断开连接后Server是否应该保存Client的订阅信息 |
-| UserName | setUserName(String) | 用户名 |
-| Password | setPassword(String) | 密码 |
-| LWT | setWill(String, byte[], int, boolean) | "Last Will and Testament" (LWT), 具体请参考MQTT协议 |
-| KeepAliveInterval | setKeepAliveInterval(int) | 设置客户端与服务器之间最大空闲时间，以秒为单位，默认60秒 |
-| ConnectionTimeout | setConnectionTimeout(int) | 客户连接服务器超时设置，秒为单位，默认10秒 |
-| AutomaticReconnect | setAutomaticReconnect(boolean) | 设置是否自动重新连接 |
+MQTT 连接配置通过MqttConnectOptions 类进行，可进行如下配置：
+
+| 配置项            | MqttConnectOptions                    | 说明                                                      |
+| ----------------- | ------------------------------------- | --------------------------------------------------------- |
+| CleanSession      | setCleanSession(boolean)              | 设置 Client断开连接后Server是否应该保存Client的订阅信息   |
+| UserName          | setUserName(String)                   | 用户名                                                    |
+| Password          | setPassword(String)                   | 密码                                                      |
+| LWT               | setWill(String, byte[], int, boolean) | "Last Will and Testament" (LWT), 具体请参考MQTT协议       |
+| KeepAliveInterval | setKeepAliveInterval(int)             | 设置客户端与服务器之间最大空闲时间，以秒为单位，默认240秒 |
+
+MQTT服务器地址及客户端ClientID通过MqttClient初始化时进行设置。
+
+## MQTT 客户端 - MqttClient
+
+| 接口                                                         | 说明                                                     |
+| ------------------------------------------------------------ | -------------------------------------------------------- |
+| void connect(String clientId, String serverUrl, int timeout, MqttConnectOptions options,IMqttMessageListener listener) | 建立连接                                                 |
+| void disconnect()                                            | 断开连接                                                 |
+| int getNetState()                                            | 获取网络状态 1 断开 2网络连接成功 3 正在连接  4 MQTT断开 |
+| int subscribe(String topic, int qos)                         | TOPIC订阅                                                |
+| int unsubscribe(String topic)                                | 取消订阅                                                 |
+| int publish(String topic, byte[] payload, int qos, boolean retained) | 消息发布                                                 |
+|                                                              |                                                          |
+
 
 ### MQTT 事件监听
 
-| 事件                                       | 说明                                       |
-| ---------------------------------------- | ---------------------------------------- |
-| connectComplete(Object, boolean)         | 当网络连接成功或重新连接成功时调用                        |
-| connectionLost(Object)                   | 当网络断开或连接失败时调用                            |
-| onMqttConnectSuccess(Object )            | 当MQTT CONNECT消息返回成功时调用,意味着MQTT SERVER接受该连接 |
-| onMqttConnectFailure(Object, int )       | 当MQTT CONNECT消息返回失败时调用,意味着MQTT SERVER不接受该连接， 具体原因可通过第二个参数获得 |
-| messageArrived(Object, String, byte[])   | 当服务器端发送topic更新时调用                        |
-| publishCompleted(Object, int, String, int) | 当客户端PUBLISH成功后调用                         |
-| subscribeCompleted(Object, int, String, int) | 当客户端SUBSCRIBE成功后调用                       |
-| unsubscribeCompleted(Object, int, String, int) | 当客户端UNSUBSCRIBE成功时  |
+| 事件                                                         | 说明                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| void onNetworkConnected(boolean reconnect)                   | 当网络连接成功或重新连接成功时调用                           |
+| void onNetworkDisconnected(int errcode)                      | 当网络断开或MQTT连接失败时调用                               |
+| onMqttConnected()                                            | 当MQTT CONNECT消息返回成功时调用,意味着MQTT SERVER接受该连接 |
+| publishMessageArrived(String topic, byte[] payload)          | 当服务器端发送topic更新时调用                                |
+| void publishCompleted(int msgId, String topic, int result)   | 当客户端PUBLISH成功后调用                                    |
+| void subscribeCompleted(int msgId, String topic, int result); | 当客户端SUBSCRIBE成功后调用                                  |
+| void unsubscribeCompleted(int msgId, String topic, int result); | 当客户端UNSUBSCRIBE成功时                                    |
+
+
+
+## 阿里云客户端 network.alibaba
+
+tijos.framework.networkcenter.alibaba
+
+## 阿里云物联网平台客户端
+
+包括如下类：
+| 类名                    | 说明                       |
+| ----------------------- | -------------------------- |
+| AliYunIoT               | 阿里云客户端               |
+| AliLinkSubDevice        | 网关子设备管理             |
+| IDataModelEventListener | 阿里云数据模型消息监听接口 |
+| ISubDeviceEventListener | 阿里云子设备管理监听接口   |
+
+
+
+## HTTP客户端network.http
+
+tijos.framework.networkcenter.http
+
+包括如下类：
+
+| 类名                 | 说明                 |
+| -------------------- | -------------------- |
+| HttpClient           | HTTP Client客户端    |
+| IHttpMessageListener | HTTP回复消息监听接口 |
+
+
 
 ## 平台基础特性 platform包
+
 tijos.framework.platform
 
 包含类如下:
@@ -404,9 +433,15 @@ tijos.framework.platform
 | void reboot(int time)|系统在指定时间后重启，时间单位：秒。重启后程序会重新运行|
 | void getStartupMode()|获取系统启动模式，0 - 重新启动 1 - 从Standby手动唤醒运行 2 - 从Standby自动唤醒|
 
-## NB-IoT网络 platform.lpwan包
+## 低功耗广域网NBIOT - platform.lpwan包
 
 tijos.framework.platform.lpwan
+
+包含类如下
+
+|方法	|说明|
+|-----------|------------------|
+|TiNBIoT getInstance()	|获取NB-IoT实例|
 
 ### TiNBIoT
 
@@ -431,6 +466,34 @@ NBIoT设置方法如下：
 |void enableeDRX(int accType, String value, String ptw)|	启用eDRX|
 |void disableeDRX()	|禁用eDRX|
 |String[] geteDRX()|	获取eDRX设置 eDRX[0] eDRX value string, eDRX[1] PTW value string, eDRX[2] Type value string|
+
+## 4G LTE蜂窝网 - platform.lpwan.lte包
+
+tijos.framework.platform.lpwan.lte
+
+| 类名称            | 说明                                   |
+| ----------------- | -------------------------------------- |
+| TiLTE             | 4G LTE                                 |
+| TiLTECell         | 基站小区ID相关信息，包括mcc,mnc,lac,ci |
+| TiLTECSQ          | 信号 rssi,ber                          |
+| ILTEEventListener | LTE连接断开事件回调                    |
+
+### TiLTE 4G网络控制
+
+主要方法如下：
+
+| 方法                                            | 说明                                               |
+| ----------------------------------------------- | -------------------------------------------------- |
+| TiLTE getInstance()                             | 获取LTE实例                                        |
+| void startup(int timeout)                       | 启动LTE并连接基站, timeout以秒为单位               |
+| void startup(int timeout, ILTEEventListener lc) | 启动LTE并连接基站， 当基站连接或断开时通过事件通知 |
+| void shutdown()                                 | 关闭LTE                                            |
+| String getIMEI()                                | 获取模组IEMI字符串                                 |
+| String getIMSI()                                | 获取SIM卡IMSI字符串                                |
+| void getICCID()                                 | 获取SIM卡CCID字符串                                |
+| String getPDPIP()                               | 获取当前IP地址                                     |
+| int getRSSI()                                   | 获取当前信号强度                                   |
+| TiLTECell getCellInfo()                         | 获取基站信息                                       |
 
 ## 平台外设 platform.peripheral包
 
@@ -468,7 +531,7 @@ tijos.framework.platform.peripheral
 | ------------------- | ------ |
 | ITiKeyboardListener | 键盘监听接口 |
 
-## NB专用存储 platform.util包
+## 平台工具 platform.util包
 
 tijos.framework.platform.util　
 
@@ -488,10 +551,6 @@ tijos.framework.platform.util　
 | void writeValue(String group, String key, byte[] value) | 写入键值存储值   |
 | void deleteGroup(String group)                          | 删除键值存储组   |
 | void deleteKey(String group, String key)                | 删除键值存储键   |
-| void queryBegin( )                                      | 开始查询键值存储 |
-| String queryNextGroup( )                                | 查询下一个组名   |
-| String queryNextKey( )                                  | 查询下一个键名   |
-| void queryEnd( )                                        | 查询键值存储端   |
 
 ### SharedBuffer 共享缓冲区存储
 

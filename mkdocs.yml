@@ -97,6 +97,7 @@ pages:
         - 'API参考':
             - TiJOS Java标准库支持: 'tijos-development-guide/tijos_java_standard_support.md'
             - TiJOS Framework: 'tijos-development-guide/tijos_framework_sdk.md'
+            - TiJOS API参考: 'api/tijos_runtime_api_overview.md'
 
     - '方案例程':   
         - '概述': 'tijos-samples/index.md'

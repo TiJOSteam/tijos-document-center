@@ -51,7 +51,7 @@ tijos.security.crypto
 AES数据加密例程
 
 //使用算法及密钥长度构建密钥
-Key chipKey = KeyBuilder.buildKey(KeyBuilder.ALG_TYPE_AES, KeyBuilder.LENGTH_AES_128, false);
+Key chipKey = KeyBuilder.buildKey(KeyBuilder.ALG_TYPE_AES, KeyBuilder.LENGTH_AES_128);
 
 byte [] key = Formatter.hexStringToByte("2b7e151628aed2a6abf7158809cf4f3c");
 

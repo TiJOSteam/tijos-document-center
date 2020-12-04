@@ -13,26 +13,39 @@ TiJOS MQTT Client 包括如下类：
 | ------------------ | ---------- |
 | MqttClient         | Mqtt客户端    |
 | MqttConnectOptions | Mqtt连接项设置  |
-| MqttClientListener | Mqtt消息监听接口 |
-| MqttException      | Mqtt异常     |
+| IMqttMessageListener | Mqtt消息监听接口 |
 
 TiJOS MQTT Client 支持TCP和SSL两种通讯方式， 符合MQTT3.1.1标准规范，支持QOS0,1,2, 支持高性能异步API,   在处理MQTT协议过程中通过事件回调返回操作结果， 可支持突发模式"burst-mode"客户端请求， 实现快速发布无等待， 避免客户端资源等待。
+
+MQTT Client支持自动连接，默认断开连接后30秒自动重新建立连接。
 
 ## MQTT 连接配置
 
 MQTT 连接配置通过MqttConnectOptions 类进行，可进行如下配置：
 
-| 配置项                | MqttConnectOptions                    | 说明                                       |
-| ------------------ | ------------------------------------- | ---------------------------------------- |
-| CleanSession       | setCleanSession(boolean)              | 设置 Client断开连接后Server是否应该保存Client的订阅信息    |
-| UserName           | setUserName(String)                   | 用户名                                      |
-| Password           | setPassword(String)                   | 密码                                       |
-| LWT                | setWill(String, byte[], int, boolean) | "Last Will and Testament" (LWT), 具体请参考MQTT协议 |
-| KeepAliveInterval  | setKeepAliveInterval(int)             | 设置客户端与服务器之间最大空闲时间，以秒为单位，默认60秒            |
-| ConnectionTimeout  | setConnectionTimeout(int)             | 客户连接服务器超时设置，秒为单位，默认10秒                   |
-| AutomaticReconnect | setAutomaticReconnect(boolean)        | 设置是否自动重新连接                               |
+| 配置项            | MqttConnectOptions                    | 说明                                                      |
+| ----------------- | ------------------------------------- | --------------------------------------------------------- |
+| CleanSession      | setCleanSession(boolean)              | 设置 Client断开连接后Server是否应该保存Client的订阅信息   |
+| UserName          | setUserName(String)                   | 用户名                                                    |
+| Password          | setPassword(String)                   | 密码                                                      |
+| LWT               | setWill(String, byte[], int, boolean) | "Last Will and Testament" (LWT), 具体请参考MQTT协议       |
+| KeepAliveInterval | setKeepAliveInterval(int)             | 设置客户端与服务器之间最大空闲时间，以秒为单位，默认240秒 |
 
 MQTT服务器地址及客户端ClientID通过MqttClient初始化时进行设置。
+
+## MQTT 客户端 - MqttClient
+
+| 接口                                                         | 说明                                                     |
+| ------------------------------------------------------------ | -------------------------------------------------------- |
+| void connect(String clientId, String serverUrl, int timeout, MqttConnectOptions options,IMqttMessageListener listener) | 建立连接                                                 |
+| void disconnect()                                            | 断开连接                                                 |
+| int getNetState()                                            | 获取网络状态 1 断开 2网络连接成功 3 正在连接  4 MQTT断开 |
+| int subscribe(String topic, int qos)                         | TOPIC订阅                                                |
+| int unsubscribe(String topic)                                | 取消订阅                                                 |
+| int publish(String topic, byte[] payload, int qos, boolean retained) | 消息发布                                                 |
+|                                                              |                                                          |
+
+
 
 ## MQTT 连接建立步骤
 
@@ -42,52 +55,42 @@ MQTT服务器地址及客户端ClientID通过MqttClient初始化时进行设置�
  MqttConnectOptions connOpts = new MqttConnectOptions();
  connOpts.setUserName(username);
  connOpts.setPassword(password);
- connOpts.setAutomaticReconnect(true);
+
 ```
 2. 设置MQTT服务器地址及ClientID, 以百度物联云服务器为例:
 
 ```java
 final String broker      = "tcp://tijos.mqtt.iot.gz.baidubce.com:1883";
 final String clientId     = "mqtt_test_java_client1";
-
-MqttClient mqttClient = new MqttClient(broker, clientId);
+//mqtt客户端为单例
+MqttClient mqttClient = MqttClient.getInstance();
 ```
 
 3. 设置事件监听并连接服务器
 
+```java
+//连接超时10秒
+int timeout = 10;
+mqttClient.connect(clientId, broker, timeot, connOpts, new MqttEventLister());
 ```
-mqttClient.SetMqttClientListener(new MqttEventLister());
-mqttClient.connect(connOpts, mqttClient);
-```
 
-4. 连接成功或失败时会通过MqttClientListener中onMqttConnectSuccess或onMqttConnectFailure返回, 用户也可以不使用突发模式直接进行topic的发布和订阅以提高性能。
+4. 连接成功或失败时会通过IMqttMessageListener中onMqttConnected或onNetworkDisconnected返回
 
-   ​
-
-MQTT 客户端通过异步事件的方式处理MQTT连接和断开响应, 消息调用过程如下：
-
-   ![MQTT](.\img\MQTT.png)
-
-   1. 事件connectComplete和connectionLost在网络TCP连接成功或断开时调用，如果设置了自动连接，当网络断开时MQTT Client会自动重新连接MQTT Server
-
-   2. onMqttConnectSuccess和onMqttConnectFailure在MQTT 连接成功或失败时调用，
-
-      ​
+   
 
 ## MQTT 事件监听
 
-MQTT的通过IMqttClientListener事件回调来处理事件，事件类型包括：
+MQTT的通过IMqttMessageListener事件回调来处理事件，事件类型包括：
 
-| 事件                                       | 说明                                       |
-| ---------------------------------------- | ---------------------------------------- |
-| connectComplete(Object, boolean)         | 当网络连接成功或重新连接成功时调用                        |
-| connectionLost(Object)                   | 当网络断开或连接失败时调用                            |
-| onMqttConnectSuccess(Object )            | 当MQTT CONNECT消息返回成功时调用,意味着MQTT SERVER接受该连接 |
-| onMqttConnectFailure(Object, int )       | 当MQTT CONNECT消息返回失败时调用,意味着MQTT SERVER不接受该连接， 具体原因可通过第二个参数获得 |
-| messageArrived(Object, String, byte[])   | 当服务器端发送topic更新时调用                        |
-| publishCompleted(Object, int, String, int) | 当客户端PUBLISH成功后调用                         |
-| subscribeCompleted(Object, int, String, int) | 当客户端SUBSCRIBE成功后调用                       |
-| unsubscribeCompleted(Object, int, String, int) | 当客户端UNSUBSCRIBE成功时                       |
+| 事件                                                         | 说明                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| void onNetworkConnected(boolean reconnect)                   | 当网络连接成功或重新连接成功时调用                           |
+| void onNetworkDisconnected(int errcode)                      | 当网络断开或MQTT连接失败时调用                               |
+| onMqttConnected()                                            | 当MQTT CONNECT消息返回成功时调用,意味着MQTT SERVER接受该连接 |
+| publishMessageArrived(String topic, byte[] payload)          | 当服务器端发送topic更新时调用                                |
+| void publishCompleted(int msgId, String topic, int result)   | 当客户端PUBLISH成功后调用                                    |
+| void subscribeCompleted(int msgId, String topic, int result); | 当客户端SUBSCRIBE成功后调用                                  |
+| void unsubscribeCompleted(int msgId, String topic, int result); | 当客户端UNSUBSCRIBE成功时                                    |
 
 ## MQTT Topic 发布和订阅
 
@@ -109,5 +112,6 @@ publish和subscribe 返回msgId 用于标识本次操作，当操作完成后的
 
 - 有些物联云服务器仅支持QOS0和1 的发布和订阅， 不支持QOS2. 
 - TiJOS MQTT发布订阅最大支持512字节数据， 超出部分将被抛弃
+- 
 
 具体可参考MQTT相关例程。

@@ -34,7 +34,7 @@ Eclipse下载地址: http://www.eclipse.org/downloads/eclipse-packages/
 
 ### 安装过程
 
-​   请参考《钛极OS(TiJOS)应用开发环境搭建》文档
+   请参考《钛极OS(TiJOS)应用开发环境搭建》文档
 
 ## 创建工程
 
@@ -122,5 +122,3 @@ Eclipse下载地址: http://www.eclipse.org/downloads/eclipse-packages/
    请在Java Build Path中的Library中加入“TiJOS Driver Library ClassPath Container"，如下图所示：
    ![1528160152630](.\img\1528160152630.png)
 
-
-  
