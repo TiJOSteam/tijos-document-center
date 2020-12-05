@@ -50,7 +50,7 @@ Eclipse下载地址: http://www.eclipse.org/downloads/eclipse-packages/
 
 1. 在工程配置界面输入工程名称及描述并选择TiJOS SDK版本后点击Next按钮下一步进入Settings界面或者Finish按钮完成创建
 
-![20170914094744](.\img\20170914094744.png)
+   ![20170914094744](.\img\20170914094744.png)
 
 2. 进入Settings界面
 
