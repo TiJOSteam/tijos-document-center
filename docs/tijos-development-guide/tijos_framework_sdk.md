@@ -11,6 +11,7 @@ TiJOS Framework提供了用户在应用中对硬件资源及传感器类等进�
 | tijos.framework.platform            | 系统设置相关类，主机名称等设置                          |
 | tijos.framework.platform.peripheral | 平台最小系统外设, 键盘， 按键等等                       |
 | tijos.framework.platform.wlan       | WLAN设置, WIFI等                            |
+| tijos.framework.platform.lpwan       | NBIoT, 4G LTE等网络设置                            |
 | tijos.framework.eventcenter         | 事件中心类，处理来自硬件外设总线的事件，如GPIO事件等             |
 | tijos.framework.devicecenter        | 设备总线相关类，如GPIO, I2C, PWM等等，可用来开发在驱动库中需要支持的传感器 |
 | tijos.framework.appcenter           | 应用中心类，进行应用管理，包括安装，升级，运行等等                |

@@ -64,8 +64,7 @@ final String clientId     = "mqtt_test_java_tijos";
 MqttConnectOptions connOpts = new MqttConnectOptions();
 connOpts.setUserName(username);
 connOpts.setPassword(password);
-//允许自动重新连接
-connOpts.setAutomaticReconnect(true);
+
 ```
 
 ## 设置MQTT事件回调并连接MQTT服务器
@@ -80,7 +79,7 @@ class MqttEventLister implements MqttClientListener
 ```
 mqttClient.SetMqttClientListener(new MqttEventLister());
 //连接MQTT服务器
-mqttClient.connect(connOpts, mqttClient);
+mqttClient.connect(clientId, broker,  mqttClient);
 ```
 
 ## 订阅主题 

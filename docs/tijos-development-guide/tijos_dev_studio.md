@@ -34,7 +34,7 @@ Eclipse下载地址: http://www.eclipse.org/downloads/eclipse-packages/
 
 ### 安装过程
 
-​   请参考《钛极OS(TiJOS)应用开发环境搭建》文档
+   请参考《钛极OS(TiJOS)应用开发环境搭建》文档
 
 ## 创建工程
 
@@ -50,7 +50,7 @@ Eclipse下载地址: http://www.eclipse.org/downloads/eclipse-packages/
 
 1. 在工程配置界面输入工程名称及描述并选择TiJOS SDK版本后点击Next按钮下一步进入Settings界面或者Finish按钮完成创建
 
-![20170914094744](.\img\20170914094744.png)
+   ![20170914094744](.\img\20170914094744.png)
 
 2. 进入Settings界面
 
@@ -122,5 +122,3 @@ Eclipse下载地址: http://www.eclipse.org/downloads/eclipse-packages/
    请在Java Build Path中的Library中加入“TiJOS Driver Library ClassPath Container"，如下图所示：
    ![1528160152630](.\img\1528160152630.png)
 
-
-  

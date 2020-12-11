@@ -4,82 +4,179 @@
 
 总而言之，基于物联网套件提供的服务，物联网开发者可以快速搭建稳定可靠的物联网平台。
 
-## 代码说明
-
 源码请参考 <https://github.com/TiJOSApp/tijos-mqtt-aliyun-iot>
 
-| 目录       | 说明                           |
-| -------- | ---------------------------- |
-| TiJOSApp | 钛极OS(TiJOS)应用源码,可运行于TiKit开发板 |
-|          |                              |
 
-## 开通阿里云
 
-在使用前我们需要先开通阿里云的物联网套件，进入阿里云官网注册完账户后进入管理控制台，在产品与服务中选择物联网套件（使用物联网套件需要激活，请参考官方教程自行激活功能）。在物联网套件中创建产品，此处取名TiJOS。创建成功后可以在产品管理中看到相应的产品，点击产品可以看到产品的详细信息，其中productKey将会在代码中使用到，请复制保存。
+## 开通阿里云物联网平台
 
-![20171120115517](./img/20171120115517.png)
+在使用前我们需要先开通阿里云的物联网平台，进入阿里云官网注册完账户后进入管理控制台，在产品与服务中选择物联网平台（使用物联网平台需要激活，请参考官方教程自行激活功能）。
 
-![20171120130541](./img/20171120130541.png)
+### 创建产品（设备模型）
 
-![20171120131322](./img/20171120131322.png)
+在物联网平台中创建产品,  如果选择标准品类，在创建成功后将自动应用标准的物模型模板，节点类型选择直连设备， 数据格式请选择ICA标准数据格式， 认证方式选择设备密钥。
 
-接着点击消息通讯菜单，可以看到物联网套件预制的Topic列表，此处点击定义Topic类按钮创建一个用于测试的Topic，取名message，设备操作权限为发布和订阅。
+创建成功后， 可以在产品管理中看到相应的产品，点击产品可以看到产品的详细信息。
 
-![20171120134630](./img/20171120134630.png)
+![image-20201209151653956](.\img\image-20201209151653956.png)
 
-![20171120134724](./img/20171120134724.png)
+创建成功后， 平台会提示添加设备或前往定义物模型， 可选择前往定义物模型，查看平台标准模板所创建的物模型,包含各种设备属性，事件及服务，可根据实际需要对物模型进行编辑等操作。 
 
-继续点击菜单中的设备管理，然后点击添加设备按钮弹出对话框并输入设备名称，建议输入设备中获取的硬件名称，此处输入ESP-000001。创建成功后点击设备名称可以看见设备的创建信息，此处的deviceSecret需要记录，代码中将会使用到。
-
-![20171120131818](./img/20171120131818.png)
-
-![20171120132049](./img/20171120132049.png)
-
-![20171120133308](./img/20171120133308.png)
-
-![20171120142602](./img/20171120142602.png)
-
-## 接入网络
-
-在开发前需要将ESP-8266开发板接入网络，ESP-8266支持WIFI，通过Ti-Device Manager工具设置网络接入参数。ESP-8266开发板连接电脑后，在Ti-Device Manager菜单中点击设备属性按钮弹出对话框选择WLAN选项卡，输入无线网络名称和无线密码完成配置，开发板重启后即自动连接到指定的网络。
-
-![20171123103501](./img/20171123103501.png)
-
-## 代码编译
-
-从GitHub下载已完成的代码，通过Ti-Dev Studio导入到Workspace中（注：Ti-Dev Studio工具的安装请参考文档《Ti-Dev Studio用户手册》）。在Ti-Dev Studio中可以看到工程基于TiJOS Framework开发，所有源码和API都是Java代码，依托于Java的跨平台特性，我们可以将代码运行在任何硬件平台上。TiJOS Framework对各种外设传感器做了抽象封装，通过API可方便快捷的操作外设硬件。下面将修改工程源码进行上线前调试。
-
-![20171123104401](./img/20171123104401.png)
-
-### 加入驱动库配置
-
-在工程属性中找到“Java Build Path" 中Libraries中选择"Add Library" 
-
-![javabuildpath](..\img\javabuildpath.png)
+![image-20201209152158998](.\img\image-20201209152158998.png)
 
 
 
-选择"TiJOS Driver Library Classpath Container" 
+### 添加设备
 
-![1528246646906](..\img\addlibrary.png)
+产品物模型定义完成后， 即可在该产品下添加对应的设备， 在左边菜单中选择设备后， 在右边点击添加设备按钮即可进行设备添加
 
-点击"Next"选中"TiJOS Driver Library" 点击"Finish" 加入钛极OS标准驱动包。
+![image-20201209152454962](.\img\image-20201209152454962.png)
+
+输入设备信息,其中设备名称可使用设备的唯一ID， 对于4G产品一般选择模组的IMEI号作为设备名称，方便在程序中自动获取。
+
+![image-20201209152527887](.\img\image-20201209152527887.png)
+
+完成添加后，即可在设备详情中查看DeviceSecret查看设备认证信息并保存，这些信息将用于代码中。
+
+![image-20201209152730765](E:\work\ti-github\tijos-document-center\docs\tijos-samples\cloud_samples\ali-iot\img\image-20201209152730765.png)
+
+通过以上步骤即可完成产品和设备的定义。 
 
 
 
-![1528246811450](..\img\DriverLibrary.png)
+### 设备接入
+
+钛极OS是钛云物联开发的物联网操作系统 ，可运行于单片机、物联网模组等低资源设备中， 支持用户通过Java语言进行进行硬件功能开发，并提供了各种云端接入组件包， 并内置支持阿里云物联网平台接入。 
+
+#### 准备工作
+
+1. 准备一台内置钛极OS(TiJOS)的设备， 建议使用支持4G的TiGW200边缘计算网关
+2. 安装Ecclipse及TiStudio开发环境， 具体请参考TiGW200开发指南文档或访问<钛极OS文档中心>[http://doc.tijos.net]
+3. 将TiGW200进入开发模式并连接电脑USB口
+4. 在设备详情中获取到设备的密钥认证信息， 包括产品ID，设备名称，设备密钥
+
+#### 应用开发
+
+在Ecclipse中新建TiJOS Application应用，腾讯云平台接入通过钛极OS(TiJOS)内置的AliYunIoT类及IDataModelEventListener事件进行支持，用户可参考相关文档和例程接合实际应用进行开发，并通过编译下载到TiGW200设备中进行测试。 
+
+具体可参考[阿里云IoT平台客户端 - 文档中心 (tijos.net)](http://doc.tijos.net/docstore/tijos-development-guide/tijos.framework.networkcenter.alibaba/)
+
+#### 代码编译下载
+
+从GitHub下载已完成的代码，通过Eclipse导入到Workspace中, 在Eclipse中可以看到工程基于TiJOS Framework开发，所有源码和API都是Java代码，TiJOS Framework对各种外设传感器及网络做了抽象封装，通过API可方便快捷的操作外设硬件。
+
+在完成代码修改后，通过选中工程右键弹出菜单点击Run as --> TiJOS Application实时下载至硬件中运行。 
 
 
 
-标准驱动包的相关源码可在钛极驱动仓库中找到， 在实际开发过程中如果需要其它驱动， 可从钛极驱动仓库找到相关源码加入即可。
+## 代码说明
 
-### 修改配置
-转到包net.tijos.aliyun下找到Main类，Main类包含基于MQTT协议的接入阿里云的代码，在代码前面部分有与连接相关的常量参数，分别对应设备名称、broker地址、用户名、用户密码。将参数修改为我们前面阿里云物联网套件下对应的数据，然后保存。接着将修改后的代码下载至设备中，下载步骤选中工程右键弹出菜单点击Run as --> TiJOS Application实时下载至硬件中。
+#### 启动4G网络
 
-![20171123104341](./img/20171123104341.png)
+在程序启动时， 先启动4G网络
 
-至此设备成功接入阿里云物联网，通过topic与阿里云IOT Hub通讯收发数据。
+```java
+启动4G网络 超时30秒
+TiLTE.getInstance().startup(30);
+```
+
+#### 连接阿里云物联网平台
+
+```java
+//平台网址
+String serverUrl = "mqtt://a1QJjmusiPI.iot-as-mqtt.cn-shanghai.aliyuncs.com:443"; /* 阿里云平台上海站点的域名后缀 */
+//设备认证信息
+String ProductKey = "a1QJjmusiPI";
+String DeviceName = "gwdemo1";
+String DeviceSecret = "71fab7d64714233e8757181ab6c9e28b";
+
+//接入平台
+aliiot.start(serverUrl, ProductKey, DeviceName, DeviceSecret, new AliListener());
+
+```
+
+#### 设备属性上报
+
+```java
+// 物模型中的属性上报
+JSONObject properties = new JSONObject();
+properties.put("LightStatus", 0);
+
+int mid = aliiot.propertyPost(properties.toString());
+```
+
+#### 设备事件上报
+
+```java
+// 物模型中的事件上报
+JSONObject errorEvent = new JSONObject();
+errorEvent.put("ErrorCode", 0);
+
+String serviceId = "Error";
+mid = aliiot.eventPost(serviceId, errorEvent.toString());
+```
+
+
+
+#### 云端指令处理
+
+云端指令通过事件回调来处理，用户需要程序中实现IDataModelEventListener事件接口
+
+```java
+class AliListener implements IDataModelEventListener {
+......
+    //当有属性控制指令下发时
+	@Override
+	public void onPropertySetArrived(String product, String deviceName, long msgId, String params) {
+		System.out.println("onPropertySetArrived ");
+
+		// 控制指令解析
+		JSONObject commands = new JSONObject(params);
+		// 命令执行
+
+		//
+
+		// 控制指令回复
+		JSONObject reply = new JSONObject();
+
+		try {
+			AliYunIoT.getInstance().propertySetReply(msgId, 200, reply.toString());
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+    
+    //当有异步服务指令下发时
+	@Override
+	public void onAsyncServiceInvokeArrived(String product, String deviceName, long msgId, String serviceId,
+			String params) {
+		System.out.println("onAsyncServiceInvokeArrived ");
+
+		// 解析服务参数
+		JSONObject parameters = new JSONObject(params);
+
+		// 执行服务
+
+		// 返回结果
+		int code = 200; // 200 - 成功
+		JSONObject reply = new JSONObject();
+
+		try {
+			AliYunIoT.getInstance().asynServiceReply(msgId, serviceId, code, reply.toString());
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+......    
+    
+}
+```
+
+
 
 ## 总结
 
-本案例实现了最基本的网络接入和IOT收发数据，而在实际产品设计中可自定义topic，通过阿里云的策略对数据进行转发，同时基于阿里云的云服务优势对数据做处理分析，以及大数据运算和存储等。
+本案例实现了最基本的网络接入和收发数据，而在实际产品设计中可通过阿里云的策略对数据进行转发，同时基于阿里云的云服务优势对数据做处理分析，以及大数据运算和存储等。

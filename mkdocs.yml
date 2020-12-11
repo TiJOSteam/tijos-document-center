@@ -2,10 +2,12 @@ site_name: 文档中心
 theme_dir: cinder
 site_author: TiJOS
 site_description: "MkDocs"
+site_url: http://doc.tijos.net/
 repo_url: "https://github.com/"
+theme: cinder
 extra_css: 
   - "css/my_style.css"
-copyright: "Copyright © 2017 - 2020 钛云物联"
+copyright: "Copyright © 2017 - 2025 钛云物联"
 pages:
     - '快速入门': 
         - 文档资源目录: 'index.md'
@@ -78,10 +80,12 @@ pages:
             - MQTT 客户端: 'tijos-development-guide/tijos.framework.networkcenter.mqtt.md'
             - CoAP 客户端: 'tijos-development-guide/tijos.framework.networkcenter.coap.md'
             - LwM2M 客户端: 'tijos-development-guide/tijos.framework.networkcenter.lwm2m.md'
+            - 阿里云IoT平台客户端: 'tijos-development-guide/tijos.framework.networkcenter.alibaba.md'
             - 网络时间协议客户端: 'tijos-development-guide/tijos.framework.networkcenter.ntp.md'
             - 网络管理中心: 'tijos-development-guide/tijos.framework.networkcenter.md'
             - WLAN无线网络管理: 'tijos-development-guide/tijos.framework.platform.wlan.md'
-            - NB-IoT网络管理: 'tijos-development-guide/tijos.framework.platform.lpwan.TiNBIoT.md'
+            - NB-IoT网络管理: 'tijos-development-guide/tijos.framework.platform.lpwan.nbiot.md'
+            - 4G LTE网络管理: 'tijos-development-guide/tijos.framework.platform.lpwan.lte.md'
         
         - '应用管理开发指南': 'tijos-development-guide/tijos.framework.appcenter.md'
         - '系统设置':
@@ -97,6 +101,7 @@ pages:
         - 'API参考':
             - TiJOS Java标准库支持: 'tijos-development-guide/tijos_java_standard_support.md'
             - TiJOS Framework: 'tijos-development-guide/tijos_framework_sdk.md'
+            - TiJOS API参考: 'api/tijos_runtime_api_overview.md'
 
     - '方案例程':   
         - '概述': 'tijos-samples/index.md'
@@ -138,8 +143,6 @@ pages:
 
         - '钛极小龟WIFI版(TiKit-T600-ESP8266B)': 
             - 用户手册: 'tikit/tikit-t600-esp8266B/index.md'
-        - '钛极小龟NB-IoT(1+1)版(TiKit-T800-STM32F103B)': 
-            - 用户手册: 'tikit/tikit-t800-stm32f103B/index.md'
         - '钛极小龟NB-IoT(OpenCPU)版(TiKit-T600-MT2625A)': 
             - 用户手册: 'tikit/tikit-t600-mt2625A/index.md'
             
