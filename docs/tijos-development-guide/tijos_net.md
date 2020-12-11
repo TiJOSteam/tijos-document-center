@@ -34,3 +34,10 @@ LWM2M协议目基于COAP协议， 一般应用于中国移动/中国电信物联
 
 基于MQTT的阿里云物联网平台客户端， 适用于阿里云物联网平台接入，具体使用方式请参考tijos.framework.networkcenter.alibaba
 
+## 腾讯云物联网平台客户端
+
+基于MQTT的腾讯云物联网平台客户端， 适用于腾讯云物联网平台接入，具体使用方式请参考tijos.framework.networkcenter.tencent
+
+##中国移动OneNET Studio物联网平台客户端
+基于MQTT的中国移动OneNET Studio物联网平台客户端， 适用于中国移动OneNET平台接入，具体使用方式请参考tijos.framework.networkcenter.onenet
+

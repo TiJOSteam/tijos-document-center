@@ -16,6 +16,8 @@ TiJOS 网络中心包括如下包：
 | tijos.framework.networkcenter.coap    | COAP 客户端                         |
 | tijos.framework.networkcenter.lwm2m   | LWM2m客户端                         |
 | tijos.framework.networkcenter.alibaba | 阿里云物联网平台客户端              |
+| tijos.framework.networkcenter.tencent | 腾讯云IoT Explore物联网平台客户端   |
+| tijos.framework.networkcenter.onenet  | 中国移动ONENET物联网平台客户端   |
 
 
 

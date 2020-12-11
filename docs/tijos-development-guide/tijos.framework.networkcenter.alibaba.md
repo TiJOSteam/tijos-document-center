@@ -25,10 +25,10 @@ AliYunIoT类中包含了阿里云客户端相关的操作，支持阿里云提�
 
 
 ### 物模型相关方法
-| 方法                                       | 说明         |
-| ---------------------------------------- | ---------- |
+| 方法                                                         | 说明                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
 | int propertyPost(String params)                              | 设备属性上报， params为属性和值的JSON格式数据                |
-| int eventPost(String serviceId, String params)               | 设备事件上报 serviceId -事件ID  params对应的JSON格式属性值   |
+| int eventPost(String eventId, String params)                 | 设备事件上报 eventId-事件ID  params对应的JSON格式属性值      |
 | void propertySetReply(long msgId, int code, byte[] data)     | 对于云端属性控制onPropertySetArrived指令回复，code=200 成功  |
 | void asynServiceReply(long msgId, String serviceId, int code, byte[] data) | 对于云端异步服务调用onAsyncServiceInvokeArrived指令回复，code=200 成功 |
 | void syncServiceReply(long msgId, String serviceId, String rrpcId, int code, byte[] data) | 对于云端同步服务调用onSyncServiceInvokeArrived指令回复，code=200 成功 |

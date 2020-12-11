@@ -27,6 +27,7 @@ TiStudio里含TiJOS Framework，它提供了用户在应用中对硬件资源进
 | tijos.framework.networkcenter.http | HTTP协议客户端 |
 | tijos.framework.networkcenter.lwm2m | 标准LWM2M协议客户端 |
 | tijos.framework.networkcenter.alibaba | 阿里云物联网平台客户端 |
+| tijos.framework.networkcenter.tencent | 腾讯云物联网平台客户端 |
 | tijos.framework.platform.lpwan | 低功耗广域网(LPWAN)即NB-IoT，是物联网领域一个新兴的技术，支持低功耗设备在广域网的蜂窝数据连接 |
 | tijos.framework.platform.lpwan.lte | 4G LTE蜂窝网络 |
 | tijos.framework.platform.peripheral | 平台最小系统外设, 键盘， 按键等等 |
