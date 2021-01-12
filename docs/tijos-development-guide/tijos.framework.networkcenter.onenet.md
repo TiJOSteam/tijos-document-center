@@ -18,13 +18,13 @@ OneNET通过属性、事件、服务构成的物模型描述设备，在设备�
 
 ### 基础方法
 
-| 方法                                                         | 说明                                              |
-| ------------------------------------------------------------ | ------------------------------------------------- |
-| OneNetMqttClient(String productId, String deviceName, String accessKey) | 构造函数， 参数分别为：产品ID，设备名称及设备密钥 |
-| void connect(IOneNetEventListener listener)                  | 启动并连接物联网平台                              |
-| void disconnect()                                            | 断开连接并释放                                    |
+| 方法                                                         | 说明                                                        |
+| ------------------------------------------------------------ | ----------------------------------------------------------- |
+| OneNetMqttClient(String productId, String deviceName, String accessKey) | 构造函数， 参数分别为：产品ID，设备名称及设备密钥或产品密钥 |
+| void connect(IOneNetEventListener listener)                  | 启动并连接物联网平台                                        |
+| void disconnect()                                            | 断开连接并释放                                              |
 
-
+注： accessKey可以使用产品密钥，也可使用设备密钥， 为方便管理可使用产品密钥
 
 ### 物模型相关方法
 | 方法                                                         | 说明                                                         |

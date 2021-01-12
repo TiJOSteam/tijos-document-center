@@ -2,9 +2,10 @@
 
 钛极OS(TiJOS)提供了常用的安全算法用于数据加解密，数据摘要，签名验证等操作，支持的算法包括:
 
-- DES/3DES
+- 3DES
 - AES
 - MD5/SHA1/SHA256/SHA384/SHA512
+- HMAC 
 - RSA/ECDSA
 
 等等
@@ -29,6 +30,12 @@ tijos.security.crypto
 
 加解密算法, 基于Key进行加解密处理
 
+### Mac 
+HMAC算法 
+
+### MessageDigest 
+消息摘要算法 (HASH)
+
 ## 使用说明
 
 ### 数据加解密
@@ -41,7 +48,7 @@ tijos.security.crypto
 - 加解密初始化  init
 - 加解密数据 update
 - 加解密完成 final 
-- 销毁Key  clearKey
+- 销毁Key  destroy
 
 ### 调用流程如下
 
@@ -56,21 +63,21 @@ Key chipKey = KeyBuilder.buildKey(KeyBuilder.ALG_TYPE_AES, KeyBuilder.LENGTH_AES
 byte [] key = Formatter.hexStringToByte("2b7e151628aed2a6abf7158809cf4f3c");
 
 //设置密钥值 
-chipKey.setKey(key, (short) 0);
+chipKey.setKey(key;
 
 //使用加密模式及补齐模式构建加密算法对象
-Cipher cipherEncrypt = Cipher.getInstance(Cipher.CIPHER_AES_ECB, Cipher.PAD_NOPAD);
+Cipher cipherEncrypt = Cipher.getInstance(Cipher.CIPHER_AES_ECB, Cipher.PADDING_NONE);
 
 //使用密钥初始化算法 无IV
-cipherEncrypt.init(chipKey, Cipher.MODE_ENCRYPT, null, 0, 0);
+cipherEncrypt.init(chipKey, Cipher.MODE_ENCRYPT);
 
 byte [] plain= Formatter.hexStringToByte("6bc1bee22e409f96e93d7e117393172a");
 
 //对数据进行加密
 byte [] cipher = new byte[plain.length];
 
-//加解数据并将结果放入cipher 返回密文长度
-int len = cipherEncrypt.doFinal(plain, 0, plain.length, cipher, 0);
+//加解数据并返回密文
+byte [] CIPHER = cipherEncrypt.doFinal(plain, 0, plain.length);
 
 
 ```

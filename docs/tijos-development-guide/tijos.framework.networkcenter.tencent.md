@@ -41,6 +41,16 @@ IotExploreEventListener提供了数据模型相关事件处理接口， 不应�
 | void onPropertyControlArrived(String clientToken, JSONObject params); | 收到云端属性控制指令 |
 | void onActionArrived(String clientToken, String actionId, JSONObject params); |  收到云端行为调用事件  |
 
+## 设备动态注册
+钛极OS(TiJOS)同时提供了支持一型一密的设备动态注册接口，即通过产品ID和产品密钥来获取设备密钥，此功能需要在腾讯云中启用动态注册功能， 调用注册成功后，云端会将生成的设备密钥返回，设备可在应用中保存到KV键值中，
+在下次启动时直接使用即可。 
+
+设备注册类： DeviceRegister
+
+| 方法                                       | 说明         |
+| ---------------------------------------- | ---------- |
+| static String dynamicRegister(String productId, String productSecret, String deviceName) | 参数：产品ID,产品密钥及设备名称 返回云端生成的设备密钥|
+
 
 
 ### 使用说明
