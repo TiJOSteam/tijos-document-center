@@ -1,14 +1,14 @@
 site_name: 文档中心
-theme_dir: cinder
 site_author: TiJOS
 site_description: "MkDocs"
 site_url: http://doc.tijos.net/
-repo_url: "https://github.com/"
-theme: cinder
 extra_css: 
   - "css/my_style.css"
 copyright: "Copyright © 2017 - 2025 钛云物联"
-pages:
+theme:
+  name: null
+  custom_dir: 'cinder'
+nav:
     - '快速入门': 
         - 文档资源目录: 'index.md'
         - '钛极OS':
@@ -65,6 +65,7 @@ pages:
             - 智能硬件应用开发: 'tijos-development-guide/tijos_sensor_application_guide.md'
             - 硬件事件中心: 'tijos-development-guide/tijos.framework.eventcenter.md'
             - 电源管理: 'tijos-development-guide/tijos.framework.platform.md'
+            - 音频输出: 'tijos-development-guide/tijos.framework.platform.sound.md'
         - '设备总线开发指南':
                 - 概述: 'tijos-development-guide/tijos.framework.devicecenter.md'
                 - TiGPIO通用输入/输出: 'tijos-development-guide/tijos.framework.devicecenter.TiGPIO.md'
@@ -81,11 +82,14 @@ pages:
             - CoAP 客户端: 'tijos-development-guide/tijos.framework.networkcenter.coap.md'
             - LwM2M 客户端: 'tijos-development-guide/tijos.framework.networkcenter.lwm2m.md'
             - 阿里云IoT平台客户端: 'tijos-development-guide/tijos.framework.networkcenter.alibaba.md'
+            - 腾讯云IotExplore平台客户端: 'tijos-development-guide/tijos.framework.networkcenter.tencent.md'
+            - 中国移动OneNET物联网平台客户端: 'tijos-development-guide/tijos.framework.networkcenter.onenet.md'
+            - 华为云OceanConnect物联网平台客户端: 'tijos-development-guide/tijos.framework.networkcenter.huawei.md'
             - 网络时间协议客户端: 'tijos-development-guide/tijos.framework.networkcenter.ntp.md'
             - 网络管理中心: 'tijos-development-guide/tijos.framework.networkcenter.md'
             - WLAN无线网络管理: 'tijos-development-guide/tijos.framework.platform.wlan.md'
             - NB-IoT网络管理: 'tijos-development-guide/tijos.framework.platform.lpwan.nbiot.md'
-            - 4G LTE网络管理: 'tijos-development-guide/tijos.framework.platform.lpwan.lte.md'
+            - 4G LTE网络管理: 'tijos-development-guide/tijos.framework.platform.lte.md'
         
         - '应用管理开发指南': 'tijos-development-guide/tijos.framework.appcenter.md'
         - '系统设置':
@@ -117,6 +121,8 @@ pages:
         - '公有云接入例程':
             - 接入百度云: 'tijos-samples/cloud_samples/baidu-iot/baidu_iot_gas_monitoring.md'
             - 接入阿里云: 'tijos-samples/cloud_samples/ali-iot/ali_iot_connection.md'
+            - 接入腾讯云: 'tijos-samples/cloud_samples/tencent-iot-explore/tencent-iot-explore.md'
+            - 接入OneNET: 'tijos-samples/cloud_samples/onenet-studio/onenet_studio.md'
             - 物联云接入相关例程: 'tijos-samples/tijos_docs_cloud_sample.md'
 
     - '开发套件': 
