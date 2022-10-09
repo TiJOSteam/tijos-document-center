@@ -32,7 +32,8 @@
 
 在项目中新建一个产品
 
-![image-20201209111851305](E:\work\ti-github\tijos-document-center\docs\tijos-samples\cloud_samples\tencent-iot-explore\img\image-20201209111851305.png)
+![image-20201209111851305](
+	.\img\image-20201209111851305.png)
 
 设备产品属性，选择已有产品品类，平台会自动生成标准的数据模板， 为方便测试可选择智慧生活下的标准产品灯，
 

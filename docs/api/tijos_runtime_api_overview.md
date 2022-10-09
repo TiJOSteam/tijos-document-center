@@ -468,9 +468,9 @@ NBIoT设置方法如下：
 |void disableeDRX()	|禁用eDRX|
 |String[] geteDRX()|	获取eDRX设置 eDRX[0] eDRX value string, eDRX[1] PTW value string, eDRX[2] Type value string|
 
-## 4G LTE蜂窝网 - platform.lpwan.lte包
+## 4G LTE蜂窝网 - platform.lte包
 
-tijos.framework.platform.lpwan.lte
+tijos.framework.platform.lte
 
 | 类名称            | 说明                                   |
 | ----------------- | -------------------------------------- |

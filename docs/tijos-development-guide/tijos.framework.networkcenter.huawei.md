@@ -38,9 +38,9 @@ OceanConnect类中包含了OceanConnect MQTT客户端相关的操作，支持Oce
 | void respondCommand(String requestId, CommandRsp commandRsp) | 云端命令响应回复, requestId: 对应的请求id, commandRsp命令回复结果及对应产品模型中的属性值。 |
 |                                                              |                                                              |
 
-## OceanConnectEventHandler 事件监听
+## AbstractOceanConnectEventHandler 事件监听
 
-OceanConnectEventHandler提供了产品模型相关事件处理接口， 不应在事件中进行长时间的处理从而阻塞其它事件
+AbstractOceanConnectEventHandler 提供了产品模型相关事件处理接口， 不应在事件中进行长时间的处理从而阻塞其它事件
 | 方法                                       | 说明         |
 | ---------------------------------------- | ---------- |
 | void onPropertiesSet(String requestId, PropsSet propsSet); | 收到云端属性控制指令 |
@@ -83,10 +83,10 @@ oc.reportProperties(sp);
 ...
 ```
 
-事件回调，物模型相关事件通过OceanConnectEventHandler事件监听器回调进行处理
+事件回调，物模型相关事件通过AbstractOceanConnectEventHandler 事件监听器回调进行处理
 
 ```java
-class MyEventHandler extends OceanConnectEventHandler {
+class MyEventHandler extends AbstractOceanConnectEventHandler  {
 ....
     //收到云端命令
 @Override

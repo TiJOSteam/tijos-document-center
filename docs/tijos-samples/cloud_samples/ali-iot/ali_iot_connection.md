@@ -38,7 +38,7 @@
 
 完成添加后，即可在设备详情中查看DeviceSecret查看设备认证信息并保存，这些信息将用于代码中。
 
-![image-20201209152730765](E:\work\ti-github\tijos-document-center\docs\tijos-samples\cloud_samples\ali-iot\img\image-20201209152730765.png)
+![image-20201209152730765](.\img\image-20201209152730765.png)
 
 通过以上步骤即可完成产品和设备的定义。 
 
